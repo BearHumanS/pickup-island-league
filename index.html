@@ -1,467 +1,301 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Pickup Island League DB</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Pickup Island League live database: standings, teams, every player's 37 ratings and 36 tendencies, leaders and league history, refreshed from the 24/7 broadcast.">
+<title>Pickup Island League — the basketball league that never sleeps</title>
+<meta name="description" content="A pixel-art basketball league run by AI and streamed live 24/7 on YouTube. 30 teams, 82-game seasons, trades, drafts and playoffs, with live commentary.">
+<link rel="canonical" href="https://bearhumans.github.io/pickup-island-league/">
+<link rel="alternate" hreflang="en" href="https://bearhumans.github.io/pickup-island-league/">
+<link rel="alternate" hreflang="ko" href="https://bearhumans.github.io/pickup-island-league/ko/">
+<link rel="alternate" hreflang="x-default" href="https://bearhumans.github.io/pickup-island-league/">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" type="image/png" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pickup Island League">
+<meta property="og:title" content="Pickup Island League — the basketball league that never sleeps">
+<meta property="og:description" content="A pixel-art basketball league run by AI and streamed live 24/7 on YouTube. 30 teams, 82-game seasons, trades, drafts and playoffs, with live commentary.">
+<meta property="og:url" content="https://bearhumans.github.io/pickup-island-league/">
+<meta property="og:image" content="https://bearhumans.github.io/pickup-island-league/assets/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@PickupIsland247">
+<meta name="twitter:title" content="Pickup Island League — the basketball league that never sleeps">
+<meta name="twitter:description" content="A pixel-art basketball league run by AI and streamed live 24/7 on YouTube. 30 teams, 82-game seasons, trades, drafts and playoffs, with live commentary.">
+<meta name="twitter:image" content="https://bearhumans.github.io/pickup-island-league/assets/share.jpg">
+<script>
+(function(){var h=location.hash.slice(1),k=h.split('-')[0];
+if(['home','standings','teams','team','players','player','leaders','history'].indexOf(k)>-1){location.replace('db/#'+h);}})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&amp;family=IBM+Plex+Sans+KR:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
 <style>
-/* Layout: a broadcast-booth stat desk. Sticky scoreboard header, one wide column of panels, pixel display face only for numbers and labels. */
-:root {
-  --bg: #0b1020; --panel: #121a31; --panel2: #18223f; --line: #26304d; --fg: #eef0f6; --dim: #a3adc6; --faint: #6f7a96;
-  --hot: #e8703a; --gold: #f2b630; --teal: #46d0c4; --bad: #e5534b; --good: #8be06a;
-  --a5: #46d0c4; --a4: #8be06a; --a3: #f2b630; --a2: #f08a3c; --a1: #e5534b;
-  --pixel: "Silkscreen", "Courier New", monospace; --body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif; --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-  color-scheme: dark;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 15px; line-height: 1.55; }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
-a { color: var(--gold); } a:hover { color: #ffd36b; }
-:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
-.wrap { max-width: 1200px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
-.bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; padding-block: 12px; }
-.brand { font: 700 17px var(--pixel); color: var(--fg); text-decoration: none; letter-spacing: .03em; white-space: nowrap; }
-.brand span { color: var(--hot); }
-nav.tabs { display: flex; flex-wrap: wrap; gap: 2px; flex: 1 1 auto; }
-nav.tabs a { color: var(--dim); text-decoration: none; padding: 6px 10px; font-size: 14px; border-bottom: 2px solid transparent; }
-nav.tabs a.on { color: var(--fg); border-bottom-color: var(--hot); }
-nav.tabs a:hover { color: var(--fg); }
-.tools { display: flex; gap: 8px; align-items: center; }
-.lang { display: flex; border: 1px solid var(--line); }
-.lang button { background: none; border: 0; color: var(--dim); font: 500 12px var(--mono); padding: 6px 9px; cursor: pointer; }
-.lang button.on { background: var(--panel2); color: var(--fg); }
-.live { background: var(--hot); color: #10162a; text-decoration: none; font-weight: 700; font-size: 13px; padding: 7px 12px; white-space: nowrap; }
-.live:hover { color: #10162a; background: #ff8a52; }
-.status { display: flex; flex-wrap: wrap; gap: 6px 18px; padding-block: 8px; font: 500 12px var(--mono); color: var(--dim); border-top: 1px solid var(--line); }
-.status b { color: var(--fg); font-weight: 600; }
-.dot { display: inline-block; width: 8px; height: 8px; background: #ff4a3d; margin-right: 6px; animation: blink 1.6s steps(2) infinite; }
-@keyframes blink { 50% { opacity: .25; } }
-@media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
-@media (max-width: 600px) { header.top { position: static; } }
-main { padding-block: 26px 60px; display: flex; flex-direction: column; gap: 22px; }
-h1, h2, h3 { text-wrap: balance; margin: 0; }
-h1 { font: 700 clamp(26px, 4vw, 40px)/1.15 var(--pixel); letter-spacing: .01em; }
-h2 { font: 700 18px/1.3 var(--pixel); letter-spacing: .03em; }
-.eyebrow { font: 500 12px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin: 0; }
-.panel { background: var(--panel); border: 1px solid var(--line); padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
-.panel > header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 14px; }
-.panel > header a { font-size: 13px; }
-.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 22px; }
-.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 22px; }
-.scroll { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-th { font: 600 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--faint); text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
-td { padding: 7px 8px; border-bottom: 1px solid rgba(255,255,255,.045); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-th.l, td.l { text-align: left; }
-tbody tr:hover td { background: rgba(255,255,255,.03); }
-tr.link { cursor: pointer; }
-td.num, .num { font-family: var(--mono); }
-td .tn { display: inline-flex; align-items: center; gap: 8px; color: var(--fg); text-decoration: none; }
-td .tn:hover { color: var(--gold); }
-img.lg { width: 26px; height: 26px; image-rendering: pixelated; flex: none; }
-img.lg.big { width: 72px; height: 72px; }
-.ovr { font: 700 14px var(--mono); }
-.t-elite { color: #c58bff; } .t-gold { color: var(--gold); } .t-silver { color: #c9d1db; } .t-bronze { color: #c98a52; }
-.pill { display: inline-block; font: 600 10px var(--mono); letter-spacing: .06em; padding: 1px 6px; border: 1px solid currentColor; vertical-align: 1px; }
-.pill.inj { color: var(--bad); } .pill.fa { color: var(--teal); } .pill.rk { color: var(--gold); } .pill.fan { color: #c58bff; } .pill.big { color: #10162a; background: var(--gold); border-color: var(--gold); }
-.w { color: var(--good); } .lo { color: var(--bad); } .dim { color: var(--dim); } .faint { color: var(--faint); }
-.empty { color: var(--dim); padding: 30px 0; text-align: center; }
-/* home */
-.hero { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 22px; }
-@media (max-width: 860px) { .hero { grid-template-columns: 1fr; } }
-.bigm { position: relative; overflow: hidden; background: linear-gradient(100deg, var(--ca) 0 50%, var(--cb) 50% 100%); padding: 0; border: 0; }
-.bigm .in { flex: 1; background: rgba(11,16,32,.8); margin: 0; padding: 20px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
-.vs { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; text-align: center; }
-.vs .side { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
-.vs .side b { font: 700 clamp(18px, 3vw, 26px) var(--pixel); }
-.vs .side span { font-size: 13px; color: var(--dim); }
-.vs .x { font: 700 22px var(--pixel); color: var(--gold); }
-.eta { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center; font: 500 13px var(--mono); color: var(--dim); }
-.eta b { color: var(--fg); }
-.games { display: grid; gap: 6px; }
-.game { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; padding: 8px 10px; background: var(--panel2); font-size: 14px; }
-.game .a { display: flex; align-items: center; gap: 8px; min-width: 0; } .game .a.r { justify-content: flex-end; text-align: right; }
-.game .a span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.game .sc { font: 600 14px var(--mono); min-width: 70px; text-align: center; color: var(--dim); }
-.game .sc.done { color: var(--fg); }
-.news { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 14px; color: var(--dim); }
-.news li { padding-left: 14px; border-left: 2px solid var(--line); }
-.cmds { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 10px; }
-.cmd { background: var(--panel2); padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
-.cmd code { font: 600 14px var(--mono); color: var(--gold); }
-.cmd span { font-size: 13px; color: var(--dim); }
-/* team page */
-.thead { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; padding: 22px 20px; background: linear-gradient(100deg, var(--tc) 0%, var(--panel) 70%); border: 1px solid var(--line); }
-.thead .meta { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.thead .meta span { color: var(--fg); opacity: .85; }
-.kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; font-size: 14px; }
-.kv dt { color: var(--faint); } .kv dd { margin: 0; }
-.cap { height: 10px; background: var(--panel2); position: relative; }
-.cap i { position: absolute; inset: 0 auto 0 0; background: var(--teal); }
-.cap i.over { background: var(--bad); }
-.tgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 12px; }
-.tcard { display: flex; gap: 12px; align-items: center; padding: 14px; background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--tc); color: var(--fg); text-decoration: none; }
-.tcard:hover { background: var(--panel2); color: var(--fg); }
-.tcard b { display: block; } .tcard span { font-size: 13px; color: var(--dim); }
-/* player page */
-.pcard { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 22px; }
-@media (max-width: 860px) { .pcard { grid-template-columns: 1fr; } }
-.face { background: linear-gradient(160deg, var(--tc) 0%, var(--panel) 62%); border: 2px solid var(--tier); padding: 18px; display: flex; flex-direction: column; gap: 12px; }
-.face .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
-.face .o { font: 700 56px/1 var(--pixel); }
-.face .o small { display: block; font-size: 12px; letter-spacing: .1em; color: var(--dim); }
-.face .tier { font: 700 11px var(--mono); letter-spacing: .12em; color: #10162a; background: var(--tier); padding: 2px 8px; align-self: flex-start; }
-.face h1 { font-size: clamp(24px, 4vw, 32px); }
-.bars { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
-.barr { display: grid; grid-template-columns: 44px 1fr 28px; gap: 8px; align-items: center; font-size: 13px; }
-.barr i { height: 6px; background: var(--panel2); position: relative; }
-.barr i b { position: absolute; inset: 0 auto 0 0; }
-.barr em { font: 600 13px var(--mono); font-style: normal; text-align: right; }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chips span { font-size: 12px; padding: 2px 8px; background: rgba(0,0,0,.28); border: 1px solid var(--line); }
-.arch { margin: 8px 0 0; font-weight: 700; color: var(--gold); font-size: 14px; }
-.attrs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 14px; }
-.ag { background: var(--panel2); padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
-.ag h3 { display: flex; justify-content: space-between; font: 700 13px var(--pixel); letter-spacing: .03em; padding-bottom: 6px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
-.ar { display: grid; grid-template-columns: 1fr 70px 30px; gap: 8px; align-items: center; font-size: 13px; }
-.ar i { height: 5px; background: var(--bg); position: relative; } .ar i b { position: absolute; inset: 0 auto 0 0; }
-.ar em { font: 600 13px var(--mono); font-style: normal; text-align: right; }
-.c5 { color: var(--a5); } .c4 { color: var(--a4); } .c3 { color: var(--a3); } .c2 { color: var(--a2); } .c1 { color: var(--a1); }
-.b5 { background: var(--a5); } .b4 { background: var(--a4); } .b3 { background: var(--a3); } .b2 { background: var(--a2); } .b1 { background: var(--a1); }
-.statline { display: grid; grid-template-columns: repeat(auto-fit, minmax(76px, 1fr)); gap: 8px; }
-.statline div { background: var(--panel2); padding: 10px; text-align: center; }
-.statline b { display: block; font: 600 20px var(--mono); }
-.statline span { font: 500 11px var(--mono); letter-spacing: .08em; color: var(--faint); }
-/* controls */
-.filters { display: flex; flex-wrap: wrap; gap: 10px; }
-.filters input, .filters select { background: var(--panel2); color: var(--fg); border: 1px solid var(--line); padding: 8px 10px; font: 14px var(--body); min-width: 0; }
-.filters input { flex: 1 1 220px; }
-.more { align-self: center; background: var(--panel2); color: var(--fg); border: 1px solid var(--line); padding: 8px 16px; cursor: pointer; font: 14px var(--body); }
-.more:hover { border-color: var(--gold); }
-.lead { display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: center; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,.045); font-size: 14px; }
-.lead .r { font: 600 12px var(--mono); color: var(--faint); }
-.lead a { color: var(--fg); text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .lead a:hover { color: var(--gold); }
-.lead b { font: 600 14px var(--mono); }
-.lead small { color: var(--faint); margin-left: 6px; }
-abbr[data-tip] { text-decoration: none; border-bottom: 1px dotted currentColor; cursor: help; }
-.ar abbr[data-tip], .barr abbr[data-tip], .ag h3 abbr[data-tip], .kv abbr[data-tip] { border-bottom-color: rgba(238,240,246,.2); }
-abbr[data-tip]:focus-visible { outline: 2px solid var(--teal); outline-offset: 1px; }
-#tip { position: fixed; z-index: 50; max-width: min(280px, calc(100vw - 24px)); background: #f4f1e6; color: #10162a; font: 500 13px/1.45 var(--body); letter-spacing: 0; text-transform: none; padding: 8px 11px; box-shadow: 0 8px 22px rgba(0,0,0,.45); pointer-events: none; }
-#tip b { display: block; font: 700 12px var(--mono); margin-bottom: 2px; }
-footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--faint); font-size: 13px; }
-.loading { padding: 80px 0; text-align: center; color: var(--dim); font: 500 14px var(--mono); }
+body{margin:0;background:#0b1020}
+a{color:#f2b630}a:hover{color:#ffd36b}
 </style>
+<style>img{max-width:100%} html{scroll-behavior:smooth} @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}</style>
 </head>
 <body>
+<div style="background: #0b1020; color: #eef0f6; font-family: 'IBM Plex Sans KR', system-ui, sans-serif; font-size: 16px; line-height: 1.65; min-height: 100vh">
 
-
-<header class="top">
-  <div class="wrap bar">
-    <a class="brand" href="#home">PICKUP <span>ISLAND</span> DB</a>
-    <nav class="tabs" id="tabs" aria-label="League sections"></nav>
-    <div class="tools">
-      <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="ko" id="lang-ko">한국어</button><button type="button" data-lang="en" id="lang-en">EN</button></div>
-      <a class="live" id="liveLink" href="https://www.youtube.com/@PickupIsland247/live" target="_blank" rel="noopener">LIVE</a>
-    </div>
-  </div>
-  <div class="wrap status" id="status"></div>
+<header style="border-bottom: 1px solid #26304d; background: #0b1020">
+<nav aria-label="Main" style="max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px">
+<a href="#top" style="color: #eef0f6; text-decoration: none; font-family: 'Silkscreen', monospace; font-size: 18px; letter-spacing: 0.04em">PICKUP <span style="color: #e8703a">ISLAND</span> LEAGUE</a>
+<div style="display: flex; flex-wrap: wrap; gap: 6px 22px; flex: 1 1 auto; font-size: 15px">
+<a href="#about" style="color: #a3adc6; text-decoration: none">About</a>
+<a href="#features" style="color: #a3adc6; text-decoration: none">Features</a>
+<a href="#join" style="color: #a3adc6; text-decoration: none">Join in</a>
+<a href="#patch" style="color: #a3adc6; text-decoration: none">Patch notes</a>
+<a href="db/" style="color: #a3adc6; text-decoration: none">League DB</a>
+</div>
+<a href="ko/" style="color: #a3adc6; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 14px; border: 1px solid #26304d; padding: 8px 12px">한국어</a>
+<a href="https://www.youtube.com/@PickupIsland247/live" style="background: #e8703a; color: #10162a; text-decoration: none; font-weight: 700; padding: 10px 18px">Watch live</a>
+</nav>
 </header>
-<main class="wrap" id="view"><p class="loading">LOADING LEAGUE DATA…</p></main>
-<footer><div class="wrap" id="foot"></div></footer>
-<div id="tip" role="tooltip" hidden></div>
 
-<script>
-(() => {
-  const UI = {
-    ko: { home: '홈', standings: '순위', teams: '팀', players: '선수', leaders: '기록', history: '역사', join: '참여', live: '라이브 보기',
-      season: '시즌', round: '라운드', updated: '업데이트', ago: '전', min: '분', hr: '시간', justNow: '방금', phase: { regular: '정규시즌', playoffs: '플레이오프', offseason: '비시즌', fa: 'FA 시장' },
-      bigMatch: '이주의 빅매치', bigNone: '다음 빅매치는 곧 발표돼요.', kst: '한국', et: '미국 동부', thisRound: '이번 라운드', lastRound: '지난 라운드 결과', news: '리그 소식', standingsTop: '순위', all: '전체 보기',
-      team: '팀', w: '승', l: '패', pct: '승률', gb: '게임차', pf: '득점', pa: '실점', diff: '득실', strk: '연속', ovr: 'OVR', coach: '감독', tactics: '전술', payroll: '연봉 총액', arena: '경기장', fans: '채팅 팬', nick: '팬 별명', retired: '영구결번', roster: '로스터',
-      pos: '포지션', name: '이름', age: '나이', ht: '키', pot: 'POT', contract: '계약', inj: '부상', starters: '선발', record: '성적', rank: '순위', interim: '대행',
-      search: '선수 이름 검색', allTeams: '모든 팀', allPos: '모든 포지션', fa: 'FA', sortBy: '정렬', showMore: '더 보기', results: '명',
-      ratings: '핵심 능력치', attrs: '세부 능력치 37', tend: '성향 36', arch: '선수 유형', role: '오프볼 역할', rel: '릴리스 속도', hand: '주 손', lefty: '왼손', righty: '오른손', tendNote: '50이 리그 보통이에요. 높을수록 그 행동을 자주 해요.', stats: '시즌 기록', perGame: '경기당', career: '통산', highs: '시즌 최고', style: '플레이 스타일', ring: '우승 반지', cStyle: '스타일', cOvr: '감독 평가', thisSeason: '이번 시즌', withTeam: '이 팀에서', careerRec: '감독 통산', titles: '우승', cHist: '지난 감독 경력', firstJob: '첫 감독 자리예요.', hFired: '경질', hLeft: '결별', hRetired: '은퇴', pers: '성격', persona: '계약 성향', dur: '내구', sigs: '시그니처 무브', awards: '수상', yrs: '년', demand: '요구 연봉', rookie: '신인', import: '외국인', fanPick: '시청자 지명',
-      leaderTitle: '부문별 리더', minGp: '경기 수 기준 충족 선수', champs: '역대 우승', hof: '명예의 전당', x3: '3대3 챌린지', fanTop: '시즌 팬 랭킹', noData: '아직 기록이 없어요.',
-      joinTitle: '방송에 참여하는 법', joinLead: '유튜브 라이브 채팅에 아래 명령어를 남기면 방송 화면에 바로 반영돼요.', backTo: '목록으로',
-      cmds: [['!카드 선수이름', '그 선수의 카드, 37개 능력치, 36개 성향을 방송 화면에 띄워요.'], ['!팀정보 팀코드', '팀 로스터·감독·전술·연봉을 화면에 띄워요.'], ['!응원 팀이름', '응원 팀에 가입하고 팬 포인트를 모아요.'], ['!드래프트 이름', '예측 포인트 30점으로 다음 드래프트에 내가 지은 이름의 신인을 올려요. 시즌당 2명까지.'], ['1 또는 2', '경기 전 승부 예측. 맞히면 예측 포인트 +10, 참여만 해도 +2.'], ['!내기록', '예측 적중률, 남은 예측 포인트, 응원 팀을 확인해요.']],
-      dataNote: '데이터는 24시간 방송에서 라운드마다 갱신돼요.', loadErr: '리그 데이터를 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.', waiting: '24시간 방송에서 첫 리그 데이터가 올라오면 여기에 표시돼요. 잠시 뒤 다시 들러 주세요.', noPlayer: '선수를 찾지 못했어요.', noTeam: '팀을 찾지 못했어요.', games: '경기' },
-    en: { home: 'Home', standings: 'Standings', teams: 'Teams', players: 'Players', leaders: 'Leaders', history: 'History', join: 'Join', live: 'Watch live',
-      season: 'Season', round: 'Round', updated: 'Updated', ago: 'ago', min: 'm', hr: 'h', justNow: 'just now', phase: { regular: 'Regular season', playoffs: 'Playoffs', offseason: 'Offseason', fa: 'Free agency' },
-      bigMatch: 'Big Match of the Week', bigNone: 'The next big match is announced soon.', kst: 'Korea', et: 'US Eastern', thisRound: 'This round', lastRound: 'Last round', news: 'League news', standingsTop: 'Standings', all: 'See all',
-      team: 'Team', w: 'W', l: 'L', pct: 'PCT', gb: 'GB', pf: 'PF', pa: 'PA', diff: 'DIFF', strk: 'STRK', ovr: 'OVR', coach: 'Coach', tactics: 'Tactics', payroll: 'Payroll', arena: 'Arena', fans: 'Chat fans', nick: 'Fan nickname', retired: 'Retired numbers', roster: 'Roster',
-      pos: 'Pos', name: 'Name', age: 'Age', ht: 'Ht', pot: 'POT', contract: 'Contract', inj: 'Injury', starters: 'Starters', record: 'Record', rank: 'Rank', interim: 'interim',
-      search: 'Search players', allTeams: 'All teams', allPos: 'All positions', fa: 'FA', sortBy: 'Sort', showMore: 'Show more', results: 'players',
-      ratings: 'Core ratings', attrs: '37 attributes', tend: '36 tendencies', arch: 'Player type', role: 'Off-ball role', rel: 'Release speed', hand: 'Hand', lefty: 'Left', righty: 'Right', tendNote: '50 is league average. Higher means he does it more often.', stats: 'Season stats', perGame: 'Per game', career: 'Career', highs: 'Season highs', style: 'Play style', ring: 'Ring', cStyle: 'Style', cOvr: 'Rating', thisSeason: 'This season', withTeam: 'With this team', careerRec: 'Career', titles: 'Titles', cHist: 'Previous jobs', firstJob: 'First head coaching job.', hFired: 'Fired', hLeft: 'Left', hRetired: 'Retired', pers: 'Personality', persona: 'Contract attitude', dur: 'Durability', sigs: 'Signature moves', awards: 'Awards', yrs: 'yr', demand: 'Asking', rookie: 'Rookie', import: 'Import', fanPick: 'Viewer pick',
-      leaderTitle: 'Category leaders', minGp: 'Qualified players only', champs: 'Champions', hof: 'Hall of Fame', x3: '3x3 Challenge', fanTop: 'Season fan ranking', noData: 'No records yet.',
-      joinTitle: 'How to join the broadcast', joinLead: 'Type these in the YouTube live chat and they show up on the stream.', backTo: 'Back to list',
-      cmds: [['!card player name', "Shows that player's card, all 37 ratings and 36 tendencies on stream."], ['!teaminfo CODE', 'Shows the roster, coach, tactics and payroll on stream.'], ['!join team', 'Join a team as a fan and collect fan points.'], ['!draft name', 'Spend 30 prediction points to put a rookie you name into the next draft. Two per season.'], ['1 or 2', 'Pick the winner before tip-off: +10 points if right, +2 for playing.'], ['!me', 'Your prediction record, points left and team.']],
-      dataNote: 'Data refreshes every round from the 24/7 broadcast.', loadErr: "Couldn't load the league data. Refresh in a minute.", waiting: 'League data appears here once the 24/7 broadcast sends its first update. Check back soon.', noPlayer: 'Player not found.', noTeam: 'Team not found.', games: 'games' },
-  };
+<section id="top" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-direction: column; gap: 28px">
+<span style="align-self: flex-start; background: #ff4a3d; color: #ffffff; font-family: 'Silkscreen', monospace; font-size: 13px; letter-spacing: 0.06em; padding: 7px 10px">● LIVE 24/7</span>
+<h1 style="margin: 0; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: clamp(38px, 6vw, 72px); line-height: 1.05; letter-spacing: 0.01em">The pixel basketball<br><span style="color: #e8703a">league that never sleeps</span></h1>
+<p style="margin: 0; max-width: 680px; color: #c6cde0; font-size: 19px">30 clubs. An 82-game season. Real pro rules. An AI-run basketball league streams live on YouTube around the clock. Not just the games: trades, drafts, coaching changes and Hall of Fame nights are all on air.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="https://www.youtube.com/@PickupIsland247/live" style="background: #e8703a; color: #10162a; text-decoration: none; font-weight: 700; font-size: 17px; padding: 14px 24px">Watch live on YouTube</a>
+<a href="https://www.youtube.com/@PickupIsland247" style="border: 1px solid #3a4566; color: #eef0f6; text-decoration: none; font-weight: 500; font-size: 17px; padding: 14px 24px">Subscribe</a>
+<a href="https://claude.ai/artifact/HmJ7P9pE2kGqsQZhjWTxSC" style="border: 1px solid #3a4566; color: #eef0f6; text-decoration: none; font-weight: 500; font-size: 17px; padding: 14px 24px">Be the GM in your browser</a>
+</div>
+<figure style="margin: 12px 0 0; border: 1px solid #26304d; background: #000000">
+<img src="assets/live-court.jpg" alt="Live 5-on-5 game on the pier court, scoreboard on top and a shot at the rim" style="display: block; width: 100%; height: auto">
+</figure>
+</section>
 
-  const GL = {
-    ko: { PTS: '득점. 경기당 평균 득점이에요.', REB: '리바운드. 놓친 슛을 잡아낸 횟수예요.', AST: '어시스트. 동료의 득점으로 이어진 패스 수예요.', STL: '스틸. 상대 공을 빼앗은 횟수예요.', BLK: '블록. 상대 슛을 막아낸 횟수예요.', TOV: '턴오버. 실책으로 공격권을 넘겨준 횟수예요.',
-      'FG%': '야투 성공률. 2점과 3점을 합친 슛 성공률이에요.', '3P%': '3점슛 성공률이에요.', 'FT%': '자유투 성공률이에요.', MIN: '경기당 출전 시간(분)이에요. 이 리그는 한 경기가 4쿼터 × 5분이에요.', GP: '출전한 경기 수예요.', TPM: '3점슛 성공 개수예요.', '3PM': '경기당 3점슛 성공 개수예요.', PPG: '경기당 평균 득점이에요.', SEASONS: '리그에서 뛴 시즌 수예요.',
-      OVR: '종합 능력치. 35개 세부 능력치를 포지션에 맞게 합친 점수예요.', POT: '잠재력. 성장하면 도달할 것으로 보이는 최고 OVR이에요. 범위로 나오면 스카우트 추정치예요.', W: '승리 수', L: '패배 수', PCT: '승률. 승리 ÷ 전체 경기예요.', GB: '게임차. 1위 팀과의 승패 차이를 반으로 나눈 값이에요.', PF: '시즌 총 득점', PA: '시즌 총 실점', DIFF: '득실차. 득점에서 실점을 뺀 값이에요.', STRK: '연속 기록. W3은 3연승, L2는 2연패예요.', '#': '등번호', HT: '키(cm)', CONTRACT: '연봉 × 남은 계약 연수예요.',
-      ELITE: 'OVR 78 이상', GOLD: 'OVR 70~77', SILVER: 'OVR 62~69', BRONZE: 'OVR 61 이하',
-      STYLE: '코트 위에서 즐겨 하는 플레이 방식이에요. 경기 중 행동과 접전 막판 성적에 영향을 줘요.', PERS: '라커룸 성격이에요. 성장 속도, 사기, 체력, 파울에 영향을 줘요.', PERSONA: 'FA 계약을 고를 때의 성향이에요.', SIGS: '이 선수만 쓰는 특기 동작이에요. 해당 능력치가 높아야 생겨요.', DEMAND: 'FA 시장에서 요구하는 연봉이에요.', CSTYLE: '감독이 좋아하는 농구예요. 자동 작전을 세울 때 이쪽으로 기울어요.', COVR: '공격·수비·육성·리더십을 합친 감독 평가예요.' },
-    en: { PTS: 'Points per game.', REB: 'Rebounds: missed shots grabbed, per game.', AST: 'Assists: passes that led to a teammate scoring.', STL: 'Steals: times the ball was taken from the opponent.', BLK: 'Blocks: opponent shots stopped.', TOV: 'Turnovers: possessions lost by mistake.',
-      'FG%': 'Field goal %: all 2- and 3-point shots made ÷ attempted.', '3P%': 'Three-point %.', 'FT%': 'Free throw %.', MIN: 'Minutes per game. A game here is 4 quarters × 5 minutes.', GP: 'Games played.', TPM: 'Three-pointers made.', '3PM': 'Three-pointers made per game.', PPG: 'Points per game.', SEASONS: 'Seasons played in the league.',
-      OVR: 'Overall: the 35 attributes combined for the position.', POT: "Potential: the highest OVR he's expected to reach. A range is a scouting estimate.", W: 'Wins', L: 'Losses', PCT: 'Win percentage: wins ÷ games.', GB: 'Games behind the leader.', PF: 'Points scored this season', PA: 'Points allowed this season', DIFF: 'Point differential: PF − PA.', STRK: 'Current streak: W3 = three straight wins.', '#': 'Jersey number', HT: 'Height (cm)', CONTRACT: 'Salary × years left.',
-      ELITE: 'OVR 78+', GOLD: 'OVR 70–77', SILVER: 'OVR 62–69', BRONZE: 'OVR 61 or lower',
-      STYLE: 'How he likes to play. It changes his decisions and how he performs late in close games.', PERS: 'Locker-room personality. Affects growth, morale, stamina and fouls.', PERSONA: 'What he cares about when picking a contract.', SIGS: 'Special moves only he uses. They unlock with high enough ratings.', DEMAND: 'Salary he is asking for in free agency.', CSTYLE: 'The basketball he likes. The automatic game plan leans this way.', COVR: 'Offense, defense, development and leadership combined.' },
-  };
-  const AD = {
-    ko: { sht: '슈팅 계열 능력치의 평균이에요.', fin: '골밑 마무리 계열 능력치의 평균이에요.', pas: '패스와 볼 운반 계열 능력치의 평균이에요.', def: '수비 계열 능력치의 평균이에요.', reb: '리바운드 계열 능력치의 평균이에요.', ath: '신체 능력 계열의 평균이에요.',
-      cls: '골밑 근처(약 3m 안) 점프슛 성공률', mid: '페인트존 밖, 3점 라인 안쪽 슛 성공률', tp: '3점슛 성공률', ft: '자유투 성공률', siq: '좋은 슛을 고르는 판단. 높으면 무리한 슛이 줄어요', ocn: '공격력이 경기마다 얼마나 고른지. 높을수록 기복이 적어요',
-      lay: '레이업 성공률', sdk: '제자리에서 하는 덩크 능력', ddk: '달려 들어가며 하는 덩크 능력', phk: '포스트에서 던지는 훅슛', pfd: '포스트에서 돌아서며 던지는 페이드어웨이', pct: '포스트업 몸싸움과 자리 잡기', drw: '슛할 때 파울을 얻어내는 능력', hnd: '패스를 놓치지 않고 받는 손',
-      pac: '패스가 정확히 가는 정도', bhd: '드리블 중 공을 지키는 능력', spb: '공을 몰고도 빠르게 달리는 능력', piq: '좋은 패스를 고르는 판단', pvs: '빈 동료를 찾아내는 시야',
-      idf: '골밑에서 상대 슛을 어렵게 만드는 수비', pdf: '외곽에서 상대를 따라붙는 수비', stl: '공을 빼앗는 능력', blk: '슛을 쳐내는 능력', hiq: '동료를 도와주러 가는 타이밍', ppc: '패스 길목을 읽고 끊는 능력', dcn: '수비 집중력이 경기마다 얼마나 고른지',
-      orb: '공격 리바운드를 잡아내는 능력', drb: '수비 리바운드를 잡아내는 능력', spd: '최고 속도', acc: '순간 가속', str: '몸싸움 힘', vrt: '점프 높이', sta: '체력. 오래 뛰어도 덜 지쳐요', obm: '공 없이 움직여 빈자리를 찾는 능력. 컷과 스크린 활용이 좋아져요', scr: '스크린을 단단하게 거는 능력. 높으면 동료 수비수가 더 오래 걸려요', hus: '루즈볼과 궂은일에 몸을 던지는 정도', dur: '부상을 견디는 힘. 높을수록 덜 다쳐요' },
-    en: { sht: 'Average of the shooting attributes.', fin: 'Average of the finishing attributes.', pas: 'Average of the passing and ball-handling attributes.', def: 'Average of the defensive attributes.', reb: 'Average of the rebounding attributes.', ath: 'Average of the athletic attributes.',
-      cls: 'Jump shots close to the rim (within about 3 m)', mid: 'Shots between the paint and the arc', tp: 'Three-point shooting', ft: 'Free throws', siq: 'Shot selection: fewer forced shots when high', ocn: 'How steady his scoring is from game to game',
-      lay: 'Layups', sdk: 'Dunking from a standstill', ddk: 'Dunking on the move', phk: 'Post hook shots', pfd: 'Post fadeaways', pct: 'Holding position and battling in the post', drw: 'Drawing fouls on shots', hnd: 'Catching passes cleanly',
-      pac: 'How accurate his passes are', bhd: 'Protecting the ball while dribbling', spb: 'Speed while dribbling', piq: 'Choosing the right pass', pvs: 'Seeing the open teammate',
-      idf: 'Contesting shots near the rim', pdf: 'Staying in front on the perimeter', stl: 'Taking the ball away', blk: 'Blocking shots', hiq: 'Timing of help defense', ppc: 'Reading and jumping passing lanes', dcn: 'How steady his defense is from game to game',
-      orb: 'Offensive rebounding', drb: 'Defensive rebounding', spd: 'Top speed', acc: 'Quickness off the mark', str: 'Strength in contact', vrt: 'Vertical leap', sta: 'Stamina: tires more slowly', obm: 'Moving without the ball to find open space: better cuts and use of screens', scr: 'Setting solid screens: his teammate\'s defender stays caught longer', hus: 'Diving for loose balls and doing the dirty work', dur: 'Durability: resists injury' },
-  };
-  const ab = (label, key) => { const g = GL[ST.lang][key || label]; return g ? `<abbr data-tip="${esc(g)}" data-tk="${esc(label)}" tabindex="0">${label}</abbr>` : label; };
-  const abD = (label, desc, head) => desc ? `<abbr data-tip="${esc(desc)}" data-tk="${esc(head || label)}" tabindex="0">${esc(label)}</abbr>` : esc(label);
-  const AWD = {
-    ko: { MVP: '정규시즌 최우수 선수', '득점왕': '정규시즌 경기당 득점 1위', '리바운드왕': '정규시즌 경기당 리바운드 1위', '어시스트왕': '정규시즌 경기당 어시스트 1위', '올해의 수비수': '정규시즌 최고의 수비수', '신인왕': '그 시즌 최고의 신인', '기량발전상': '지난 시즌보다 가장 크게 성장한 선수', '식스맨': '벤치에서 나와 가장 잘한 선수',
-      '3점슛 대회 우승': '올스타 위크엔드 3점슛 대회 1위', '덩크 콘테스트 우승': '올스타 위크엔드 덩크 콘테스트 1위', '올스타전 MVP': '올스타전 최우수 선수', '라이징 스타 MVP': '신인·2년차 라이징 스타 게임 최우수 선수', '3대3 챌린지 우승': '시즌 후반 상위 4팀 3대3 토너먼트 우승 멤버', RING: '리그 우승 반지' },
-    en: { MVP: 'Regular-season Most Valuable Player', 'Scoring leader': 'Most points per game in the regular season', 'Rebounding leader': 'Most rebounds per game in the regular season', 'Assists leader': 'Most assists per game in the regular season', 'Defensive Player of the Year': 'Best defender of the regular season', 'Rookie of the Year': 'Best first-year player', 'Most Improved Player': 'Biggest jump from the season before', 'Sixth Man': 'Best player off the bench',
-      'Three-Point Contest champ': 'Won the All-Star weekend three-point contest', 'Dunk Contest champ': 'Won the All-Star weekend dunk contest', 'All-Star Game MVP': 'Best player in the All-Star Game', 'Rising Stars MVP': 'Best player in the rookies vs sophomores game', '3x3 Challenge champion': 'On the team that won the late-season 3x3 tournament', RING: 'League championship ring' },
-  };
-  const awTip = (k, v) => { const ss = Array.isArray(v) ? v : [], n = Array.isArray(v) ? v.length : v, d = AWD[ST.lang][k] || AWD.ko[k] || AWD.en[k] || '';
-    return abD(`${k}${n > 1 ? ' ×' + n : ''}`, `${d}${ss.length ? `${d ? ' · ' : ''}${ST.lang === 'ko' ? '시즌' : 'Season'} ${ss.join(', ')}` : ''}`, k); };
-  const abA = (label, k) => { const g = AD[ST.lang][k]; return g ? `<abbr data-tip="${esc(g)}" data-tk="${esc(label)}" tabindex="0">${esc(label)}</abbr>` : esc(label); };
-  const ST = { lang: 'ko', D: null, idx: null, loaded: '', pf: { q: '', t: '', p: '', s: 'o', n: 60 } };
-  try { const s = localStorage.getItem('pil-db-lang'); if (s === 'ko' || s === 'en') ST.lang = s; else if (!/^ko/i.test(navigator.language || '')) ST.lang = 'en'; } catch (e) {}
-  const T = () => UI[ST.lang];
-  const $ = (id) => document.getElementById(id);
-  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const f1 = (x) => (Math.round(x * 10) / 10).toFixed(1);
-  const pct = (a, b) => b ? (a / b * 100).toFixed(1) + '%' : '-';
-  const money = (v) => '$' + (+v || 0).toFixed(1) + 'M';
-  const tier = (o) => o >= 78 ? ['ELITE', 't-elite', '#c58bff'] : o >= 70 ? ['GOLD', 't-gold', '#f2b630'] : o >= 62 ? ['SILVER', 't-silver', '#c9d1db'] : ['BRONZE', 't-bronze', '#c98a52'];
-  const ac = (v) => v >= 85 ? 5 : v >= 75 ? 4 : v >= 65 ? 3 : v >= 50 ? 2 : 1;
-  const SK = ['gp', 'pts', 'reb', 'ast', 'stl', 'blk', 'tov', 'fgm', 'fga', 'tpm', 'tpa', 'ftm', 'fta', 'min'];
-  const sv = (p) => { const o = {}; SK.forEach((k, i) => (o[k] = p.st ? p.st[i] || 0 : 0)); return o; };
-  const pg = (p, k) => { const s = sv(p); return s.gp ? s[k] / s.gp : 0; };
-  const team = (id) => ST.D && ST.D.teams.find(t => t.id === id);
-  const teamBy = (code) => ST.D && ST.D.teams.find(t => t.code.toLowerCase() === String(code).toLowerCase());
-  const logo = (t, big) => t && t.logo ? `<img class="lg${big ? ' big' : ''}" src="${t.logo}" alt="">` : '';
-  const tlink = (t) => t ? `<a class="tn" href="#team-${esc(t.code)}">${logo(t)}<span>${esc(t.name)}</span></a>` : `<span class="pill fa">${T().fa}</span>`;
-  const plink = (id, p) => `<a class="tn" href="#player-${id}">${esc(p.n)}</a>`;
-  const standings = (conf) => ST.D.teams.filter(t => conf == null || t.conf === conf).slice().sort((a, b) => (b.w - a.w) || ((b.pf - b.pa) - (a.pf - a.pa)) || (b.pf - a.pf));
-  const ago = (t) => { const m = Math.max(0, Math.round((Date.now() - t) / 60000)); return m < 1 ? T().justNow : m < 60 ? `${m}${T().min} ${T().ago}` : `${Math.floor(m / 60)}${T().hr} ${m % 60}${T().min} ${T().ago}`; };
+<section aria-label="The league at a glance" style="border-top: 1px solid #26304d; border-bottom: 1px solid #26304d; background: #0e1529">
+<div style="max-width: 1200px; margin: 0 auto; padding: 28px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 2px"><b style="font-family: 'Silkscreen', monospace; font-size: 34px; color: #f2b630">24/7</b><span style="color: #a3adc6">non-stop live coverage</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><b style="font-family: 'Silkscreen', monospace; font-size: 34px; color: #f2b630">30</b><span style="color: #a3adc6">clubs, East and West</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><b style="font-family: 'Silkscreen', monospace; font-size: 34px; color: #f2b630">82</b><span style="color: #a3adc6">game season plus playoffs</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><b style="font-family: 'Silkscreen', monospace; font-size: 34px; color: #f2b630">35</b><span style="color: #a3adc6">attributes on every player</span></div>
+</div>
+</section>
 
-  // live data sits on the repo's `data` branch (one commit, replaced by the broadcast machine); the folder next to the page is the fallback
-  const BASES = ['https://raw.githubusercontent.com/BearHumanS/pickup-island-league/data/data/', 'data/'];
-  const getJSON = async (name) => { const q = `?t=${Math.floor(Date.now() / 60000)}`; let err; for (const b of (ST.base ? [ST.base] : BASES)) { try { const r = await fetch(b + name + q, { cache: 'no-store' }); if (!r.ok) throw new Error('HTTP ' + r.status); const j = await r.json(); ST.base = b; return j; } catch (e) { err = e; } } throw err; };
-  async function load() {
-    try { ST.idx = await getJSON('index.json'); } catch (e) { ST.idx = { leagues: [] }; }
-    const have = (ST.idx.leagues || []).map(x => x.loc);
-    if (!have.length) { ST.D = null; ST.wait = true; return; }
-    ST.wait = false;
-    const want = have.includes(ST.lang) ? ST.lang : have.includes('en') ? 'en' : have[0];
-    if (ST.loaded === want && ST.D) return;
-    ST.D = await getJSON(`league-${want}.json`); ST.loaded = want;
-  }
-  function chrome() {
-    const t = T(), tabs = ['home', 'standings', 'teams', 'players', 'leaders', 'history', 'join'];
-    const cur = (location.hash.slice(1) || 'home').split('-')[0];
-    const on = { team: 'teams', player: 'players' }[cur] || cur;
-    $('tabs').innerHTML = tabs.map(k => `<a href="#${k}" class="${on === k ? 'on' : ''}">${t[k]}</a>`).join('');
-    $('lang-ko').classList.toggle('on', ST.lang === 'ko'); $('lang-en').classList.toggle('on', ST.lang === 'en');
-    $('liveLink').textContent = t.live;
-    document.documentElement.lang = ST.lang;
-    const D = ST.D;
-    $('status').innerHTML = D ? `<span><i class="dot"></i><b>${esc(D.ch || 'Pickup Island League')}</b></span><span>${t.season} <b>${D.season}</b> · ${t.phase[D.phase] || esc(D.phase)}${D.phase === 'regular' && D.rounds ? ` · ${t.round} <b>${D.round}</b>/${D.rounds}` : ''}</span><span>${esc(D.fmt || '')}</span><span>${t.updated} <b>${ago(D.at)}</b></span>` : '';
-    $('foot').textContent = `${t.dataNote} · Pickup Island League · @PickupIsland247`;
-  }
-  function render() {
-    chrome();
-    const v = $('view'), h = location.hash.slice(1) || 'home', [k, ...rest] = h.split('-'), arg = rest.join('-');
-    if (!ST.D) { v.innerHTML = `<p class="loading">${esc(ST.wait ? T().waiting : T().loadErr)}</p>`; return; }
-    const fn = { home: vHome, standings: vStandings, teams: vTeams, team: vTeam, players: vPlayers, player: vPlayer, leaders: vLeaders, history: vHistory, join: vJoin }[k] || vHome;
-    v.innerHTML = fn(arg);
-    if (k === 'players') bindPlayers();
-    v.querySelectorAll('tr[data-href]').forEach(tr => tr.addEventListener('click', (e) => { if (e.target.closest('a')) return; location.hash = tr.dataset.href; }));
-  }
-  const panel = (title, body, more) => `<section class="panel"><header><h2>${title}</h2>${more || ''}</header>${body}</section>`;
-  const gameRow = (g) => { const A = team(g.h), B = team(g.a); if (!A || !B) return ''; const done = !!g.s;
-    return `<div class="game"><div class="a">${logo(A)}<span>${esc(A.short || A.name)}</span></div><div class="sc ${done ? 'done' : ''}">${done ? `<span class="${g.s[0] > g.s[1] ? 'w' : ''}">${g.s[0]}</span> : <span class="${g.s[1] > g.s[0] ? 'w' : ''}">${g.s[1]}</span>` : 'VS'}${g.big ? ' <span class="pill big">BIG</span>' : ''}</div><div class="a r"><span>${esc(B.short || B.name)}</span>${logo(B)}</div></div>`; };
-  function stTable(list, full) {
-    const t = T(), top = list[0];
-    const rows = list.map((x, i) => { const gb = top ? ((top.w - x.w) + (x.l - top.l)) / 2 : 0, gp = x.w + x.l;
-      return `<tr class="link" data-href="team-${esc(x.code)}"><td class="num">${i + 1}</td><td class="l">${tlink(x)}</td><td class="num">${x.w}</td><td class="num">${x.l}</td><td class="num">${gp ? (x.w / gp).toFixed(3).replace(/^0/, '') : '-'}</td>${full ? `<td class="num">${gb ? gb.toFixed(1) : '-'}</td><td class="num">${x.pf}</td><td class="num">${x.pa}</td><td class="num ${x.pf - x.pa >= 0 ? 'w' : 'lo'}">${x.pf - x.pa > 0 ? '+' : ''}${x.pf - x.pa}</td>` : ''}<td class="num ${x.stk > 0 ? 'w' : x.stk < 0 ? 'lo' : ''}">${x.stk ? (x.stk > 0 ? 'W' : 'L') + Math.abs(x.stk) : '-'}</td>${full ? `<td class="num">${x.ovr}</td><td class="l dim">${esc(x.coach ? x.coach.n : '')}</td>` : ''}</tr>`; }).join('');
-    return `<div class="scroll"><table><thead><tr><th>#</th><th class="l">${t.team}</th><th>${ab(t.w, 'W')}</th><th>${ab(t.l, 'L')}</th><th>${ab(t.pct, 'PCT')}</th>${full ? `<th>${ab(t.gb, 'GB')}</th><th>${ab(t.pf, 'PF')}</th><th>${ab(t.pa, 'PA')}</th><th>${ab(t.diff, 'DIFF')}</th>` : ''}<th>${ab(t.strk, 'STRK')}</th>${full ? `<th>${ab(t.ovr, 'OVR')}</th><th class="l">${t.coach}</th>` : ''}</tr></thead><tbody>${rows}</tbody></table></div>`;
-  }
-  function leaders(key, n, min) {
-    const D = ST.D, gpMax = Math.max(1, ...Object.values(D.players).map(p => sv(p).gp)), need = Math.max(1, Math.floor(gpMax * 0.4));
-    const list = Object.entries(D.players).filter(([, p]) => p.t != null && sv(p).gp >= need);
-    const val = { pts: p => pg(p, 'pts'), reb: p => pg(p, 'reb'), ast: p => pg(p, 'ast'), stl: p => pg(p, 'stl'), blk: p => pg(p, 'blk'), tpm: p => pg(p, 'tpm'),
-      fg: p => { const s = sv(p); return s.fga >= (min || 0) * s.gp ? s.fgm / s.fga : -1; }, tp: p => { const s = sv(p); return s.tpa >= (min || 0) * s.gp ? s.tpm / s.tpa : -1; } }[key];
-    return list.map(([id, p]) => ({ id, p, v: val(p) })).filter(x => x.v > 0).sort((a, b) => b.v - a.v).slice(0, n);
-  }
-  const leadList = (rows, pctMode) => rows.length ? rows.map((x, i) => `<div class="lead"><span class="r">${i + 1}</span><span style="min-width:0;display:flex;align-items:center;gap:8px">${logo(team(x.p.t))}<a href="#player-${x.id}">${esc(x.p.n)}</a></span><b>${pctMode ? (x.v * 100).toFixed(1) + '%' : f1(x.v)}</b></div>`).join('') : `<p class="empty">${T().noData}</p>`;
-  function vHome() {
-    const D = ST.D, t = T();
-    let big = `<p class="dim">${t.bigNone}</p>`, bstyle = '--ca:#26304d;--cb:#26304d';
-    if (D.big) { const A = team(D.big.h), B = team(D.big.a); if (A && B) { bstyle = `--ca:${A.c};--cb:${B.c}`;
-      big = `<div class="vs"><a class="side" href="#team-${esc(A.code)}" style="color:inherit;text-decoration:none">${logo(A, 1)}<b>${esc(A.code)}</b><span>${esc(A.name)} · ${A.w}-${A.l}</span></a><span class="x">VS</span><a class="side" href="#team-${esc(B.code)}" style="color:inherit;text-decoration:none">${logo(B, 1)}<b>${esc(B.code)}</b><span>${esc(B.name)} · ${B.w}-${B.l}</span></a></div>
-        <div class="eta"><span>${t.round} <b>${D.big.r}</b></span>${D.big.kst ? `<span>${t.kst} <b>${esc(D.big.kst)}</b></span><span>${t.et} <b>${esc(D.big.et)}</b></span>` : ''}</div>`; } }
-    const bigPanel = `<section class="panel bigm" style="${bstyle}"><div class="in"><header style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><h2>${t.bigMatch}</h2><span class="pill big">BIG MATCH</span></header>${big}</div></section>`;
-    const st = standings().slice(0, 8);
-    const now = (D.now || []).map(gameRow).join(''), prev = (D.prev || []).map(gameRow).join('');
-    const ld = (k, label) => `<div style="display:flex;flex-direction:column;gap:4px;min-width:0"><p class="eyebrow">${ab(label)}</p>${leadList(leaders(k, 5))}</div>`;
-    return `<div class="hero">${bigPanel}${panel(t.standingsTop, stTable(st, false), `<a href="#standings">${t.all}</a>`)}</div>
-      <div class="grid2">${panel(t.thisRound, now ? `<div class="games">${now}</div>` : `<p class="empty">${t.noData}</p>`)}${panel(t.lastRound, prev ? `<div class="games">${prev}</div>` : `<p class="empty">${t.noData}</p>`)}</div>
-      ${panel(t.leaderTitle, `<div class="grid3">${ld('pts', 'PTS')}${ld('reb', 'REB')}${ld('ast', 'AST')}</div>`, `<a href="#leaders">${t.all}</a>`)}
-      <div class="grid2">${panel(t.news, `<ul class="news">${(D.news || []).slice(0, 10).map(n => `<li>${esc(n)}</li>`).join('')}</ul>`)}${panel(t.joinTitle, `<div class="cmds">${t.cmds.slice(0, 4).map(([c, d]) => `<div class="cmd"><code>${esc(c)}</code><span>${esc(d)}</span></div>`).join('')}</div>`, `<a href="#join">${t.all}</a>`)}</div>`;
-  }
-  function vStandings() {
-    const D = ST.D, confs = [...new Set(D.teams.map(t => t.conf).filter(c => c != null))];
-    if (confs.length > 1) return confs.map(c => panel(`${T().standings} · ${c === 0 ? 'EAST' : c === 1 ? 'WEST' : c}`, stTable(standings(c), true))).join('');
-    return panel(T().standings, stTable(standings(), true));
-  }
-  function vTeams() {
-    const t = T();
-    return `<h1>${t.teams}</h1><div class="tgrid">${standings().map((x, i) => `<a class="tcard" href="#team-${esc(x.code)}" style="--tc:${x.c}">${logo(x, 0)}<div style="min-width:0"><b>${esc(x.name)}</b><span>${i + 1}${ST.lang === 'ko' ? '위' : '.'} · ${x.w}-${x.l} · OVR ${x.ovr}${x.coach ? ' · ' + esc(x.coach.n) : ''}</span></div></a>`).join('')}</div>`;
-  }
-  function rosterTable(ids, lu) {
-    const t = T(), D = ST.D, on = new Set(lu || []);
-    const rows = ids.map(id => [id, D.players[id]]).filter(([, p]) => p).sort((a, b) => on.has(+b[0]) - on.has(+a[0]) || b[1].o - a[1].o).map(([id, p]) => { const tr = tier(p.o);
-      return `<tr class="link" data-href="player-${id}"><td class="num">${p.no}</td><td class="l">${esc(p.pos)}</td><td class="l">${plink(id, p)} ${on.has(+id) ? `<span class="pill rk">${t.starters}</span>` : ''}${p.inj ? ` <span class="pill inj">INJ ${p.inj.g}</span>` : ''}${p.fan ? ` <span class="pill fan">${t.fanPick}</span>` : ''}</td><td class="num">${p.age}</td><td class="num">${p.ht}</td><td class="ovr ${tr[1]}">${p.o}</td><td class="num dim">${esc(p.pot)}</td><td class="num">${f1(pg(p, 'pts'))}</td><td class="num">${f1(pg(p, 'reb'))}</td><td class="num">${f1(pg(p, 'ast'))}</td><td class="num">${p.sal ? `${money(p.sal)} × ${p.yrs}` : '-'}</td></tr>`; }).join('');
-    return `<div class="scroll"><table><thead><tr><th>${ab('#')}</th><th class="l">${t.pos}</th><th class="l">${t.name}</th><th>${t.age}</th><th>${ab(t.ht, 'HT')}</th><th>${ab('OVR')}</th><th>${ab('POT')}</th><th>${ab('PTS')}</th><th>${ab('REB')}</th><th>${ab('AST')}</th><th>${ab(t.contract, 'CONTRACT')}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
-  }
-  function vTeam(code) {
-    const D = ST.D, t = T(), x = teamBy(code); if (!x) return `<p class="empty">${t.noTeam}</p>`;
-    const rk = standings(x.conf ?? undefined).indexOf(x) + 1, capPct = Math.min(100, x.pay / (D.cap || 1) * 100);
-    const kv = [[t.record, `${x.w}${ST.lang === 'ko' ? '승' : '-'}${x.l}${ST.lang === 'ko' ? '패' : ''} · ${rk}${ST.lang === 'ko' ? '위' : 'th'}`], [t.coach, x.coach ? `${esc(x.coach.n)}${x.coach.interim ? ` (${t.interim})` : ''} · ${esc(x.coach.style)} · ${x.coach.w}-${x.coach.l}` : '-'], [t.tactics, esc(x.tac)], [t.ovr, x.ovr], [t.arena, x.arena ? `${esc(x.arena.n)} · ${x.arena.cap.toLocaleString()}` : '-'], [t.fans, x.fans || 0]];
-    if (x.nick) kv.push([t.nick, `"${esc(x.nick)}"`]);
-    if ((x.ret || []).length) kv.push([t.retired, x.ret.map(r => `#${r.no} ${esc(r.n)}`).join(' · ')]);
-    return `<div class="thead" style="--tc:${x.c}">${logo(x, 1)}<div class="meta"><p class="eyebrow" style="color:var(--fg)">${esc(x.code)}</p><h1>${esc(x.name)}</h1><span>${kv[0][1]}</span></div></div>
-      <div class="grid2">${panel(esc(x.short || x.name), `<dl class="kv">${kv.map(([a, b]) => `<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl>`)}${panel(t.payroll, `<p class="num" style="margin:0;font-size:22px">${money(x.pay)} <span class="dim" style="font-size:14px">/ ${money(D.cap)}</span></p><div class="cap"><i class="${x.pay > D.cap ? 'over' : ''}" style="width:${capPct}%"></i></div>`)}</div>
-      ${coachPanel(x)}
-      ${panel(t.roster, rosterTable(x.ros, x.lu), `<a href="#teams">${t.backTo}</a>`)}`;
-  }
-  function coachPanel(x) {
-    const t = T(), c = x.coach; if (!c) return '';
-    const ko = ST.lang === 'ko', rec = (w, l) => `${w}${ko ? '승 ' : '-'}${l}${ko ? '패' : ''}`;
-    const bars = (c.r || []).map(([k, n, v, d]) => `<div class="barr" style="grid-template-columns:60px 1fr 28px"><span>${abD(n, d)}</span><i><b class="b${ac(v)}" style="width:${v}%"></b></i><em class="c${ac(v)}">${v}</em></div>`).join('');
-    const how = { fired: t.hFired, left: t.hLeft, retired: t.hRetired };
-    const hist = (c.hist || []).length ? `<div class="scroll"><table><thead><tr><th class="l">${t.team}</th><th>${t.season}</th><th>${t.record}</th><th class="l"></th></tr></thead><tbody>${c.hist.slice().reverse().map(h => { const tm = teamBy(h.c); return `<tr><td class="l">${tm ? tlink(tm) : esc(h.c)}</td><td class="num">${h.s0}–${h.s1}</td><td class="num">${rec(h.w, h.l)}</td><td class="l dim">${esc(how[h.how] || '')}</td></tr>`; }).join('')}</tbody></table></div>` : `<p class="dim" style="margin:0;font-size:13px">${t.firstJob}</p>`;
-    return panel(`${t.coach} · ${esc(c.n)}${c.interim ? ` <span class="pill rk">${t.interim}</span>` : ''}`, `<div class="grid2" style="gap:18px">
-      <div style="display:flex;flex-direction:column;gap:12px;min-width:0"><dl class="kv"><dt>${t.age}</dt><dd>${c.age}</dd><dt>${abD(t.cStyle, GL[ST.lang].CSTYLE)}</dt><dd>${abD(c.style, c.sdesc)}</dd><dt>${abD(t.cOvr, GL[ST.lang].COVR)}</dt><dd class="num">${c.ovr}</dd><dt>${t.thisSeason}</dt><dd class="num">${rec(c.sw, c.sl)}</dd><dt>${t.withTeam}</dt><dd class="num">${rec(c.w, c.l)} <span class="dim">(${t.season} ${c.since}~)</span></dd><dt>${t.careerRec}</dt><dd class="num">${rec(c.cw, c.cl)}</dd><dt>${t.titles}</dt><dd class="num">${c.titles || 0}</dd></dl>
-      <div style="display:grid;gap:6px">${bars}</div></div>
-      <div style="display:flex;flex-direction:column;gap:8px;min-width:0"><p class="eyebrow">${t.cHist}</p>${hist}</div></div>`);
-  }
-  function vPlayers() {
-    const t = T(), D = ST.D, f = ST.pf;
-    return `<h1>${t.players}</h1><section class="panel"><div class="filters"><input id="pq" type="search" placeholder="${t.search}" value="${esc(f.q)}" aria-label="${t.search}">
-      <select id="pt" aria-label="${t.team}"><option value="">${t.allTeams}</option>${standings().map(x => `<option value="${x.id}" ${String(f.t) === String(x.id) ? 'selected' : ''}>${esc(x.name)}</option>`).join('')}<option value="fa" ${f.t === 'fa' ? 'selected' : ''}>${t.fa}</option></select>
-      <select id="pp" aria-label="${t.pos}"><option value="">${t.allPos}</option>${['PG', 'SG', 'SF', 'PF', 'C', 'G', 'F'].filter(p => Object.values(D.players).some(x => x.pos === p)).map(p => `<option ${f.p === p ? 'selected' : ''}>${p}</option>`).join('')}</select>
-      <select id="ps" aria-label="${t.sortBy}">${[['o', 'OVR'], ['pot', 'POT'], ['pts', 'PTS'], ['reb', 'REB'], ['ast', 'AST'], ['age', t.age], ['sal', t.contract]].map(([k, n]) => `<option value="${k}" ${f.s === k ? 'selected' : ''}>${t.sortBy}: ${n}</option>`).join('')}</select></div><div id="plist"></div></section>`;
-  }
-  function plistHtml() {
-    const t = T(), D = ST.D, f = ST.pf, q = f.q.trim().toLowerCase().replace(/\s+/g, '');
-    let list = Object.entries(D.players).filter(([, p]) => (!q || p.n.toLowerCase().replace(/\s+/g, '').includes(q)) && (!f.p || p.pos === f.p) && (!f.t || (f.t === 'fa' ? p.t == null : String(p.t) === String(f.t))));
-    const key = { o: p => p.o, pot: p => parseInt(String(p.pot).split('-').pop(), 10) || 0, pts: p => pg(p, 'pts'), reb: p => pg(p, 'reb'), ast: p => pg(p, 'ast'), age: p => -p.age, sal: p => p.sal || p.dem || 0 }[f.s] || (p => p.o);
-    list.sort((a, b) => key(b[1]) - key(a[1]));
-    const n = list.length, shown = list.slice(0, f.n);
-    const rows = shown.map(([id, p]) => { const tr = tier(p.o), tm = team(p.t);
-      return `<tr class="link" data-href="player-${id}"><td class="ovr ${tr[1]}">${p.o}</td><td class="l">${plink(id, p)}${p.inj ? ` <span class="pill inj">INJ</span>` : ''}${p.rk === D.season ? ` <span class="pill rk">${t.rookie}</span>` : ''}</td><td class="l">${tm ? `<a class="tn" href="#team-${esc(tm.code)}">${logo(tm)}<span>${esc(tm.code)}</span></a>` : `<span class="pill fa">FA</span>`}</td><td class="l">${esc(p.pos)}</td><td class="num">${p.age}</td><td class="num dim">${esc(p.pot)}</td><td class="num">${f1(pg(p, 'pts'))}</td><td class="num">${f1(pg(p, 'reb'))}</td><td class="num">${f1(pg(p, 'ast'))}</td><td class="num">${p.sal ? money(p.sal) : p.dem ? `<span class="dim">${money(p.dem)}</span>` : '-'}</td></tr>`; }).join('');
-    return `<p class="dim" style="margin:0;font-size:13px">${n} ${t.results}</p><div class="scroll"><table><thead><tr><th>${ab('OVR')}</th><th class="l">${t.name}</th><th class="l">${t.team}</th><th class="l">${t.pos}</th><th>${t.age}</th><th>${ab('POT')}</th><th>${ab('PTS')}</th><th>${ab('REB')}</th><th>${ab('AST')}</th><th>${ab(t.contract, 'CONTRACT')}</th></tr></thead><tbody>${rows}</tbody></table></div>${n > f.n ? `<button class="more" id="pmore" type="button">${t.showMore} (${n - f.n})</button>` : ''}`;
-  }
-  function bindPlayers() {
-    const draw = () => { $('plist').innerHTML = plistHtml(); $('plist').querySelectorAll('tr[data-href]').forEach(tr => tr.addEventListener('click', (e) => { if (!e.target.closest('a')) location.hash = tr.dataset.href; })); const m = $('pmore'); if (m) m.addEventListener('click', () => { ST.pf.n += 60; draw(); }); };
-    $('pq').addEventListener('input', (e) => { ST.pf.q = e.target.value; ST.pf.n = 60; draw(); });
-    $('pt').addEventListener('change', (e) => { ST.pf.t = e.target.value; ST.pf.n = 60; draw(); });
-    $('pp').addEventListener('change', (e) => { ST.pf.p = e.target.value; ST.pf.n = 60; draw(); });
-    $('ps').addEventListener('change', (e) => { ST.pf.s = e.target.value; draw(); });
-    draw();
-  }
-  function archLine(p) {
-    const D = ST.D, t = T(); if (!p.ar || !D.arch) return '';
-    const a = p.ar.map(k => D.arch[k] ? abD(D.arch[k][0], D.arch[k][1]) : '').filter(Boolean).join(' · ');
-    const r = p.ro && D.obr && D.obr[p.ro] ? `<span class="dim"> · ${esc(t.role)} </span>${abD(D.obr[p.ro][0], D.obr[p.ro][1])}` : '';
-    return `<p class="arch">${a}${r}</p>`;
-  }
-  function tendGroups(p) {
-    const D = ST.D, idx = {}; D.tend.forEach((x, i) => (idx[x[0]] = i));
-    return D.tgrp.map(([g, gn]) => `<div class="ag"><h3><span>${esc(gn)}</span></h3>${D.tend.filter(x => x[1] === g).map(([k, , n, d]) => { const v = p.tn[idx[k]];
-      return `<div class="ar"><span>${abD(n, d)}</span><i><b class="b${ac(v)}" style="width:${v}%"></b></i><em class="c${ac(v)}">${v}</em></div>`; }).join('')}</div>`).join('');
-  }
-  function vPlayer(id) {
-    const D = ST.D, t = T(), p = D.players[id]; if (!p) return `<p class="empty">${t.noPlayer}</p>`;
-    const tm = team(p.t), [tn, tcls, tcol] = tier(p.o), s = sv(p), g = s.gp || 0, dsc = D.dsc || { play: {}, pers: {}, pa: {}, sig: {} };
-    const durTxt = (v) => v == null ? '' : ST.lang === 'ko' ? (v >= 80 ? '부상을 잘 견뎌요. 잘 다치지 않는 몸이에요.' : v >= 60 ? '보통 수준의 내구성이에요.' : '부상 위험이 높은 편이에요.') : (v >= 80 ? 'Rarely gets hurt.' : v >= 60 ? 'Average durability.' : 'Injury-prone.');
-    const conTxt = (q) => ST.lang === 'ko' ? `연봉 ${money(q.sal)}, 계약 ${q.yrs}년 남음.${D.cap ? ` 팀 샐러리캡(${money(D.cap)})의 ${Math.round(q.sal / D.cap * 100)}%예요.` : ''}` : `${money(q.sal)} a year, ${q.yrs} year${q.yrs > 1 ? 's' : ''} left.${D.cap ? ` ${Math.round(q.sal / D.cap * 100)}% of the ${money(D.cap)} cap.` : ''}`;
-    const bar = ([k, n]) => { const v = p.r[k]; return `<div class="barr"><span>${abA(n, k)}</span><i><b class="b${ac(v)}" style="width:${v}%"></b></i><em class="c${ac(v)}">${v}</em></div>`; };
-    const chips = [p.rk === D.season ? t.rookie : '', p.imp ? t.import : '', p.fan ? `${t.fanPick} · ${p.fan}` : '', p.inj ? `${t.inj}: ${p.inj.k} (${p.inj.g} ${t.games})` : ''].filter(Boolean);
-    const face = `<div class="face" style="--tc:${tm ? tm.c : '#3a4560'};--tier:${tcol}"><div class="top"><div class="o ${tcls}">${p.o}<small>${ab('OVR')} · ${ab('POT')} ${esc(p.pot)}</small></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">${tm ? logo(tm, 1) : ''}<span class="tier">${ab(tn)}</span></div></div>
-      <div><p class="eyebrow" style="color:var(--fg)">#${p.no} · ${esc(p.pos)} · ${tm ? esc(tm.code) : 'FA'}</p><h1>${esc(p.n)}</h1><p class="dim" style="margin:4px 0 0">${p.age}${ST.lang === 'ko' ? '세' : ' yrs'} · ${p.ht}cm${tm ? ` · ${tlink(tm)}` : ''}</p>${archLine(p)}</div>
-      ${chips.length ? `<div class="chips">${chips.map(c => `<span>${esc(c)}</span>`).join('')}</div>` : ''}
-      <div class="bars">${D.rnames.map(bar).join('')}</div>
-      <dl class="kv"><dt>${abD(t.style, GL[ST.lang].STYLE)}</dt><dd>${abD(p.play || '-', dsc.play[p.play])}</dd><dt>${abD(t.pers, GL[ST.lang].PERS)}</dt><dd>${abD(p.pers || '-', dsc.pers[p.pers])}</dd>${p.pa ? `<dt>${abD(t.persona, GL[ST.lang].PERSONA)}</dt><dd>${abD(p.pa, dsc.pa[p.pa])}</dd>` : ''}${p.rel ? `<dt>${esc(t.rel)}</dt><dd>${abD(String(p.rel), ST.lang === 'ko' ? '슛을 얼마나 빨리 놓나. 빠를수록 블록당하기 어려워요.' : 'How quickly he gets the shot off. Faster is harder to block.')} · ${p.hand === 'L' ? t.lefty : t.righty}</dd>` : ''}<dt>${abA(t.dur, 'dur')}</dt><dd>${abD(String(p.dur ?? '-'), durTxt(p.dur), t.dur)}</dd><dt>${abD(t.contract, GL[ST.lang].CONTRACT)}</dt><dd>${p.sal ? abD(`${money(p.sal)} × ${p.yrs}${t.yrs}`, conTxt(p), t.contract) : p.dem ? abD(`${t.demand} ${money(p.dem)}`, GL[ST.lang].DEMAND, t.demand) : '-'}</dd>${p.sig && p.sig.length ? `<dt>${abD(t.sigs, GL[ST.lang].SIGS)}</dt><dd>${p.sig.map(n => abD(n, dsc.sig[n])).join(' · ')}</dd>` : ''}${(p.aw && p.aw.length) || p.ring ? `<dt>${t.awards}</dt><dd>${[...(p.ring ? [abD(`${t.ring}${p.ring > 1 ? ' ×' + p.ring : ''}`, AWD[ST.lang].RING, t.ring)] : []), ...(p.aw || []).map(([k, v]) => awTip(k, v))].join(' · ')}</dd>` : ''}</dl></div>`;
-    const groups = D.cats.map(([c, cn]) => { const rows = D.attrs.map((a, i) => [a, p.a[i]]).filter(([a]) => a[1] === c);
-      return `<div class="ag"><h3><span>${abA(cn, c)}</span><span class="c${ac(p.r[c])}">${p.r[c]}</span></h3>${rows.map(([a, v]) => `<div class="ar"><span>${abA(a[2], a[0])}</span><i><b class="b${ac(v)}" style="width:${v}%"></b></i><em class="c${ac(v)}">${v}</em></div>`).join('')}</div>`; }).join('');
-    const line = g ? [[f1(s.pts / g), 'PTS'], [f1(s.reb / g), 'REB'], [f1(s.ast / g), 'AST'], [f1(s.stl / g), 'STL'], [f1(s.blk / g), 'BLK'], [f1(s.tov / g), 'TOV'], [pct(s.fgm, s.fga), 'FG%'], [pct(s.tpm, s.tpa), '3P%'], [pct(s.ftm, s.fta), 'FT%'], [f1(s.min / 60 / g), 'MIN'], [g, 'GP']] : null;
-    const hi = p.hi ? Object.entries(p.hi).map(([k, v]) => `<div><b>${v}</b><span>${ab(k.toUpperCase())}</span></div>`).join('') : '';
-    const cr = p.cr && p.cr.gp ? `<div class="statline"><div><b>${p.cr.seasons || 0}</b><span>${ab('SEASONS')}</span></div><div><b>${p.cr.gp}</b><span>${ab('GP')}</span></div><div><b>${p.cr.pts}</b><span>${ab('PTS')}</span></div><div><b>${f1(p.cr.pts / p.cr.gp)}</b><span>${ab('PPG')}</span></div></div>` : '';
-    return `<div class="pcard">${face}<div style="display:flex;flex-direction:column;gap:22px;min-width:0">
-      ${panel(t.attrs, `<div class="attrs">${groups}</div>`)}
-      ${p.tn && D.tend ? panel(t.tend, `<p class="dim" style="margin:-4px 0 10px;font-size:13px">${esc(t.tendNote)}</p><div class="attrs">${tendGroups(p)}</div>`) : ''}
-      ${panel(`${t.stats} · ${t.perGame}`, line ? `<div class="statline">${line.map(([v, k]) => `<div><b>${v}</b><span>${ab(k)}</span></div>`).join('')}</div>` : `<p class="empty">${t.noData}</p>`)}
-      ${hi ? panel(t.highs, `<div class="statline">${hi}</div>`) : ''}${cr ? panel(t.career, cr) : ''}</div></div>`;
-  }
-  function vLeaders() {
-    const t = T(), cats = [['pts', 'PTS'], ['reb', 'REB'], ['ast', 'AST'], ['stl', 'STL'], ['blk', 'BLK'], ['tpm', '3PM'], ['fg', 'FG%', 1, 6], ['tp', '3P%', 1, 2.5]];
-    return `<h1>${t.leaderTitle}</h1><p class="dim" style="margin:-10px 0 0">${t.minGp}</p><div class="grid3">${cats.map(([k, n, pm, min]) => panel(ab(n), leadList(leaders(k, 10, min), pm))).join('')}</div>`;
-  }
-  function vHistory() {
-    const D = ST.D, t = T();
-    const ch = (D.champs || []).map(c => `<tr><td class="num">${c.s}</td><td class="l">${teamBy(c.code) ? tlink(teamBy(c.code)) : esc(c.c)}</td><td class="l dim">${esc(c.mvp)}</td></tr>`).join('');
-    const hof = (D.hof || []).map(h => `<tr><td class="num">${h.s}</td><td class="l"><b>${esc(h.n)}</b> <span class="dim">${esc(h.pos)}</span></td><td class="l">${team(h.t) ? tlink(team(h.t)) : ''}</td><td class="num">${h.no != null ? '#' + h.no : ''}</td><td class="l dim">${esc(h.line)}</td></tr>`).join('');
-    const ret = D.teams.flatMap(x => (x.ret || []).map(r => `<tr><td class="l">${tlink(x)}</td><td class="num">#${r.no}</td><td class="l">${esc(r.n)}</td></tr>`)).join('');
-    const x3 = (D.x3 || []).map(x => `<tr><td class="num">${x.s}</td><td class="l">${teamBy(x.c) ? tlink(teamBy(x.c)) : esc(x.c)}</td><td class="l dim">MVP ${esc(x.mvp)}</td></tr>`).join('');
-    const fans = (D.fanTop || []).map((f, i) => `<div class="lead"><span class="r">${i + 1}</span><span>${esc(f.n)} <small>${esc(f.c)}</small></span><b>${f.p}</b></div>`).join('');
-    const tb = (head, body) => body ? `<div class="scroll"><table><tbody>${body}</tbody></table></div>` : `<p class="empty">${t.noData}</p>`;
-    return `<h1>${t.history}</h1><div class="grid2">${panel(t.champs, tb('', ch))}${panel(t.hof, tb('', hof))}</div><div class="grid3">${panel(t.retired, tb('', ret))}${panel(t.x3, tb('', x3))}${panel(t.fanTop, fans || `<p class="empty">${t.noData}</p>`)}</div>`;
-  }
-  function vJoin() {
-    const t = T();
-    return `<h1>${t.joinTitle}</h1><p class="dim" style="margin:-8px 0 0;max-width:65ch">${t.joinLead}</p>${panel('CHAT', `<div class="cmds">${t.cmds.map(([c, d]) => `<div class="cmd"><code>${esc(c)}</code><span>${esc(d)}</span></div>`).join('')}</div>`)}
-      <p><a class="live" href="https://www.youtube.com/@PickupIsland247/live" target="_blank" rel="noopener">${t.live}</a></p>`;
-  }
-  const tip = $('tip');
-  const showTip = (el) => { tip.innerHTML = `<b>${esc(el.dataset.tk || '')}</b>${esc(el.dataset.tip)}`; tip.hidden = false;
-    const r = el.getBoundingClientRect(), tw = tip.offsetWidth, th = tip.offsetHeight;
-    let x = Math.min(Math.max(8, r.left + r.width / 2 - tw / 2), innerWidth - tw - 8), y = r.top - th - 8; if (y < 8) y = r.bottom + 8;
-    tip.style.left = x + 'px'; tip.style.top = y + 'px'; };
-  const hideTip = () => { tip.hidden = true; };
-  document.addEventListener('mouseover', (e) => { const el = e.target.closest('abbr[data-tip]'); if (el) showTip(el); else hideTip(); });
-  document.addEventListener('focusin', (e) => { const el = e.target.closest('abbr[data-tip]'); if (el) showTip(el); });
-  document.addEventListener('focusout', hideTip);
-  document.addEventListener('click', (e) => { const el = e.target.closest('abbr[data-tip]'); if (el) { e.stopPropagation(); showTip(el); } else hideTip(); }, true);
-  addEventListener('scroll', hideTip, { passive: true });
-  async function boot() {
-    try { await load(); } catch (e) { ST.D = null; }
-    render();
-  }
-  document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', async () => { ST.lang = b.dataset.lang; try { localStorage.setItem('pil-db-lang', ST.lang); } catch (e) {} await boot(); }));
-  addEventListener('hashchange', () => { render(); scrollTo(0, 0); });
-  setInterval(async () => { const prev = ST.D && ST.D.at; ST.loaded = ''; ST.base = null; try { await load(); } catch (e) {} if (ST.D && ST.D.at !== prev && !document.activeElement.matches('input,select')) render(); else chrome(); }, 120000);
-  boot();
-})();
-</script>
+<section id="about" style="max-width: 1200px; margin: 0 auto; padding: 88px 24px 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #46d0c4">ABOUT</p>
+<h2 style="margin: 0; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 34px; line-height: 1.2">A season that never ends</h2>
+<p style="margin: 0; color: #c6cde0">Pickup Island League is a fictional pro league played on courts all over the island. Every player is a 3D pixel model on the floor, and nothing is scripted: the game engine decides every possession as it happens.</p>
+<p style="margin: 0; color: #c6cde0">Two AI commentators call it live, big plays come back in slow-motion replays and highlight Shorts. When a season ends there is an awards night, retirements and the Hall of Fame, the draft and free agency, and then the next season tips off.</p>
+</div>
+<figure style="flex: 1 1 520px; min-width: 0; margin: 0; border: 1px solid #26304d">
+<img src="assets/dunk-replay.jpg" alt="Slow-motion replay of a tomahawk dunk with the analyst's caption" style="display: block; width: 100%; height: auto">
+<figcaption style="padding: 10px 14px; font-size: 14px; color: #a3adc6; background: #121a31">Big plays come back from another camera angle.</figcaption>
+</figure>
+</section>
 
+<section id="features" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #46d0c4">FEATURES</p>
+<h2 style="margin: 0; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 34px; line-height: 1.2">The story beyond the box score</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px">
+<article style="background: #121a31; border: 1px solid #26304d; padding: 24px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Silkscreen', monospace; color: #e8703a; font-size: 15px">01</span><h3 style="margin: 0; font-size: 20px">A real basketball engine</h3><p style="margin: 0; color: #a3adc6">Real pro rules, with shooting by zone tuned to real pro game numbers. Tip-ins, tap dunks, floor dives and blocks that start the break all happen.</p></article>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 24px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Silkscreen', monospace; color: #e8703a; font-size: 15px">02</span><h3 style="margin: 0; font-size: 20px">The front office, on stage</h3><p style="margin: 0; color: #a3adc6">Draft night, the trade desk and free-agent signings play out on a 3D stage, with players walking out in their new uniforms.</p></article>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 24px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Silkscreen', monospace; color: #e8703a; font-size: 15px">03</span><h3 style="margin: 0; font-size: 20px">37 ratings · 36 tendencies</h3><p style="margin: 0; color: #a3adc6">Three-point shooting, post hooks, pass vision, screening, off-ball movement. On top of that, 36 habits like three-point taste, drives and lane gambling make two players with the same OVR play nothing alike. Speed fades early while shooting touch keeps improving into the thirties.</p></article>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 24px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Silkscreen', monospace; color: #e8703a; font-size: 15px">04</span><h3 style="margin: 0; font-size: 20px">History that builds up</h3><p style="margin: 0; color: #a3adc6">Trade rumors swirl and come true, struggling coaches get fired, retired stars enter the Hall of Fame and their numbers go to the rafters.</p></article>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 24px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Silkscreen', monospace; color: #e8703a; font-size: 15px">05</span><h3 style="margin: 0; font-size: 20px">An AI broadcast booth</h3><p style="margin: 0; color: #a3adc6">A play-by-play voice and an analyst call scoring runs, records, rivalries and the moments that decide the game. Separate English, Korean, Japanese and Chinese broadcasts.</p></article>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 24px; display: flex; flex-direction: column; gap: 10px"><span style="font-family: 'Silkscreen', monospace; color: #e8703a; font-size: 15px">06</span><h3 style="margin: 0; font-size: 20px">Viewers are in the league</h3><p style="margin: 0; color: #a3adc6">Join a club, put your own rookie in the draft, and climb the season fan leaderboard.</p></article>
+</div>
+</section>
+
+<section aria-labelledby="office-h" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #46d0c4">FRONT OFFICE</p>
+<h2 id="office-h" style="margin: 0; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 34px; line-height: 1.2">The league keeps moving between games</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px">
+<figure style="margin: 0; border: 1px solid #26304d; background: #121a31"><img src="assets/draft-night.png" alt="Draft stage: the pick stands next to the commissioner, draft board on the right" style="display: block; width: 100%; height: auto"><figcaption style="padding: 12px 14px; display: flex; flex-direction: column; gap: 2px"><b>Draft night</b><span style="color: #a3adc6; font-size: 14px">On the clock, the pick, the handshake, the pose.</span></figcaption></figure>
+<figure style="margin: 0; border: 1px solid #26304d; background: #121a31"><img src="assets/trade-desk.png" alt="Trade stage: players from both clubs crossed over to their new sides" style="display: block; width: 100%; height: auto"><figcaption style="padding: 12px 14px; display: flex; flex-direction: column; gap: 2px"><b>Trade desk</b><span style="color: #a3adc6; font-size: 14px">Jerseys swap at center stage, then the grades come in.</span></figcaption></figure>
+<figure style="margin: 0; border: 1px solid #26304d; background: #121a31"><img src="assets/fa-live.png" alt="A free agent raises both arms in his new team's uniform after signing" style="display: block; width: 100%; height: auto"><figcaption style="padding: 12px 14px; display: flex; flex-direction: column; gap: 2px"><b>Free agency live</b><span style="color: #a3adc6; font-size: 14px">Every day's signings, as they happen.</span></figcaption></figure>
+</div>
+</section>
+
+<section aria-labelledby="card-h" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
+<figure style="flex: 1 1 560px; min-width: 0; margin: 0; border: 1px solid #26304d"><img src="assets/player-card-en.png" alt="Player card front and back: OVR and rating bars on the front, all 35 attributes on the back" style="display: block; width: 100%; height: auto"></figure>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #46d0c4">PLAYER CARDS</p>
+<h2 id="card-h" style="margin: 0; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 34px; line-height: 1.2">Cards like a video game</h2>
+<p style="margin: 0; color: #c6cde0">The front shows OVR, position, potential, tier, season stats and contract. Flip it for all 37 ratings across shooting, inside, playmaking, defense, rebounding and athleticism, and once more for the 36 tendencies and off-ball role.</p>
+<p style="margin: 0; color: #c6cde0">On the broadcast, a card appears with every pick, trade and signing, then flips a few seconds later.</p>
+</div>
+</section>
+
+<section id="join" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+<div style="flex: 1 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #46d0c4">JOIN THE LEAGUE</p>
+<h2 style="margin: 0; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 34px; line-height: 1.2">Get into the league from chat</h2>
+<p style="margin: 0; display: flex; align-items: center; gap: 10px; color: #c6cde0"><span style="background: #2a3554; color: #f2b630; font-family: 'IBM Plex Mono', monospace; font-size: 12px; padding: 3px 8px">COMING SOON</span>Live chat integration is on the way.</p>
+<dl style="margin: 0; display: grid; gap: 12px">
+<div style="background: #121a31; border: 1px solid #26304d; padding: 16px 18px"><dt style="font-family: 'IBM Plex Mono', monospace; color: #f2b630; font-size: 16px">!join TEAM</dt><dd style="margin: 6px 0 0; color: #a3adc6">Pick your club. When it wins your name shows on screen; every win is +3 and chatting during a live game is +1 on the season fan leaderboard.</dd></div>
+<div style="background: #121a31; border: 1px solid #26304d; padding: 16px 18px"><dt style="font-family: 'IBM Plex Mono', monospace; color: #f2b630; font-size: 16px">!draft NAME</dt><dd style="margin: 6px 0 0; color: #a3adc6">Spend 30 prediction points and a rookie with the name you choose joins the next draft pool (two per season). If he is picked, his card carries a FAN-MADE badge.</dd></div>
+<div style="background: #121a31; border: 1px solid #26304d; padding: 16px 18px"><dt style="font-family: 'IBM Plex Mono', monospace; color: #f2b630; font-size: 16px">!card player name &nbsp;/&nbsp; !teaminfo CODE</dt><dd style="margin: 6px 0 0; color: #a3adc6">Puts a player card (all 37 ratings and 36 tendencies) or a team panel (roster, coach, tactics, payroll) on stream for 10 seconds. One request per person every 45 seconds, up to 4 in line.</dd></div>
+<div style="background: #121a31; border: 1px solid #26304d; padding: 16px 18px"><dt style="font-family: 'IBM Plex Mono', monospace; color: #f2b630; font-size: 16px">Super Chat · Memberships</dt><dd style="margin: 6px 0 0; color: #a3adc6">Super Chat messages go on the halftime shoutout board and rookie entries jump the queue. Use <span style="font-family: 'IBM Plex Mono', monospace; color: #eef0f6">!nick TEAM NAME</span> to give a club its nickname for the season.</dd></div>
+</dl>
+</div>
+<figure style="flex: 1 1 520px; min-width: 0; margin: 0; border: 1px solid #26304d"><img src="assets/fan-ranking.png" alt="Season fan leaderboard shown on the stage video wall" style="display: block; width: 100%; height: auto"><figcaption style="padding: 10px 14px; font-size: 14px; color: #a3adc6; background: #121a31">The season fan leaderboard gets its own segment on the stage.</figcaption></figure>
+</section>
+
+<section id="patch" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 72px; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #46d0c4">PATCH NOTES</p>
+<h2 style="margin: 0; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 34px; line-height: 1.2">Patch notes</h2>
+</div>
+
+<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v95</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">LATEST</span><span style="color: #a3adc6; font-size: 15px">Oct 28, 2026 · Fast breaks and turnovers</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">More fast breaks</b>: teams run off defensive rebounds more often, and players who leaked out become the first runners. About 12% of points now come before the defense is set, in line with real pro games.</li>
+<li><b style="color: #eef0f6">Fewer moving-screen calls</b>: with more screens being set, illegal screens were called far too often. They are down by more than half, and good screeners get called less.</li>
+<li><b style="color: #eef0f6">Fewer three-second calls</b>: players in the dunker spot now wait just outside the lane.</li>
+<li><b style="color: #eef0f6">Box-score balance</b>: re-measured over 54 games. Turnovers, steals, fouls and shooting efficiency sit closer to real pro numbers.</li>
+<li><b style="color: #eef0f6">Language picker</b>: the rulebook name is gone from the language descriptions.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v94</h3><span style="color: #a3adc6; font-size: 15px">Oct 28, 2026 · Every player plays his own game</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">36 tendencies</b>: every player now has 36 habits across shot selection, creating, passing, off-ball play and defense, and the AI reads them on every decision. A high three-point taste means more threes; a lane gambler jumps passes and sometimes gets burned.</li>
+<li><b style="color: #eef0f6">Two new ratings</b>: off-ball movement and screening. Solid screens hold defenders longer; good movers find open space. Release speed and shooting hand now show on the card.</li>
+<li><b style="color: #eef0f6">Nine off-ball roles</b>: corner spacer, spot-up shooter, movement shooter, cutter, dunker spot, post anchor, high-post hub, pop big and transition runner. Where a player stands without the ball depends on his role.</li>
+<li><b style="color: #eef0f6">19 player types</b>: labels like floor general, 3&amp;D and rim protector appear on the card and the league site, and the commentators bring them up.</li>
+<li><b style="color: #eef0f6">Pick-and-roll</b>: bigs who can shoot pop to the arc instead of rolling, and handlers sometimes reject the screen and go the other way.</li>
+<li><b style="color: #eef0f6">Six new signature moves</b>: hesitation, between-the-legs combo, half hook, trailer three, slap steal and outlet pass. Some players learn a new move over the summer.</li>
+<li><b style="color: #eef0f6">Habits that change</b>: after a season of made threes a player shoots more of them, and after a cold season fewer. Assists and field-goal percentage carry over the same way.</li>
+<li><b style="color: #eef0f6">Transition defense fix</b>: defenders no longer leave the ball handler open while hunting for their usual matchup. The closest defender between the ball and the rim picks him up first.</li>
+<li><b style="color: #eef0f6">Three-sided cards</b>: click a player to flip between the front, the full ratings and the tendencies. <code>!card</code> in chat shows the tendencies too.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v93</h3><span style="color: #a3adc6; font-size: 15px">Oct 28, 2026 · Defense and off-ball movement</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">Knocked-down bug fixed</b>: A player who fell once stayed "on the floor" for the rest of the game as far as the AI was concerned, so he never helped on defense, got back in transition or chased loose balls. Fixed.</li>
+<li><b style="color: #eef0f6">Transition defense</b>: The first man back protects the rim and the next one stops the ball. No more defenders running past the ball handler to pick up someone else.</li>
+<li><b style="color: #eef0f6">Paint defense</b>: The closer a man is to the rim, the tighter he is guarded, and cutters get chased all the way. Unguarded players near the basket are far rarer.</li>
+<li><b style="color: #eef0f6">Zone defense</b>: Zone used to cover over a third of half-court possessions. It is now an occasional change-up, as in real pro basketball.</li>
+<li><b style="color: #eef0f6">Pass types</b>: Bounce passes are for short range. A long pass with a hand in the lane goes over the top.</li>
+<li><b style="color: #eef0f6">Off-ball movement</b>: Players cut into an empty paint, flash into gaps at the elbows, high post and short corners, and come to meet a handler who is stuck. They also reposition more often.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v91</h3><span style="color: #a3adc6; font-size: 15px">Oct 28, 2026 · Coaches matter</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">Coach ratings</b>: Every coach now has offense, defense, development and leadership ratings. Offense and defense nudge shooting percentages, development speeds up players 24 and under, and leadership softens morale drops after losses. Small effects, like in real pro basketball, that add up over a season.</li>
+<li><b style="color: #eef0f6">Coaching styles</b>: Up-tempo, defense-first, three-point and motion coaches lean the automatic game plan their way.</li>
+<li><b style="color: #eef0f6">Coaching careers</b>: Career record, titles and previous jobs are tracked. Fired coaches wait in the coaching market and can be hired again by another club.</li>
+<li><b style="color: #eef0f6">Prediction points</b>: Call a game right before tip-off for +10, or +2 just for playing. Naming a rookie with !draft costs 30 points, up to two per season. Members and Super Chats skip the cost. Check your balance with !me.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v90</h3><span style="color: #a3adc6; font-size: 15px">Oct 28, 2026 · Cards in the front office</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">Side card</b>: Click any player on the roster, free agency, draft, trade or records screens and his card opens large in the space to the right. Click the card or "35 ratings" to flip it. On narrow screens it still opens as a pop-up.</li>
+<li><b style="color: #eef0f6">Award history</b>: Hover an award on a card to see which seasons he won it.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v89</h3><span style="color: #a3adc6; font-size: 15px">Oct 28, 2026 · Look it up yourself</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">Chat card requests</b>: Type !card and a player name in chat and his card appears on stream, flipping after 5 seconds to show all 35 ratings. !teaminfo CODE shows the roster, coach, tactics and payroll.</li>
+<li><b style="color: #eef0f6">League database site</b>: The broadcast now exports the league every round. A public site with standings, team pages, player search with all 35 ratings, leaders, champions and the Hall of Fame is on the way. Hover any stat abbreviation or rating name there to see what it means.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v88</h3><span style="color: #a3adc6; font-size: 15px">Oct 28, 2026 · Special games and weekly shows</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">Rising Stars</b>: Mid-season, just before the All-Star weekend, the rookies take on the sophomores live. The Rising Stars MVP goes on the player card.</li>
+<li><b style="color: #eef0f6">3x3 Challenge</b>: Late in the season the top four teams send three players each to a half-court tournament. Semifinal results are shown, and the final is played live to 21.</li>
+<li><b style="color: #eef0f6">Rain Classic</b>: Once a year, one regular-season game is played on a rainy night in throwback uniforms.</li>
+<li><b style="color: #eef0f6">Big Match of the Week</b>: The best matchup a few rounds ahead gets its own promo, with an estimated start time in Korea and US Eastern time, shown in the ticker and on the pre-game card.</li>
+<li><b style="color: #eef0f6">Weekly league recap</b>: Every 7 rounds: three players of the week, the hottest and coldest teams, the biggest upset and the highest-scoring game.</li>
+<li><b style="color: #eef0f6">Weekly long-form highlights</b>: Up to 12 of the week's best shorts are stitched into one 1920×1080 video on the Mac mini, with an intro card, a standings card and a description with YouTube chapters.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v87</h3><span style="color: #a3adc6; font-size: 15px">Oct 28, 2026 · The league starts telling stories</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">Trade rumors</b>: a rumor hits first, then a few rounds later the deal happens or falls apart. Heat (%) and rounds to the deadline are shown, and the trade desk calls back to the rumor when it comes true.</li>
+<li><b style="color: #eef0f6">Coaches</b>: every club now has a head coach. Coaches who fall well short of their roster get fired midseason and an interim takes over; new hires get an offseason press conference.</li>
+<li><b style="color: #eef0f6">Hall of Fame and retired numbers</b>: retired stars get an induction ceremony and their jersey banner rises to the rafters. That number is never worn again by that club.</li>
+<li><b style="color: #eef0f6">This day in league history</b>: past champions, blockbuster trades, records and fan MVPs between games.</li>
+<li><b style="color: #eef0f6">Fan features</b>: the !join command, a season fan leaderboard and fan MVP, halftime shoutouts, and Super Chat team nicknames.</li>
+<li><b style="color: #eef0f6">Scramble plays</b>: tap dunks, tip drills, rebound tip-outs, deflected passes, saves from out of bounds, blocks kept in play, over-the-back fouls, lane violations, alley-oop tip-ins, passes from the floor and steal-and-score finishes.</li>
+<li><b style="color: #eef0f6">Fix</b>: player minutes ran 0.2% longer than the game clock.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v86</h3><span style="color: #a3adc6; font-size: 15px">Oct 28, 2026 · 35 attributes</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li>Player ratings go from 6 to 35 attributes. Threes use the three-point rating, free throws the free-throw rating, and stamina drives fatigue.</li>
+<li>Age curves: speed and vertical decline from the late twenties, while shot IQ and pass IQ keep rising into the early thirties.</li>
+<li>Offensive and defensive consistency set each night's form, so streaky players have hot and cold nights.</li>
+<li>Player cards flip to show all 35 attributes, and the GM screens have a card button on every player.</li>
+<li>Shooting re-tuned to real pro numbers; existing saves convert automatically.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v85</h3><span style="color: #a3adc6; font-size: 15px">Oct 28, 2026 · The front office in 3D</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li>The draft, trades, free agency, the transaction wire and the trade deadline are now 3D stage scenes, with a video wall, lights, confetti and a draft board.</li>
+<li>Game-style player cards: OVR, tier, ratings, play style, signature moves, season stats, contract and awards.</li>
+<li>Viewer rookies: !draft NAME in chat enters the draft pool. Super Chats get priority, and new members get a welcome banner.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v84</h3><span style="color: #a3adc6; font-size: 15px">Broadcast and fairness</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li>Regular-season and playoff stats are now tracked separately.</li>
+<li>Shooting calibrated to real pro levels.</li>
+<li>Fixed free-agency and draft logic that favored the featured club; a 60-season simulation confirmed it wins titles as often as anyone else.</li>
+<li>Added live free-agency coverage and a transaction wire segment.</li>
+<li>Two male commentators, more excitement on big buckets, and sharper English calls.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v83</h3><span style="color: #a3adc6; font-size: 15px">Rules accuracy</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li>14-second reset after offensive rebounds, team-foul bonus, overtime length and overtime timeouts now follow each league's rules.</li>
+<li>Held balls go to a jump ball in the global league and to the possession arrow under international rules.</li>
+<li>Missed shots on shooting fouls no longer count as field-goal attempts.</li>
+<li>Fixed foul-out substitutions, injured-player subs, and replays showing plays from other games.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v82</h3><span style="color: #a3adc6; font-size: 15px">Backcourt calls</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li>A ball knocked into the backcourt on a steal attempt and recovered by the offense was wrongly called a backcourt violation. Balls last touched by the defense, and rebounds, are now legal.</li>
+</ul>
+</article>
+</section>
+
+<footer style="border-top: 1px solid #26304d; background: #0e1529">
+<div style="max-width: 1200px; margin: 0 auto; padding: 36px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; color: #a3adc6; font-size: 14px">
+<span style="font-family: 'Silkscreen', monospace; color: #eef0f6">PICKUP ISLAND LEAGUE</span>
+<span>A fictional league. Every club, player and record is generated in the game.</span>
+<span style="display: flex; flex-wrap: wrap; gap: 6px 18px"><a href="db/">League DB</a><a href="https://www.youtube.com/@PickupIsland247">YouTube @PickupIsland247</a></span>
+</div>
+</footer>
+</div>
 </body>
 </html>
