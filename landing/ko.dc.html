@@ -127,7 +127,20 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 </div>
 
 <article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v97</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.10.28 · 경기 중에 배우는 수비</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v98</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.10.29 · 기대 득점으로 판단하는 선수들</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">새 판단 방식</b>: 공을 가진 선수가 정해진 순서의 규칙 대신, 슛·돌파·동료마다의 패스·픽앤롤·포스트업·드리블 무브·페이크·볼 돌리기를 모두 "이걸 하면 몇 점이 기대되나"로 계산해서 골라요. 능력치가 기대 득점을 정하고, 성향이 그 위에 취향을 더해요.</li>
+<li><b style="color: #eef0f6">농구 IQ가 판단력이 돼요</b>: 패스 IQ와 슛 IQ가 높은 선수는 가장 좋은 선택을 꾸준히 고르고, 낮은 선수는 가끔 엉뚱한 선택을 해요. 지치면 판단이 조금 흐려져요.</li>
+<li><b style="color: #eef0f6">시간에 따라 바뀌는 판단</b>: 샷클락이 넉넉하면 더 좋은 기회를 찾고, 줄어들수록 덜 좋은 슛도 던져요. 패스는 가로채일 위험과 받는 선수가 바로 쏠 수 있는지까지 따져요.</li>
+<li><b style="color: #eef0f6">공 없는 선수</b>: 정해진 자리 대신 "여기서 받으면 몇 점짜리 슛이 나오나"가 높은 곳으로 움직이고, 돌파하는 동료의 길은 비워 줘요.</li>
+<li><b style="color: #eef0f6">수비</b>: 슛이 약한 선수는 떨어져서 막고 슈터에게는 붙어요. 도움 수비는 가장 덜 위험한 선수를 버리고 가고, 마무리가 좋은 돌파일수록 더 적극적으로 도와요. 로테이션도 덜 위험한 선수를 맡은 수비수가 움직여요.</li>
+<li><b style="color: #eef0f6">자동 튜닝</b>: 판단 방식의 값들을 수백 경기 시뮬레이션으로 실제 프로 경기 기록에 맞췄어요.</li>
+<li><b style="color: #eef0f6">채팅 명령어 영어 통일</b>: !card, !teaminfo, !join, !draft, !me, 팬 작전 투표 !tempo · !three · !inside · !press. 예전 한글 명령도 계속 받아요.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v97</h3><span style="color: #a3adc6; font-size: 15px">2026.10.28 · 경기 중에 배우는 수비</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">돌파 방향 읽기</b>: 한 선수가 한쪽으로만 계속 돌파하면 수비수가 그쪽으로 미리 서요. 도움 수비 IQ가 높은 수비수일수록 빨리 알아채요. 공격수도 막힌 쪽을 피해 반대로 가는 횟수가 늘어요.</li>
 <li><b style="color: #eef0f6">뜨거운 슈터 마크</b>: 3점을 연달아 넣거나 손이 뜨거운 선수는 수비수가 바짝 붙고, 그 선수를 버리고 도움 수비를 가지 않아요. 중계진도 이 변화를 짚어 줘요.</li>
