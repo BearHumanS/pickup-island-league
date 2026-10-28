@@ -22,11 +22,17 @@ BLOBS = {
 
 PAGES = {
     'en': dict(src='landing/en.dc.html', out='index.html', root='', other='ko/', other_src='Main.dc.html',
-               db='League DB', url=SITE, locale='en_US',
+               db='League DB', url=SITE, locale='en_US', ad_nav='Advertise',
+               ad_kicker='ADVERTISE', ad_h='Put your brand on the court',
+               ad_p='The league runs around the clock, so your ad does too. We offer a one-minute video ad break after every game and team naming sponsorships, sold as prepaid monthly plans. We can also make the video for you.',
+               ad_cta='Email us', ad_label='Ad inquiries',
                title='Pickup Island League — the basketball league that never sleeps',
                desc='A pixel-art basketball league run by AI and streamed live 24/7 on YouTube. 30 teams, 82-game seasons, trades, drafts and playoffs, with live commentary.'),
     'ko': dict(src='landing/ko.dc.html', out='ko/index.html', root='../', other='../', other_src='En.dc.html',
-               db='리그 DB', url=SITE + 'ko/', locale='ko_KR',
+               db='리그 DB', url=SITE + 'ko/', locale='ko_KR', ad_nav='광고 문의',
+               ad_kicker='ADVERTISE', ad_h='코트 위에 브랜드를 올리세요',
+               ad_p='리그가 24시간 돌아가는 만큼 광고도 24시간 나가요. 매 경기 뒤 1분 영상 광고와 구단 이름 스폰서를 월 단위 선불 상품으로 판매해요. 광고 영상이 없으면 저희가 만들어 드릴 수도 있어요.',
+               ad_cta='메일 보내기', ad_label='광고 문의',
                title='Pickup Island League — 꺼지지 않는 픽셀 농구 리그',
                desc='AI가 운영하는 픽셀 농구 리그가 유튜브에서 24시간 생중계돼요. 30개 구단, 82경기 시즌, 트레이드·드래프트·플레이오프와 실시간 중계.'),
 }
@@ -38,6 +44,22 @@ if(['home','standings','teams','team','players','player','leaders','history'].in
 </script>"""
 
 NAV_LINK = '<a href="{href}" style="color: #a3adc6; text-decoration: none">{label}</a>'
+AD_EMAIL = 'admin@marketbrown.biz'
+
+AD_SECTION = '''<section id="advertise" style="border-top: 1px solid #26304d; background: #0e1529">
+<div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px; display: flex; flex-wrap: wrap; gap: 28px 40px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; color: #46d0c4">{ad_kicker}</p>
+<h2 style="margin: 0; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 34px; line-height: 1.2">{ad_h}</h2>
+<p style="margin: 0; max-width: 640px; color: #c6cde0">{ad_p}</p>
+</div>
+<div style="flex: 0 1 auto; display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
+<a href="mailto:{email}?subject=Pickup%20Island%20League%20ads" style="background: #e8703a; color: #10162a; text-decoration: none; font-weight: 700; font-size: 17px; padding: 14px 24px">{ad_cta}</a>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #eef0f6">{email}</span>
+</div>
+</div>
+</section>
+'''
 
 
 def build(lang, p):
@@ -51,10 +73,16 @@ def build(lang, p):
     body = body.replace(f'href="{p["other_src"]}"', f'href="{p["other"]}"')
     # DB link in the top menu (after patch notes) and in the footer
     body = re.sub(r'(<a href="#patch"[^>]*>[^<]*</a>)',
-                  lambda m: m.group(1) + '\n' + NAV_LINK.format(href=p['root'] + 'db/', label=p['db']), body, count=1)
+                  lambda m: m.group(1) + '\n' + NAV_LINK.format(href=p['root'] + 'db/', label=p['db'])
+                  + '\n' + NAV_LINK.format(href='#advertise', label=p['ad_nav']), body, count=1)
     body = body.replace('<a href="https://www.youtube.com/@PickupIsland247">YouTube @PickupIsland247</a>',
                         f'<span style="display: flex; flex-wrap: wrap; gap: 6px 18px"><a href="{p["root"]}db/">{p["db"]}</a>'
+                        f'<a href="mailto:{AD_EMAIL}">{p["ad_label"]} · {AD_EMAIL}</a>'
                         '<a href="https://www.youtube.com/@PickupIsland247">YouTube @PickupIsland247</a></span>', 1)
+    # advertise section just above the footer
+    if body.count('<footer') != 1:
+        raise SystemExit(f'{lang}: expected exactly one <footer> for the advertise section')
+    body = body.replace('<footer', AD_SECTION.format(email=AD_EMAIL, **p) + '\n<footer', 1)
     img = SITE + 'assets/share.jpg'
     head = f'''<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
