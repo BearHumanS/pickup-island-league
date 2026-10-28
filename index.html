@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Pickup Island League DB</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Pickup Island League live database: standings, teams, every player's 35 ratings, leaders and league history, refreshed from the 24/7 broadcast.">
+<meta name="description" content="Pickup Island League live database: standings, teams, every player's 37 ratings and 36 tendencies, leaders and league history, refreshed from the 24/7 broadcast.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -125,6 +125,7 @@ img.lg.big { width: 72px; height: 72px; }
 .barr em { font: 600 13px var(--mono); font-style: normal; text-align: right; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .chips span { font-size: 12px; padding: 2px 8px; background: rgba(0,0,0,.28); border: 1px solid var(--line); }
+.arch { margin: 8px 0 0; font-weight: 700; color: var(--gold); font-size: 14px; }
 .attrs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 14px; }
 .ag { background: var(--panel2); padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
 .ag h3 { display: flex; justify-content: space-between; font: 700 13px var(--pixel); letter-spacing: .03em; padding-bottom: 6px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
@@ -184,10 +185,10 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
       team: '팀', w: '승', l: '패', pct: '승률', gb: '게임차', pf: '득점', pa: '실점', diff: '득실', strk: '연속', ovr: 'OVR', coach: '감독', tactics: '전술', payroll: '연봉 총액', arena: '경기장', fans: '채팅 팬', nick: '팬 별명', retired: '영구결번', roster: '로스터',
       pos: '포지션', name: '이름', age: '나이', ht: '키', pot: 'POT', contract: '계약', inj: '부상', starters: '선발', record: '성적', rank: '순위', interim: '대행',
       search: '선수 이름 검색', allTeams: '모든 팀', allPos: '모든 포지션', fa: 'FA', sortBy: '정렬', showMore: '더 보기', results: '명',
-      ratings: '핵심 능력치', attrs: '세부 능력치 35', stats: '시즌 기록', perGame: '경기당', career: '통산', highs: '시즌 최고', style: '플레이 스타일', ring: '우승 반지', cStyle: '스타일', cOvr: '감독 평가', thisSeason: '이번 시즌', withTeam: '이 팀에서', careerRec: '감독 통산', titles: '우승', cHist: '지난 감독 경력', firstJob: '첫 감독 자리예요.', hFired: '경질', hLeft: '결별', hRetired: '은퇴', pers: '성격', persona: '계약 성향', dur: '내구', sigs: '시그니처 무브', awards: '수상', yrs: '년', demand: '요구 연봉', rookie: '신인', import: '외국인', fanPick: '시청자 지명',
+      ratings: '핵심 능력치', attrs: '세부 능력치 37', tend: '성향 36', arch: '선수 유형', role: '오프볼 역할', rel: '릴리스 속도', hand: '주 손', lefty: '왼손', righty: '오른손', tendNote: '50이 리그 보통이에요. 높을수록 그 행동을 자주 해요.', stats: '시즌 기록', perGame: '경기당', career: '통산', highs: '시즌 최고', style: '플레이 스타일', ring: '우승 반지', cStyle: '스타일', cOvr: '감독 평가', thisSeason: '이번 시즌', withTeam: '이 팀에서', careerRec: '감독 통산', titles: '우승', cHist: '지난 감독 경력', firstJob: '첫 감독 자리예요.', hFired: '경질', hLeft: '결별', hRetired: '은퇴', pers: '성격', persona: '계약 성향', dur: '내구', sigs: '시그니처 무브', awards: '수상', yrs: '년', demand: '요구 연봉', rookie: '신인', import: '외국인', fanPick: '시청자 지명',
       leaderTitle: '부문별 리더', minGp: '경기 수 기준 충족 선수', champs: '역대 우승', hof: '명예의 전당', x3: '3대3 챌린지', fanTop: '시즌 팬 랭킹', noData: '아직 기록이 없어요.',
       joinTitle: '방송에 참여하는 법', joinLead: '유튜브 라이브 채팅에 아래 명령어를 남기면 방송 화면에 바로 반영돼요.', backTo: '목록으로',
-      cmds: [['!카드 선수이름', '그 선수의 카드와 35개 능력치를 방송 화면에 띄워요.'], ['!팀정보 팀코드', '팀 로스터·감독·전술·연봉을 화면에 띄워요.'], ['!응원 팀이름', '응원 팀에 가입하고 팬 포인트를 모아요.'], ['!드래프트 이름', '예측 포인트 30점으로 다음 드래프트에 내가 지은 이름의 신인을 올려요. 시즌당 2명까지.'], ['1 또는 2', '경기 전 승부 예측. 맞히면 예측 포인트 +10, 참여만 해도 +2.'], ['!내기록', '예측 적중률, 남은 예측 포인트, 응원 팀을 확인해요.']],
+      cmds: [['!카드 선수이름', '그 선수의 카드, 37개 능력치, 36개 성향을 방송 화면에 띄워요.'], ['!팀정보 팀코드', '팀 로스터·감독·전술·연봉을 화면에 띄워요.'], ['!응원 팀이름', '응원 팀에 가입하고 팬 포인트를 모아요.'], ['!드래프트 이름', '예측 포인트 30점으로 다음 드래프트에 내가 지은 이름의 신인을 올려요. 시즌당 2명까지.'], ['1 또는 2', '경기 전 승부 예측. 맞히면 예측 포인트 +10, 참여만 해도 +2.'], ['!내기록', '예측 적중률, 남은 예측 포인트, 응원 팀을 확인해요.']],
       dataNote: '데이터는 24시간 방송에서 라운드마다 갱신돼요.', loadErr: '리그 데이터를 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.', waiting: '24시간 방송에서 첫 리그 데이터가 올라오면 여기에 표시돼요. 잠시 뒤 다시 들러 주세요.', noPlayer: '선수를 찾지 못했어요.', noTeam: '팀을 찾지 못했어요.', games: '경기' },
     en: { home: 'Home', standings: 'Standings', teams: 'Teams', players: 'Players', leaders: 'Leaders', history: 'History', join: 'Join', live: 'Watch live',
       season: 'Season', round: 'Round', updated: 'Updated', ago: 'ago', min: 'm', hr: 'h', justNow: 'just now', phase: { regular: 'Regular season', playoffs: 'Playoffs', offseason: 'Offseason', fa: 'Free agency' },
@@ -195,10 +196,10 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
       team: 'Team', w: 'W', l: 'L', pct: 'PCT', gb: 'GB', pf: 'PF', pa: 'PA', diff: 'DIFF', strk: 'STRK', ovr: 'OVR', coach: 'Coach', tactics: 'Tactics', payroll: 'Payroll', arena: 'Arena', fans: 'Chat fans', nick: 'Fan nickname', retired: 'Retired numbers', roster: 'Roster',
       pos: 'Pos', name: 'Name', age: 'Age', ht: 'Ht', pot: 'POT', contract: 'Contract', inj: 'Injury', starters: 'Starters', record: 'Record', rank: 'Rank', interim: 'interim',
       search: 'Search players', allTeams: 'All teams', allPos: 'All positions', fa: 'FA', sortBy: 'Sort', showMore: 'Show more', results: 'players',
-      ratings: 'Core ratings', attrs: '35 attributes', stats: 'Season stats', perGame: 'Per game', career: 'Career', highs: 'Season highs', style: 'Play style', ring: 'Ring', cStyle: 'Style', cOvr: 'Rating', thisSeason: 'This season', withTeam: 'With this team', careerRec: 'Career', titles: 'Titles', cHist: 'Previous jobs', firstJob: 'First head coaching job.', hFired: 'Fired', hLeft: 'Left', hRetired: 'Retired', pers: 'Personality', persona: 'Contract attitude', dur: 'Durability', sigs: 'Signature moves', awards: 'Awards', yrs: 'yr', demand: 'Asking', rookie: 'Rookie', import: 'Import', fanPick: 'Viewer pick',
+      ratings: 'Core ratings', attrs: '37 attributes', tend: '36 tendencies', arch: 'Player type', role: 'Off-ball role', rel: 'Release speed', hand: 'Hand', lefty: 'Left', righty: 'Right', tendNote: '50 is league average. Higher means he does it more often.', stats: 'Season stats', perGame: 'Per game', career: 'Career', highs: 'Season highs', style: 'Play style', ring: 'Ring', cStyle: 'Style', cOvr: 'Rating', thisSeason: 'This season', withTeam: 'With this team', careerRec: 'Career', titles: 'Titles', cHist: 'Previous jobs', firstJob: 'First head coaching job.', hFired: 'Fired', hLeft: 'Left', hRetired: 'Retired', pers: 'Personality', persona: 'Contract attitude', dur: 'Durability', sigs: 'Signature moves', awards: 'Awards', yrs: 'yr', demand: 'Asking', rookie: 'Rookie', import: 'Import', fanPick: 'Viewer pick',
       leaderTitle: 'Category leaders', minGp: 'Qualified players only', champs: 'Champions', hof: 'Hall of Fame', x3: '3x3 Challenge', fanTop: 'Season fan ranking', noData: 'No records yet.',
       joinTitle: 'How to join the broadcast', joinLead: 'Type these in the YouTube live chat and they show up on the stream.', backTo: 'Back to list',
-      cmds: [['!card player name', "Shows that player's card and all 35 ratings on stream."], ['!teaminfo CODE', 'Shows the roster, coach, tactics and payroll on stream.'], ['!join team', 'Join a team as a fan and collect fan points.'], ['!draft name', 'Spend 30 prediction points to put a rookie you name into the next draft. Two per season.'], ['1 or 2', 'Pick the winner before tip-off: +10 points if right, +2 for playing.'], ['!me', 'Your prediction record, points left and team.']],
+      cmds: [['!card player name', "Shows that player's card, all 37 ratings and 36 tendencies on stream."], ['!teaminfo CODE', 'Shows the roster, coach, tactics and payroll on stream.'], ['!join team', 'Join a team as a fan and collect fan points.'], ['!draft name', 'Spend 30 prediction points to put a rookie you name into the next draft. Two per season.'], ['1 or 2', 'Pick the winner before tip-off: +10 points if right, +2 for playing.'], ['!me', 'Your prediction record, points left and team.']],
       dataNote: 'Data refreshes every round from the 24/7 broadcast.', loadErr: "Couldn't load the league data. Refresh in a minute.", waiting: 'League data appears here once the 24/7 broadcast sends its first update. Check back soon.', noPlayer: 'Player not found.', noTeam: 'Team not found.', games: 'games' },
   };
 
@@ -220,13 +221,13 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
       lay: '레이업 성공률', sdk: '제자리에서 하는 덩크 능력', ddk: '달려 들어가며 하는 덩크 능력', phk: '포스트에서 던지는 훅슛', pfd: '포스트에서 돌아서며 던지는 페이드어웨이', pct: '포스트업 몸싸움과 자리 잡기', drw: '슛할 때 파울을 얻어내는 능력', hnd: '패스를 놓치지 않고 받는 손',
       pac: '패스가 정확히 가는 정도', bhd: '드리블 중 공을 지키는 능력', spb: '공을 몰고도 빠르게 달리는 능력', piq: '좋은 패스를 고르는 판단', pvs: '빈 동료를 찾아내는 시야',
       idf: '골밑에서 상대 슛을 어렵게 만드는 수비', pdf: '외곽에서 상대를 따라붙는 수비', stl: '공을 빼앗는 능력', blk: '슛을 쳐내는 능력', hiq: '동료를 도와주러 가는 타이밍', ppc: '패스 길목을 읽고 끊는 능력', dcn: '수비 집중력이 경기마다 얼마나 고른지',
-      orb: '공격 리바운드를 잡아내는 능력', drb: '수비 리바운드를 잡아내는 능력', spd: '최고 속도', acc: '순간 가속', str: '몸싸움 힘', vrt: '점프 높이', sta: '체력. 오래 뛰어도 덜 지쳐요', hus: '루즈볼과 궂은일에 몸을 던지는 정도', dur: '부상을 견디는 힘. 높을수록 덜 다쳐요' },
+      orb: '공격 리바운드를 잡아내는 능력', drb: '수비 리바운드를 잡아내는 능력', spd: '최고 속도', acc: '순간 가속', str: '몸싸움 힘', vrt: '점프 높이', sta: '체력. 오래 뛰어도 덜 지쳐요', obm: '공 없이 움직여 빈자리를 찾는 능력. 컷과 스크린 활용이 좋아져요', scr: '스크린을 단단하게 거는 능력. 높으면 동료 수비수가 더 오래 걸려요', hus: '루즈볼과 궂은일에 몸을 던지는 정도', dur: '부상을 견디는 힘. 높을수록 덜 다쳐요' },
     en: { sht: 'Average of the shooting attributes.', fin: 'Average of the finishing attributes.', pas: 'Average of the passing and ball-handling attributes.', def: 'Average of the defensive attributes.', reb: 'Average of the rebounding attributes.', ath: 'Average of the athletic attributes.',
       cls: 'Jump shots close to the rim (within about 3 m)', mid: 'Shots between the paint and the arc', tp: 'Three-point shooting', ft: 'Free throws', siq: 'Shot selection: fewer forced shots when high', ocn: 'How steady his scoring is from game to game',
       lay: 'Layups', sdk: 'Dunking from a standstill', ddk: 'Dunking on the move', phk: 'Post hook shots', pfd: 'Post fadeaways', pct: 'Holding position and battling in the post', drw: 'Drawing fouls on shots', hnd: 'Catching passes cleanly',
       pac: 'How accurate his passes are', bhd: 'Protecting the ball while dribbling', spb: 'Speed while dribbling', piq: 'Choosing the right pass', pvs: 'Seeing the open teammate',
       idf: 'Contesting shots near the rim', pdf: 'Staying in front on the perimeter', stl: 'Taking the ball away', blk: 'Blocking shots', hiq: 'Timing of help defense', ppc: 'Reading and jumping passing lanes', dcn: 'How steady his defense is from game to game',
-      orb: 'Offensive rebounding', drb: 'Defensive rebounding', spd: 'Top speed', acc: 'Quickness off the mark', str: 'Strength in contact', vrt: 'Vertical leap', sta: 'Stamina: tires more slowly', hus: 'Diving for loose balls and doing the dirty work', dur: 'Durability: resists injury' },
+      orb: 'Offensive rebounding', drb: 'Defensive rebounding', spd: 'Top speed', acc: 'Quickness off the mark', str: 'Strength in contact', vrt: 'Vertical leap', sta: 'Stamina: tires more slowly', obm: 'Moving without the ball to find open space: better cuts and use of screens', scr: 'Setting solid screens: his teammate\'s defender stays caught longer', hus: 'Diving for loose balls and doing the dirty work', dur: 'Durability: resists injury' },
   };
   const ab = (label, key) => { const g = GL[ST.lang][key || label]; return g ? `<abbr data-tip="${esc(g)}" data-tk="${esc(label)}" tabindex="0">${label}</abbr>` : label; };
   const abD = (label, desc, head) => desc ? `<abbr data-tip="${esc(desc)}" data-tk="${esc(head || label)}" tabindex="0">${esc(label)}</abbr>` : esc(label);
@@ -387,6 +388,17 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
     $('ps').addEventListener('change', (e) => { ST.pf.s = e.target.value; draw(); });
     draw();
   }
+  function archLine(p) {
+    const D = ST.D, t = T(); if (!p.ar || !D.arch) return '';
+    const a = p.ar.map(k => D.arch[k] ? abD(D.arch[k][0], D.arch[k][1]) : '').filter(Boolean).join(' · ');
+    const r = p.ro && D.obr && D.obr[p.ro] ? `<span class="dim"> · ${esc(t.role)} </span>${abD(D.obr[p.ro][0], D.obr[p.ro][1])}` : '';
+    return `<p class="arch">${a}${r}</p>`;
+  }
+  function tendGroups(p) {
+    const D = ST.D, idx = {}; D.tend.forEach((x, i) => (idx[x[0]] = i));
+    return D.tgrp.map(([g, gn]) => `<div class="ag"><h3><span>${esc(gn)}</span></h3>${D.tend.filter(x => x[1] === g).map(([k, , n, d]) => { const v = p.tn[idx[k]];
+      return `<div class="ar"><span>${abD(n, d)}</span><i><b class="b${ac(v)}" style="width:${v}%"></b></i><em class="c${ac(v)}">${v}</em></div>`; }).join('')}</div>`).join('');
+  }
   function vPlayer(id) {
     const D = ST.D, t = T(), p = D.players[id]; if (!p) return `<p class="empty">${t.noPlayer}</p>`;
     const tm = team(p.t), [tn, tcls, tcol] = tier(p.o), s = sv(p), g = s.gp || 0, dsc = D.dsc || { play: {}, pers: {}, pa: {}, sig: {} };
@@ -395,10 +407,10 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
     const bar = ([k, n]) => { const v = p.r[k]; return `<div class="barr"><span>${abA(n, k)}</span><i><b class="b${ac(v)}" style="width:${v}%"></b></i><em class="c${ac(v)}">${v}</em></div>`; };
     const chips = [p.rk === D.season ? t.rookie : '', p.imp ? t.import : '', p.fan ? `${t.fanPick} · ${p.fan}` : '', p.inj ? `${t.inj}: ${p.inj.k} (${p.inj.g} ${t.games})` : ''].filter(Boolean);
     const face = `<div class="face" style="--tc:${tm ? tm.c : '#3a4560'};--tier:${tcol}"><div class="top"><div class="o ${tcls}">${p.o}<small>${ab('OVR')} · ${ab('POT')} ${esc(p.pot)}</small></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">${tm ? logo(tm, 1) : ''}<span class="tier">${ab(tn)}</span></div></div>
-      <div><p class="eyebrow" style="color:var(--fg)">#${p.no} · ${esc(p.pos)} · ${tm ? esc(tm.code) : 'FA'}</p><h1>${esc(p.n)}</h1><p class="dim" style="margin:4px 0 0">${p.age}${ST.lang === 'ko' ? '세' : ' yrs'} · ${p.ht}cm${tm ? ` · ${tlink(tm)}` : ''}</p></div>
+      <div><p class="eyebrow" style="color:var(--fg)">#${p.no} · ${esc(p.pos)} · ${tm ? esc(tm.code) : 'FA'}</p><h1>${esc(p.n)}</h1><p class="dim" style="margin:4px 0 0">${p.age}${ST.lang === 'ko' ? '세' : ' yrs'} · ${p.ht}cm${tm ? ` · ${tlink(tm)}` : ''}</p>${archLine(p)}</div>
       ${chips.length ? `<div class="chips">${chips.map(c => `<span>${esc(c)}</span>`).join('')}</div>` : ''}
       <div class="bars">${D.rnames.map(bar).join('')}</div>
-      <dl class="kv"><dt>${abD(t.style, GL[ST.lang].STYLE)}</dt><dd>${abD(p.play || '-', dsc.play[p.play])}</dd><dt>${abD(t.pers, GL[ST.lang].PERS)}</dt><dd>${abD(p.pers || '-', dsc.pers[p.pers])}</dd>${p.pa ? `<dt>${abD(t.persona, GL[ST.lang].PERSONA)}</dt><dd>${abD(p.pa, dsc.pa[p.pa])}</dd>` : ''}<dt>${abA(t.dur, 'dur')}</dt><dd>${abD(String(p.dur ?? '-'), durTxt(p.dur), t.dur)}</dd><dt>${abD(t.contract, GL[ST.lang].CONTRACT)}</dt><dd>${p.sal ? abD(`${money(p.sal)} × ${p.yrs}${t.yrs}`, conTxt(p), t.contract) : p.dem ? abD(`${t.demand} ${money(p.dem)}`, GL[ST.lang].DEMAND, t.demand) : '-'}</dd>${p.sig && p.sig.length ? `<dt>${abD(t.sigs, GL[ST.lang].SIGS)}</dt><dd>${p.sig.map(n => abD(n, dsc.sig[n])).join(' · ')}</dd>` : ''}${(p.aw && p.aw.length) || p.ring ? `<dt>${t.awards}</dt><dd>${[...(p.ring ? [abD(`${t.ring}${p.ring > 1 ? ' ×' + p.ring : ''}`, AWD[ST.lang].RING, t.ring)] : []), ...(p.aw || []).map(([k, v]) => awTip(k, v))].join(' · ')}</dd>` : ''}</dl></div>`;
+      <dl class="kv"><dt>${abD(t.style, GL[ST.lang].STYLE)}</dt><dd>${abD(p.play || '-', dsc.play[p.play])}</dd><dt>${abD(t.pers, GL[ST.lang].PERS)}</dt><dd>${abD(p.pers || '-', dsc.pers[p.pers])}</dd>${p.pa ? `<dt>${abD(t.persona, GL[ST.lang].PERSONA)}</dt><dd>${abD(p.pa, dsc.pa[p.pa])}</dd>` : ''}${p.rel ? `<dt>${esc(t.rel)}</dt><dd>${abD(String(p.rel), ST.lang === 'ko' ? '슛을 얼마나 빨리 놓나. 빠를수록 블록당하기 어려워요.' : 'How quickly he gets the shot off. Faster is harder to block.')} · ${p.hand === 'L' ? t.lefty : t.righty}</dd>` : ''}<dt>${abA(t.dur, 'dur')}</dt><dd>${abD(String(p.dur ?? '-'), durTxt(p.dur), t.dur)}</dd><dt>${abD(t.contract, GL[ST.lang].CONTRACT)}</dt><dd>${p.sal ? abD(`${money(p.sal)} × ${p.yrs}${t.yrs}`, conTxt(p), t.contract) : p.dem ? abD(`${t.demand} ${money(p.dem)}`, GL[ST.lang].DEMAND, t.demand) : '-'}</dd>${p.sig && p.sig.length ? `<dt>${abD(t.sigs, GL[ST.lang].SIGS)}</dt><dd>${p.sig.map(n => abD(n, dsc.sig[n])).join(' · ')}</dd>` : ''}${(p.aw && p.aw.length) || p.ring ? `<dt>${t.awards}</dt><dd>${[...(p.ring ? [abD(`${t.ring}${p.ring > 1 ? ' ×' + p.ring : ''}`, AWD[ST.lang].RING, t.ring)] : []), ...(p.aw || []).map(([k, v]) => awTip(k, v))].join(' · ')}</dd>` : ''}</dl></div>`;
     const groups = D.cats.map(([c, cn]) => { const rows = D.attrs.map((a, i) => [a, p.a[i]]).filter(([a]) => a[1] === c);
       return `<div class="ag"><h3><span>${abA(cn, c)}</span><span class="c${ac(p.r[c])}">${p.r[c]}</span></h3>${rows.map(([a, v]) => `<div class="ar"><span>${abA(a[2], a[0])}</span><i><b class="b${ac(v)}" style="width:${v}%"></b></i><em class="c${ac(v)}">${v}</em></div>`).join('')}</div>`; }).join('');
     const line = g ? [[f1(s.pts / g), 'PTS'], [f1(s.reb / g), 'REB'], [f1(s.ast / g), 'AST'], [f1(s.stl / g), 'STL'], [f1(s.blk / g), 'BLK'], [f1(s.tov / g), 'TOV'], [pct(s.fgm, s.fga), 'FG%'], [pct(s.tpm, s.tpa), '3P%'], [pct(s.ftm, s.fta), 'FT%'], [f1(s.min / 60 / g), 'MIN'], [g, 'GP']] : null;
@@ -406,6 +418,7 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
     const cr = p.cr && p.cr.gp ? `<div class="statline"><div><b>${p.cr.seasons || 0}</b><span>${ab('SEASONS')}</span></div><div><b>${p.cr.gp}</b><span>${ab('GP')}</span></div><div><b>${p.cr.pts}</b><span>${ab('PTS')}</span></div><div><b>${f1(p.cr.pts / p.cr.gp)}</b><span>${ab('PPG')}</span></div></div>` : '';
     return `<div class="pcard">${face}<div style="display:flex;flex-direction:column;gap:22px;min-width:0">
       ${panel(t.attrs, `<div class="attrs">${groups}</div>`)}
+      ${p.tn && D.tend ? panel(t.tend, `<p class="dim" style="margin:-4px 0 10px;font-size:13px">${esc(t.tendNote)}</p><div class="attrs">${tendGroups(p)}</div>`) : ''}
       ${panel(`${t.stats} · ${t.perGame}`, line ? `<div class="statline">${line.map(([v, k]) => `<div><b>${v}</b><span>${ab(k)}</span></div>`).join('')}</div>` : `<p class="empty">${t.noData}</p>`)}
       ${hi ? panel(t.highs, `<div class="statline">${hi}</div>`) : ''}${cr ? panel(t.career, cr) : ''}</div></div>`;
   }
