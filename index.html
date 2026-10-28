@@ -260,16 +260,17 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
   const standings = (conf) => ST.D.teams.filter(t => conf == null || t.conf === conf).slice().sort((a, b) => (b.w - a.w) || ((b.pf - b.pa) - (a.pf - a.pa)) || (b.pf - a.pf));
   const ago = (t) => { const m = Math.max(0, Math.round((Date.now() - t) / 60000)); return m < 1 ? T().justNow : m < 60 ? `${m}${T().min} ${T().ago}` : `${Math.floor(m / 60)}${T().hr} ${m % 60}${T().min} ${T().ago}`; };
 
+  // live data sits on the repo's `data` branch (one commit, replaced by the broadcast machine); the folder next to the page is the fallback
+  const BASES = ['https://raw.githubusercontent.com/BearHumanS/pickup-island-league/data/data/', 'data/'];
+  const getJSON = async (name) => { const q = `?t=${Math.floor(Date.now() / 60000)}`; let err; for (const b of (ST.base ? [ST.base] : BASES)) { try { const r = await fetch(b + name + q, { cache: 'no-store' }); if (!r.ok) throw new Error('HTTP ' + r.status); const j = await r.json(); ST.base = b; return j; } catch (e) { err = e; } } throw err; };
   async function load() {
-    try { ST.idx = await (await fetch('data/index.json', { cache: 'no-store' })).json(); } catch (e) { ST.idx = { leagues: [] }; }
+    try { ST.idx = await getJSON('index.json'); } catch (e) { ST.idx = { leagues: [] }; }
     const have = (ST.idx.leagues || []).map(x => x.loc);
     if (!have.length) { ST.D = null; ST.wait = true; return; }
     ST.wait = false;
     const want = have.includes(ST.lang) ? ST.lang : have.includes('en') ? 'en' : have[0];
     if (ST.loaded === want && ST.D) return;
-    const r = await fetch(`data/league-${want}.json`, { cache: 'no-store' });
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    ST.D = await r.json(); ST.loaded = want;
+    ST.D = await getJSON(`league-${want}.json`); ST.loaded = want;
   }
   function chrome() {
     const t = T(), tabs = ['home', 'standings', 'teams', 'players', 'leaders', 'history', 'join'];
@@ -432,7 +433,7 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
   }
   document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', async () => { ST.lang = b.dataset.lang; try { localStorage.setItem('pil-db-lang', ST.lang); } catch (e) {} await boot(); }));
   addEventListener('hashchange', () => { render(); scrollTo(0, 0); });
-  setInterval(async () => { const prev = ST.D && ST.D.at; ST.loaded = ''; try { await load(); } catch (e) {} if (ST.D && ST.D.at !== prev && !document.activeElement.matches('input,select')) render(); else chrome(); }, 120000);
+  setInterval(async () => { const prev = ST.D && ST.D.at; ST.loaded = ''; ST.base = null; try { await load(); } catch (e) {} if (ST.D && ST.D.at !== prev && !document.activeElement.matches('input,select')) render(); else chrome(); }, 120000);
   boot();
 })();
 </script>
