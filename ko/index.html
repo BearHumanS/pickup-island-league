@@ -150,7 +150,18 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 </div>
 
 <article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v100</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.10.29 · 수비도 스스로 판단해요</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v101</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.10.29 · 공 가진 선수 수비와 리바운드</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">온볼 수비 자세를 계산으로</b>: 공 가진 선수를 막는 수비수가 간격 5가지 × 좌우 쏠림 5가지 중에서 "슛, 주 손 돌파, 반대 손 돌파, 패스 중 상대가 고를 최선이 가장 약해지는 자세"를 골라요. 슈터에게는 바짝 붙고, 돌파가 강한 선수에게는 물러서고, 주로 가는 손 쪽을 막아서요. 압박 성향, 파울 트러블, 도움 수비 위치도 반영돼요.</li>
+<li><b style="color: #eef0f6">박스아웃도 계산으로</b>: 슛이 올라가면 수비수마다 박스아웃, 공 쫓기, 속공 리크아웃 중 더 가치 있는 쪽을 골라요. 내 선수가 공격 리바운드에 강한지, 골밑에 가까운지, 몸싸움에서 이길 수 있는지를 따져요.</li>
+<li><b style="color: #eef0f6">공격 리바운드 가담 인원</b>: 공격 팀은 정해진 인원 대신, 리바운드에 뛰어드는 가치가 백코트로 돌아가는 가치보다 큰 선수만 들어가요. 한 명은 반드시 돌아가요.</li>
+<li><b style="color: #eef0f6">경기 중 기억</b>: 오늘 잘 통한 선택(예: 픽앤롤, 돌파, 포스트업)은 더 자주, 막힌 선택은 덜 해요. 슛 IQ가 높은 선수일수록 빨리 알아채요.</li>
+<li><b style="color: #eef0f6">기록 보정</b>: 72경기 표본으로 3점·미드레인지·파울·블록 수치를 다시 맞췄어요.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v100</h3><span style="color: #a3adc6; font-size: 15px">2026.10.29 · 수비도 스스로 판단해요</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">수비 위치를 실점으로 계산</b>: 공 없는 상대를 막는 수비수가 정해진 공식 대신, 서 있을 수 있는 자리 20여 곳마다 "여기 서면 몇 점을 내주나"를 따져요. 내 선수가 공을 받았을 때 얼마나 열려 있는지, 백도어로 파고들 수 있는지, 돌파를 막으러 갈 수 있는지를 함께 봐요.</li>
 <li><b style="color: #eef0f6">디나이와 헬프가 상황에 따라</b>: 패스 한 번 거리의 슈터는 패스 길을 막고, 멀리 있는 선수는 버리고 페인트로 처져요. 패스 길을 너무 막으면 백도어를 당한다는 것도 계산에 들어가 있어요. 도움 수비 성향과 IQ에 따라 선수마다 판단이 달라요.</li>
@@ -168,7 +179,7 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 <li><b style="color: #eef0f6">수비수의 시야</b>: 수비수는 공을 보고 있어서 등 뒤로 움직이는 선수를 한 박자 늦게 따라가요. 도움 수비 IQ가 높을수록 덜 늦어요. 그 사각으로 파고드는 백도어 컷이 자연스럽게 생겨요.</li>
 <li><b style="color: #eef0f6">선수마다 다른 센스</b>: 오프볼 무브와 슛 IQ가 높은 선수는 좋은 자리를 정확히 찾고, 낮은 선수는 가끔 엉뚱한 곳에 서요. 컷·스팟업 성향과 오프볼 역할이 자리 선택에 반영돼요.</li>
 <li><b style="color: #eef0f6">자연스러운 움직임</b>: 한 번 정한 자리는 쉽게 바꾸지 않고, 공 없이 뛸 때는 직각으로 꺾지 않고 곡선으로 돌아 들어가요. 컷할 때만 발을 딛고 확 꺾어요.</li>
-<li><b style="color: #eef0f6">어시스트 기준</b>: 패스 후 4.3초 안에, 받은 선수가 드리블 기술을 두 번 이상 쓰지 않고 넣었을 때만 어시스트로 기록돼요.</li>
+<li><b style="color: #eef0f6">어시스트 기준</b>: 패스 후 4초 안에, 받은 선수가 드리블 기술을 두 번 이상 쓰지 않고 넣었을 때만 어시스트로 기록돼요.</li>
 </ul>
 </article>
 
