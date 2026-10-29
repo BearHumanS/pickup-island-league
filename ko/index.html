@@ -150,7 +150,18 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 </div>
 
 <article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v102</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.10.29 · 서로를 읽는 선수들</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v103</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.10.29 · 돌파 경로와 자기 대전</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">돌파 경로를 조합해서 골라요</b>: 돌파가 "림으로 직진"이 아니라, 옆으로 벌리는 폭 3가지와 들어가는 깊이 3가지를 조합한 9개 길 중에서 수비수들이 0.5초 뒤 있을 자리를 예측해 가장 빈 길을 골라요. 마무리가 좋은 선수는 더 깊게, 패스 IQ가 낮은 선수는 가끔 엉뚱한 길로 가요.</li>
+<li><b style="color: #eef0f6">리트리트 드리블</b>: 압박을 받으면 뒤로 빼서 수비를 끌어내고 다시 시작하는 선택지가 생겼어요. 두 명이 붙었을 때 더 자주 써요.</li>
+<li><b style="color: #eef0f6">자기 대전 학습 파이프라인</b>: 판단 가중치 18개를 팀별로 다르게 줄 수 있게 만들고, 후보 설정이 기존 설정과 수백 경기를 뛰며 "더 이기면서 실제 기록에 머무는" 설정을 찾는 진화 탐색을 만들었어요. 첫 실행에서 48경기 검증 결과 이득이 오차 범위(+0.3점 ± 2.1점) 안이라 이번엔 기본값을 바꾸지 않았어요. 파이프라인은 다음 변경부터 계속 돌려요.</li>
+<li><b style="color: #eef0f6">리그 수치 부풀림 억제</b>: 6시즌 시뮬레이션에서 평균 OVR이 조금씩 오르는 걸 확인해 젊은 선수 성장 폭을 살짝 낮췄어요.</li>
+<li><b style="color: #eef0f6">기록 보정</b>: 자유투 시도율을 올리고 속공 비중을 살짝 낮췄어요. 72경기 표본으로 확인했어요.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v102</h3><span style="color: #a3adc6; font-size: 15px">2026.10.29 · 서로를 읽는 선수들</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">의도 공유</b>: 선수가 컷·스팟업·플래시 같은 자기 계획을 팀에 알려요. 동료는 컷한 선수가 비운 자리(그 수비수도 따라 들어간 자리)를 바로 채우고, 동료가 가려는 곳은 피해요. 픽앤롤이 돌면 약한 쪽 선수는 외곽으로 올라가고 강한 쪽 코너는 자리를 지켜요.</li>
 <li><b style="color: #eef0f6">두 수 앞 패스</b>: 패스 시야와 패스 IQ가 좋은 선수는 "받은 동료가 그다음에 할 수 있는 것"까지 계산해요. 엑스트라 패스, 반대편으로 넘기는 스킵 패스, 클로즈아웃을 공격할 동료에게 주는 패스가 늘어요.</li>
