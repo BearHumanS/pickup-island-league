@@ -374,7 +374,7 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
   const getJSON = async (name) => { const q = `?t=${Math.floor(Date.now() / 60000)}`; let err; for (const b of (ST.base ? [ST.base] : BASES)) { try { const r = await fetch(b + name + q, { cache: 'no-store' }); if (!r.ok) throw new Error('HTTP ' + r.status); const j = await r.json(); ST.base = b; return j; } catch (e) { err = e; } } throw err; };
   async function load() {
     try { ST.idx = await getJSON('index.json'); } catch (e) { ST.idx = { leagues: [] }; }
-    const have = (ST.idx.leagues || []).map(x => x.loc);
+    const have = (ST.idx.leagues || []).map(x => x.loc).filter(l => !/-img$/.test(l));   // league-<loc>-img.json holds the card portraits, not a league
     if (!have.length) { ST.D = null; ST.wait = true; return; }
     ST.wait = false;
     const want = have.includes(ST.lang) ? ST.lang : have.includes('en') ? 'en' : have[0];
@@ -477,15 +477,27 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
   const pcShade = (hex, k) => { const n = parseInt(String(hex || '#445566').slice(1), 16), f = (v) => Math.round(Math.min(255, v * k)); return `rgb(${f((n >> 16) & 255)},${f((n >> 8) & 255)},${f(n & 255)})`; };
   const aCls = (v) => v >= 85 ? 'a5' : v >= 75 ? 'a4' : v >= 65 ? 'a3' : v >= 50 ? 'a2' : 'a1';
   const aCol = (v) => v >= 80 ? '#46d0c4' : v >= 70 ? '#8be06a' : v >= 60 ? '#f2b630' : v >= 50 ? '#f08a3c' : '#e5534b';
+  function imgLoad() {   // the portraits file (sent by the game every few minutes), fetched once per snapshot the first time a card is drawn
+    const want = ST.loaded; if (!want || ST.imgBusy) return;
+    const e = ((ST.idx && ST.idx.leagues) || []).find(x => x.loc === want + '-img'); if (!e) return;
+    const tag = want + ':' + e.at; if (ST.imgFor === tag) return;
+    ST.imgBusy = true;
+    (async () => {
+      try { const r = await fetch(`${ST.base || BASES[0]}league-${want}-img.json?t=${e.at}`); if (r.ok) { const j = await r.json(); ST.img = j.img || {}; ST.imgFor = tag; } } catch (e2) {} finally { ST.imgBusy = false; }
+      if (!ST.img) return;
+      document.querySelectorAll('.pfull[data-card] .pf-top').forEach(top => { const u = ST.img[top.closest('.pfull').dataset.card]; if (!u || top.querySelector('.pf-img')) return; const num = top.querySelector('.pf-num'); if (num) num.remove(); const im = document.createElement('img'); im.className = 'pf-img'; im.alt = ''; im.src = u; top.appendChild(im); });
+    })();
+  }
   function cardFront(id, p) {
     const D = ST.D, t = T(), tm = team(p.t), [tier] = pcTier(p.o), s = sv(p), g = s.gp || 0, dsc = D.dsc || {};
+    const img = p.img || (ST.img && ST.img[id]) || ''; if (!img) imgLoad();
     const line = g ? [[f1(s.pts / g), 'PTS'], [f1(s.reb / g), 'REB'], [f1(s.ast / g), 'AST'], [s.fga ? Math.round(s.fgm / s.fga * 100) + '%' : '-', 'FG']]
       : p.cr && p.cr.gp ? [[f1(p.cr.pts / p.cr.gp), t.cPts], [p.cr.gp, 'GP'], [p.cr.seasons || 0, t.season]] : null;
     const aw = (p.aw || []).slice(0, 3).map(([k, ss]) => `<span title="${esc(k)} · ${esc(t.season)} ${ss.join(', ')}">${esc(k)}${ss.length > 1 ? ` ×${ss.length}` : ''}</span>`).join(' · ');
     const arch = (p.ar || []).map(k => D.arch && D.arch[k] ? `<span title="${esc(D.arch[k][1])}">${esc(D.arch[k][0])}</span>` : '').join('');
     const role = p.ro && D.obr && D.obr[p.ro] ? `<em title="${esc(D.obr[p.ro][1])}">${esc(D.obr[p.ro][0])}</em>` : '';
     const dd = (g2, k) => esc((dsc[g2] || {})[k] || '');
-    return `<div class="pf-top">${tm && tm.logo ? `<img class="pf-logo" src="${tm.logo}" alt="">` : ''}${p.img ? `<img class="pf-img" src="${p.img}" alt="">` : `<div class="pf-num">${p.no}</div>`}
+    return `<div class="pf-top">${tm && tm.logo ? `<img class="pf-logo" src="${tm.logo}" alt="">` : ''}${img ? `<img class="pf-img" src="${img}" alt="">` : `<div class="pf-num">${p.no}</div>`}
       <div class="pf-ovr">${p.o}<small>OVR</small></div><div class="pf-pos">${esc(p.pos)}</div><div class="pf-tier">${tier}</div><div class="pf-no">#${p.no}</div><div class="pf-pot">POT ${esc(p.pot)}</div>${p.inj ? `<div class="pf-inj">INJ</div>` : ''}</div>
       <div class="pf-name"><a href="#player-${id}">${esc(p.n)}</a>${p.fan ? `<span class="pf-chip fan">FAN · ${esc(p.fan)}</span>` : ''}${p.imp ? `<span class="pf-chip">IMPORT</span>` : ''}</div>
       <div class="pf-bio">${tm ? esc(tm.code) : 'FA'} · ${p.age}${esc(t.ageSfx)} · ${p.ht}cm</div>
