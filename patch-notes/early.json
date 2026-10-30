@@ -316,6 +316,94 @@
 ]
 },
 {
+"v": 21,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "승부 예측 창이 화면을 가리던 문제",
+"sub_en": "Prediction panel covering the screen",
+"ko": [
+"예측 창과 팬 투표 창이 0.3초마다 빈 자리를 찾아 움직여요. 피하는 대상은 경기 전후 카드, 광고 박스, 점수판, LIVE 표시, 자막. 빈 자리가 없으면 창을 줄이고, 그래도 겹치면 매치업 카드를 왼쪽으로 붙여 자리를 만들어요.",
+"자막이 점수판과 겹치면 점수판 바로 아래로 내려가요. 1920×1080·1280×720·1000×620·휴대폰 크기에서 확인."
+],
+"en": [
+"The prediction and fan-vote panels now look for an empty spot every 0.3 s, avoiding the pre/post-game cards, the ad box, the scoreboard, the LIVE badge and the ticker. With no room they shrink, and if they still overlap, the matchup card slides left to make space.",
+"A caption that would overlap the scoreboard drops just below it. Checked at 1920×1080, 1280×720, 1000×620 and phone size."
+]
+},
+{
+"v": 22,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "경기 중간 이어서 보기, 예측 창은 잠깐만",
+"sub_en": "Resume mid-game, prediction panel only briefly",
+"ko": [
+"<b>이어서 보기</b>: 경기 중 2초마다, 창을 닫거나 탭을 옮길 때 경기 상태(점수·쿼터·남은 시간·선수 기록·체력·코트 위 선수·파울·타임아웃·작전)를 저장. 다시 들어오면 \"이어서 보기 (14:22)\" 버튼으로 그 시점부터 재개. 방송 모드도 재시작 후 그 경기로 바로 복귀하고 승부 예측 표도 유지.",
+"<b>예측 창</b>: 경기 중에는 숨어 있다가 파울·자유투·데드볼에 6초, 타임아웃·쿼터 휴식에 9초만 옆에서 나와요. 팬 작전 투표 창도 같은 방식."
+],
+"en": [
+"<b>Resume</b>: the game state (score, quarter and clock, player stats and stamina, players on the floor, fouls, timeouts, tactics) is saved every 2 s during a game and when the window closes or the tab changes. On return, a \"Resume (14:22)\" button picks up from that moment. Broadcast mode also jumps straight back into the game after a restart, with the prediction board intact.",
+"<b>Prediction panel</b>: hidden during play, sliding out for 6 s on fouls, free throws and dead balls and 9 s on timeouts and quarter breaks. The fan-vote panel works the same way."
+]
+},
+{
+"v": 23,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "방송에서 승부 예측 창 제거",
+"sub_en": "Prediction panel removed from the broadcast",
+"ko": [
+"방송 모드에서는 승부 예측 창이 경기 전·중·후 어디에도 나오지 않고, 하단 자막의 예측왕 순위도 빠져요. 방송 탭 '시청자 참여' 카드의 '무료 승부 예측 창'(기본 꺼짐)으로 다시 켤 수 있어요."
+],
+"en": [
+"In broadcast mode the prediction panel no longer appears before, during or after games, and the prediction-king ranking is gone from the ticker. It can be turned back on with 'Free prediction panel' (off by default) in the Viewer participation card of the Broadcast tab."
+]
+},
+{
+"v": 24,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "경기 전 대진 카드·광고 복구",
+"sub_en": "Pre-game matchup card and ad restored",
+"ko": [
+"v22의 '이어서 진행'이 하다 만 경기가 있을 때 경기 전 화면을 통째로 건너뛰어 대진 카드와 광고까지 사라지던 문제. 이제 하다 만 경기가 있어도 대진 카드와 광고를 12초 동안 먼저 보여 주고, 카드 위에 \"이어서 진행 · 현재 7 : 6\"처럼 표시한 뒤 그 점수에서 재개."
+],
+"en": [
+"v22's resume feature skipped the whole pre-game screen when an unfinished game existed, taking the matchup card and the ad with it. Now the matchup card and ad show for 12 s first, with a \"Resuming · 7 : 6\" line above the card, and the game resumes from that score."
+]
+},
+{
+"v": 25,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "속공과 펌프 페이크",
+"sub_en": "Fast breaks and pump fakes",
+"ko": [
+"<b>속공</b>: 스틸·수비 리바운드 직후 발 빠른 선수 1~2명이 양 사이드로 먼저 뛰고, 볼 핸들러는 골대로 밀고 들어가며 비면 패스·앨리웁, 막히면 유로스텝·플로터. 수비는 림 보호 1명 + 전력 백코트(게으른 성격은 느리게). 수비가 따라잡으면 절반쯤은 속공을 접고 보통 공격으로. 'FAST BREAK · 3-ON-2' 표시와 캐스터 콜, 하이라이트 가중치.",
+"<b>페이크</b>: 수비가 붙은 슛 찬스에서 20%쯤 펌프 페이크(침착한 성격·잽스텝 특기는 더 자주). 속아 뛴 수비는 블록 불가, 30%는 슈팅 파울. 골밑 업앤언더, 잽스텝 빈도 상향. 경기당 펌프 페이크 0.7→12~15회, 속공 표시 0→약 14회, 백도어 표시 40→약 14회."
+],
+"en": [
+"<b>Fast breaks</b>: right after a steal or defensive rebound, one or two quick players sprint up the sidelines; the ball handler pushes to the rim, passing or throwing a lob when a teammate is open, finishing with a euro step or floater when not. The defense leaves one rim protector and sprints back (lazy personalities slower). When the defense catches up, about half of the breaks are called off into a normal possession. 'FAST BREAK · 3-ON-2' on screen, a play-by-play call and a highlight bonus.",
+"<b>Fakes</b>: with a defender on him, a shooter pump-fakes about 20% of the time (more for composed personalities and jab-step specialists). A defender who bites can't block and commits a shooting foul 30% of the time. Up-and-under at the rim, more jab steps. Per game: pump fakes 0.7 → 12–15, fast-break calls 0 → about 14, backdoor calls 40 → about 14."
+]
+},
+{
+"v": 26,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "시즌 이벤트, 쇼츠 자동 저장, 경기장 테마",
+"sub_en": "Season events, auto-saved shorts, venue themes",
+"ko": [
+"<b>시즌 이벤트</b>: 올스타전(시즌 중간), 덩크 콘테스트, 3점슛 대회, 시상식, 드래프트 쇼가 리그 일정 사이에 들어가 24시간 방송이 매번 같은 경기로만 보이지 않게.",
+"<b>쇼츠</b>: 경기마다 하이라이트를 세로 9:16 영상으로 자동 녹화해 맥미니 폴더에 저장(업로드는 직접). 3분 안에 끝나지 않으면 건너뛰고 방송을 이어 가는 안전장치는 v29에서 추가.",
+"<b>경기장</b>: 코트와 동네 테마를 여러 곳 만들어 팀별 홈 코트로 번갈아 사용."
+],
+"en": [
+"<b>Season events</b>: an All-Star game (mid-season), a dunk contest, a three-point contest, an awards show and a draft show sit between league games, so the 24/7 stream isn't the same game over and over.",
+"<b>Shorts</b>: each game's highlights are recorded automatically as a vertical 9:16 video and saved to a folder on the Mac mini (uploading is manual). The safeguard that skips a render running past 3 minutes came in v29.",
+"<b>Venues</b>: several court and neighborhood themes, rotated as the teams' home courts."
+]
+},
+{
 "v": 27,
 "d": "2026.10.24",
 "d_en": "Oct 24, 2026",
@@ -553,6 +641,100 @@
 "en": [
 "<b>More situations for moves</b>: dribble moves that were only used on drives now also come out when sizing up a defender in the half court and when bringing the ball up. Possessions featuring a move 19%→53%.",
 "Fixed the shot-clock violations (12 per game) and extra turnovers caused by moves while bringing the ball up, and adjusted frequency. The move name appears above the name tag."
+]
+},
+{
+"v": 43,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "이름표를 발밑으로",
+"sub_en": "Name tags under the feet",
+"ko": [
+"공 가진 선수의 이름표가 머리 위에서 발밑 노란 링 바로 아래로 이동(몸을 가리지 않음). 드리블 기술 이름 칩도 이름표 밑으로. 카메라 거리에 따라 간격 조절, 화면 맨 아래에서는 뉴스 자막 바에 가리지 않게 위로."
+],
+"en": [
+"The ball handler's name tag moves from above the head to just under the yellow ring at his feet, so it no longer hides the body. The dribble-move chip goes under the tag too. The gap scales with camera distance, and at the bottom of the screen the tag is pushed up clear of the news ticker."
+]
+},
+{
+"v": 44,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "수비수를 밀고 가는 드리블 수정",
+"sub_en": "Dribblers shoving defenders fixed",
+"ko": [
+"볼 핸들러가 수비수를 몸으로 밀고 가는 장면이 경기당 37초 → 1.4초. 원인은 기술로 제친(휘청·넘어진) 수비수를 관통해 달리던 것과 피하는 규칙 자체가 없던 것.",
+"제친 수비수는 돌아서 지나가고 넘어진 선수는 밀리지 않음. 정면이 막히면 어깨 쪽으로 공략, 자리 잡은 수비수는 안 밀리고 끝까지 막히면 공을 빼서 재정비. 수비 능력이 좋을수록 옆걸음으로 잘 따라붙고, 자리 잡은 수비수에게 전속력으로 부딪히면 가끔 차징."
+],
+"en": [
+"Ball handlers were body-pushing defenders for 37 s per game; now 1.4 s. The cause: after a move left a defender staggered or on the floor, the attacker ran straight through him, and there was no avoidance rule at all.",
+"Beaten defenders are now rounded, fallen players aren't pushed. Against a defender squared up, the attacker goes for a shoulder instead of the chest; a set defender holds his ground, and if the drive is fully stopped the handler pulls the ball out and resets. Better defenders slide laterally to stay in front, and a full-speed collision with a set defender is sometimes a charge."
+]
+},
+{
+"v": 45,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "점프볼, 점프 리바운드, 팁인",
+"sub_en": "Jump balls, jumping rebounds, tip-ins",
+"ko": [
+"<b>점프볼</b>: 모든 경기가 점프볼로 시작(5대5는 센터서클, 반코트는 탑 오브 더 키). 높이·점프·리바운드 좋은 선수가 점퍼로, 이긴 쪽이 빈 동료에게 쳐 주고 가끔은 루즈볼 다툼. 연장전도 점프볼. 3·4쿼터 공격권이 거꾸로였던 버그 수정(진 팀이 2·3쿼터, 이긴 팀이 4쿼터 공격 시작).",
+"<b>리바운드</b>: 높은 공은 미리 뛰어 공중에서 잡고(공 잡기 전 점프 6%→13%), 근처 선수들이 같이 뛰어 경합(경기당 점프 7→45회). 잡고 나서 혼자 폴짝 뛰던 동작 제거.",
+"<b>팁인</b>: 골밑 공격 리바운드를 공중에서 잡으면 그대로 손끝으로 밀어 넣기(성공률은 레이업보다 조금 낮게). 기존 '잡고 레이업'은 '풋백 레이업'으로 이름 변경."
+],
+"en": [
+"<b>Jump ball</b>: every game opens with a jump ball (center circle in 5v5, top of the key in half-court formats). The tallest, bounciest rebounder jumps for each side, the winner taps to an open teammate, and sometimes the tap goes loose and both sides scramble. Overtime starts with a jump too. Fixed a bug with 3rd/4th-quarter possession reversed (the losing side opens Q2 and Q3, the winner opens Q4).",
+"<b>Rebounds</b>: high balls are read early and caught in the air (jumping before the catch 6% → 13%), with nearby players jumping to contest (jumps per game 7 → 45). The odd hop after the catch is gone.",
+"<b>Tip-ins</b>: an offensive rebound caught in the air near the rim is tipped straight back in without landing (slightly below layup accuracy). The old 'catch and layup' is renamed 'putback layup'."
+]
+},
+{
+"v": 46,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "가속, 드리블 완급 조절, 팀 템포",
+"sub_en": "Acceleration, change of pace, team tempo",
+"ko": [
+"<b>급발진 제거</b>: 최고 속도까지 약 0.7초(전 0.3~0.45초), 기술 직후 속도를 한 번에 최고로 바꾸던 부분 수정, 브레이크도 서서히. 순간 가속도 약 25→9.5 m/s².",
+"<b>완급 조절</b>: 평소엔 걷기~조깅으로 수비를 읽고(하프코트 조깅 시간 12%→30~40%), 파고들 때나 제쳤을 때만 순간 가속. 달려오다 늦췄다가 수비가 따라 늦추면 다시 치고 나가며 이름표에 \"완급 조절\" 표시. 쇼맨·볼 호그는 더 자주.",
+"<b>팀 템포</b>: 느림/보통/빠름에 따라 데드볼 후 하프라인 넘는 시간 약 6/4/3초, 팀당 공격 횟수 65/76/79. 느린 팀은 인바운드를 천천히 하고 걸어서 넘어와요."
+],
+"en": [
+"<b>No more jack-rabbit starts</b>: about 0.7 s to top speed (was 0.3–0.45 s), the instant jump to top speed after a move removed, gradual braking. Peak acceleration about 25 → 9.5 m/s².",
+"<b>Change of pace</b>: handlers walk or jog while reading the defense (half-court jogging time 12% → 30–40%) and burst only when driving or after beating a man. A handler can slow up, let the defender slow with him, then go again, with \"change of pace\" on the name tag. Showmen and ball hogs use it more.",
+"<b>Team tempo</b>: slow/normal/fast means about 6/4/3 s to cross half court after a dead ball and 65/76/79 possessions per team. Slow teams inbound deliberately and walk it up."
+]
+},
+{
+"v": 47,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "포지션별 체형과 속도",
+"sub_en": "Position-based builds and speed",
+"ko": [
+"가드는 가볍고 첫발이 빠르고, 파워포워드·센터는 무거워 최고 속도·첫발·방향 전환이 둔함. 속도를 최고 속도(운동능력)·첫발(운동능력+마무리)·옆걸음 수비(수비+운동능력) 셋으로 분리. 드리블 중 4~12% 감속(볼 핸들링이 좋을수록 덜), 지치면 첫발부터 둔해짐(최대 30%), 허슬 성향은 백코트·루즈볼 전력질주, 32세부터 첫발 저하(최대 10%), 22세 이하는 살짝 유리.",
+"달리기 동작도 센터는 큰 보폭, 가드는 잔발. 센터와 가드의 속도 차이 4%→15%, 빅맨 두 명이 득점 62%를 가져가던 쏠림 완화(센터 득점 비중 35%→23%), 득점 효율은 그대로."
+],
+"en": [
+"Guards are light with a quick first step; power forwards and centers are heavy, with lower top speed and slower first step and direction changes. Speed split into top speed (athleticism), first step (athleticism + finishing) and lateral defense (defense + athleticism). Dribbling costs 4–12% speed (less with good handles), fatigue hits the first step first (up to 30%), hustlers sprint back and chase loose balls, the first step declines from age 32 (up to 10%) and is slightly better at 22 and under.",
+"Running animation too: long strides for centers, quick feet for guards. Center–guard speed gap 4% → 15%, the two bigs' 62% share of scoring eased (center scoring share 35% → 23%), scoring efficiency unchanged."
+]
+},
+{
+"v": 48,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "턴오버·파울 보정, 공 없는 움직임, 박스아웃",
+"sub_en": "Turnovers and fouls, off-ball movement, box-outs",
+"ko": [
+"<b>새 턴오버·파울</b>: 패스 실책, 드리블 중 공 뺏김(루즈볼 다툼), 무빙 스크린, 컷인 선수를 붙잡는 홀딩 파울. 골밑 도움 수비 블록 범위 확대. 100번 공격당 턴오버 9.5→13.6, 스틸 7.3→9.4, 파울 15.6→18~20, 공격 리바운드 비율 27~30%→24.7%.",
+"<b>공 없는 움직임</b>: 같은 자리를 또 고르면 3점 라인을 따라 동료와 간격이 넓은 쪽으로, 3초 서 있으면 코너에서 윙으로. 4초 이상 멍하니 서 있는 경우 경기당 15~20회→0.",
+"<b>박스아웃</b>: 림에 맞고 튀어도 0.35초 유지, 박스아웃한 수비수는 잘 안 밀리고, 리바운드 좋은 공격수는 어깨 쪽으로 돌아 들어감."
+],
+"en": [
+"<b>New turnovers and fouls</b>: errant passes, strips on the dribble (loose-ball scrambles), moving screens, and holding fouls on cutters. Wider help-side blocks at the rim. Per 100 possessions: turnovers 9.5 → 13.6, steals 7.3 → 9.4, fouls 15.6 → 18–20, offensive rebound rate 27–30% → 24.7%.",
+"<b>Off-ball movement</b>: a player who picks the same spot again slides along the arc toward the wider gap, and after 3 s standing he lifts from the corner to the wing. Attackers idle for 4+ seconds: 15–20 per game → 0.",
+"<b>Box-outs</b>: held for 0.35 s after the ball hits the rim, boxed-out defenders are hard to push, and strong rebounders try to spin around the box-out."
 ]
 },
 {
@@ -875,6 +1057,107 @@
 "en": [
 "<b>Home arenas</b>: each team gets an arena name and capacity, the arena name on the court floor, and the paint and surrounds in home colors. Attendance depends on record, stars, buzz and the playoffs. <b>Home-court advantage</b>: 4.5% boost for home players, about a 58% home win rate between evenly matched teams. <b>Team morale</b>: rises and falls with results versus expectations, and feeds into performance, commentary and lineup cards.",
 "No more duplicate jersey numbers within a team (traded players take an open number). Applies only to newly created 5-on-5 leagues."
+]
+},
+{
+"v": 71,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "리그별 홈 어드밴티지",
+"sub_en": "Home-court advantage per league",
+"ko": [
+"리그 구분 없이 약 58%였던 홈 승률을 리그마다 무작위 대진 5,000경기로 따로 맞춤. 30팀 글로벌식 54%, 10팀 KBL식 54%, 26팀 B리그식 53%, 7팀 TPBL식 57%. 시즌 시뮬 결과도 목표에서 크게 벗어난 리그 없음."
+],
+"en": [
+"Home win rate was about 58% across the board; now tuned per league with 5,000 random matchups each: 54% for the 30-team global format, 54% for the 10-team KBL style, 53% for the 26-team B.League style, 57% for the 7-team TPBL style. Season simulations landed close to target in every league."
+]
+},
+{
+"v": 72,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "박스아웃·디나이·백도어 수비 개선",
+"sub_en": "Box-out, deny and backdoor defense",
+"ko": [
+"<b>박스아웃</b>: 98%로 기계적이던 것을 약 87%로, 선수마다 다르게(빅맨·허슬·수비 좋은 선수는 거의 하고 게으른 선수는 놓침). 3점이 올라가면 가드가 가끔 리크아웃.",
+"<b>디나이</b>: 맨투맨 외곽에서 공 하나 거리 수비수가 패스 길 쪽으로 붙는 비율 60%, 거리 1.9m. 슛 못 하는 선수에겐 일부러 떨어져 도움 수비 대기.",
+"<b>백도어 컷</b>: 경기당 약 45→5회. 수비가 과하게 붙었거나 집중력이 흐트러졌을 때만 통함. 야투율·턴오버·자유투는 이전과 비슷."
+],
+"en": [
+"<b>Box-outs</b>: from a mechanical 98% to about 87%, varying by player (bigs, hustlers and good defenders nearly always, lazy players lose their man). Guards occasionally leak out when a three goes up.",
+"<b>Deny</b>: on the perimeter in man-to-man, one-pass-away defenders play the passing lane 60% of the time at 1.9 m. Non-shooters are sagged off to stay in help position.",
+"<b>Backdoor cuts</b>: about 45 → 5 per game, working only against overplays or lapses. Field-goal rate, turnovers and free throws about the same."
+]
+},
+{
+"v": 73,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "방송 카메라 거리 설정",
+"sub_en": "Broadcast camera distance setting",
+"ko": [
+"방송 카메라를 약 20% 멀리 빼서 하프코트 전체와 선수 10명, 뒤쪽 관중석과 LED 광고판까지 한 화면에. 광고·방송 탭에 <b>중계 카메라 거리</b>(가깝게/보통/멀리) 설정 추가, 기본은 보통. 자유투·덩크 클로즈업도 같은 비율로."
+],
+"en": [
+"The broadcast camera pulls back about 20%, fitting the whole half court, all ten players, the far stands and the LED boards. New <b>broadcast camera distance</b> setting (close/normal/far) in the Ads & Broadcast tab, defaulting to normal. Free-throw and dunk close-ups scale with it."
+]
+},
+{
+"v": 74,
+"d": "2026.10.26",
+"d_en": "Oct 26, 2026",
+"sub_ko": "우리 팀도 AI 운영, 트레이드에 이유",
+"sub_en": "Our team run by AI, trades with reasons",
+"ko": [
+"방송 모드에서는 우리 팀도 다른 팀처럼 재계약·FA 영입·트레이드를 알아서. 우승 도전 팀은 리빌딩 팀의 베테랑을 사 오고 뉴스에 \"우승 도전\"·\"리빌딩\"이 붙음. 트레이드가 마감 직전 몇 주에 몰리고 같은 선수를 도로 맞바꾸는 일은 없음. 큰 트레이드는 다음 경기 소개 카드에 빨간 \"트레이드 속보\" 띠, 친정팀 상대 시 해설 언급.",
+"※ 같은 번호로 방송 대화에서 따로 만든 v74·v75(팀 네이밍 스폰서, 경기 후 60초 영상 광고)는 v81에서 합쳐졌어요."
+],
+"en": [
+"In broadcast mode our own team now re-signs, signs free agents and trades like every other team. Contenders buy veterans from rebuilding teams, and news items are tagged \"title push\" or \"rebuild\". Trades bunch up in the weeks before the deadline and the same player is never swapped straight back. A big trade puts a red \"TRADE ALERT\" band on the next matchup card, and the booth mentions a traded player facing his old team.",
+"※ A separate v74/v75 built in the broadcast chat under the same numbers (team naming sponsor, 60-second post-game video ad) was merged in v81."
+]
+},
+{
+"v": 75,
+"d": "2026.10.26",
+"d_en": "Oct 26, 2026",
+"sub_ko": "지명권 트레이드, 트레이드 요청, 리그 수준 유지",
+"sub_en": "Pick trades, trade requests, league level held steady",
+"ko": [
+"<b>프런트</b>: 팀마다 3년치 1·2라운드 지명권을 주고받음(2년 연속 1라운드 지명권이 없게 되는 거래 차단). 연봉 상한을 넘긴 팀은 지명권을 얹어 비싼 계약을 넘기는 샐러리 정리 트레이드. 벤치 불만 선수·리빌딩 팀 베테랑의 트레이드 요청, 시즌 중 핵심 선수 연장 계약. 우승 도전 팀은 주전을 비슷한 선수와 바꾸지 않고, FA로 막 온 선수는 시즌 초반 트레이드 안 함. 소식은 소개 카드 띠와 해설로.",
+"<b>리그 균형</b>: 시즌이 지날수록 평균 능력치가 64→76까지 오르던 인플레이션을 신인 성장 한계·25~29세 성장 조정으로 14시즌 후에도 64~68 유지. 하위권 FA는 리그를 떠나 저장 용량 증가 차단(시즌당 약 30KB).",
+"<b>우리 팀 특혜 제거</b>: 방송 모드에서 FA 우선 영입, 시설 성장 보너스, 시작 캡 공간, 부상 회복·위험 보너스를 다른 팀과 동일하게. KBL식 56시즌 시뮬에서 우리 팀 우승 비율 26%→20%."
+],
+"en": [
+"<b>Front office</b>: teams hold and trade three years of first- and second-round picks (deals that leave a team without first-rounders in consecutive years are blocked). Teams over the cap attach picks to dump big contracts. Bench players who are unhappy and veteran stars on rebuilding teams request trades; core players get in-season extensions. Contenders don't swap starters for similar players, and freshly signed free agents aren't traded early in the season. News shows as a band on the matchup card and in commentary.",
+"<b>League balance</b>: average ratings used to inflate from 64 to 76 over the seasons; with rookie ceilings and 25–29 growth adjusted, they stay at 64–68 after 14 seasons. Bottom-tier free agents leave the league, so the save no longer grows about 30 KB per season.",
+"<b>No more perks for our team</b>: in broadcast mode the first crack at free agents, the facility growth bonus, the starting cap room and the injury bonuses are now the same as everyone else's. In a 56-season KBL-style sim our title share fell from 26% to 20%."
+]
+},
+{
+"v": 76,
+"d": "2026.10.26",
+"d_en": "Oct 26, 2026",
+"sub_ko": "골밑 카메라 위치 변경",
+"sub_en": "Rim camera moved",
+"ko": [
+"골대 뒤 높은 곳에서 내려다보며 백보드·받침대가 화면을 가리던 골밑 카메라를 골대 옆 베이스라인 약 2.7m 높이의 비스듬한 각도로 이동, 화각도 좁혀 가장자리 왜곡 감소. 공이 코트 중앙을 넘나들 때 좌우로 튀지 않고 한 컷은 한쪽에서만. 덩크 1인칭 컷 빈도 45%→20%, 길이도 짧게."
+],
+"en": [
+"The rim camera that looked down from high behind the backboard, with the glass and the stanchion in the way, moves to the baseline beside the basket at about 2.7 m, angled in, with a narrower field of view for less edge distortion. It no longer flips sides as the ball crosses midcourt; one cut stays on one side. First-person dunk cuts drop from 45% to 20% of dunks and run shorter."
+]
+},
+{
+"v": 77,
+"d": "2026.10.26",
+"d_en": "Oct 26, 2026",
+"sub_ko": "해설·캐스터 멘트 보강",
+"sub_en": "Richer play-by-play and color commentary",
+"ko": [
+"캐스터와 해설의 상황별 문장을 늘리고 영어·일본어·중국어 번역을 함께 추가. 바로 다음 v78의 고정 중계진(캐스터·해설위원 2인 체제)의 바탕이 된 버전."
+],
+"en": [
+"More situational lines for the play-by-play man and the analyst, with English, Japanese and Chinese translations added alongside. The groundwork for v78's fixed two-man booth."
 ]
 },
 {
