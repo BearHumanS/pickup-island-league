@@ -1211,5 +1211,18 @@
 "en": [
 "Merged v75 (team naming sponsors, 60-second postgame video ads), built separately in the broadcast chat, into v80 (AI trades and draft picks, league balance, cameras, professional broadcast crew, studio segments, divisions and Island Cup) as a single version. The English broadcast file for the Mac mini is provided as a separate artifact."
 ]
+},
+{
+"v": 92,
+"d": "2026.10.28",
+"d_en": "Oct 28, 2026",
+"sub_ko": "내부 빌드",
+"sub_en": "Internal build",
+"ko": [
+"배포 과정의 중간본이에요. v91과 v93 사이에 따로 안내한 변경은 없어요."
+],
+"en": [
+"An intermediate build from the release process. No separately announced changes between v91 and v93."
+]
 }
 ]

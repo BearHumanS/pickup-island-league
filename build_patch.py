@@ -41,8 +41,8 @@ T = {
 def render(lang, arts):
     t = T[lang]
     cur = arts[0]['v']
-    early = sorted([{'v': v, 'n': int(v[1:]), 'sub': sub, 'items': items, 'early': True} for v, sub, items in EARLY[lang]], key=lambda x: -x['n'])
-    all_arts = arts + early
+    early = [{'v': v, 'n': int(v[1:]), 'sub': sub, 'items': items, 'early': int(v[1:]) <= 81} for v, sub, items in EARLY[lang]]
+    all_arts = sorted(arts + early, key=lambda x: -x['n'])   # a filler for a number the landing never carried (v92) sorts into place
     jumps = ''.join(f'<a href="#{lang}-{a["v"]}">{a["v"]}</a>' for a in all_arts)
     body = []
     for i, a in enumerate(all_arts):
