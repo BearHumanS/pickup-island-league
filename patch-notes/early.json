@@ -1,0 +1,932 @@
+[
+{
+"v": 1,
+"d": "2026.10.22",
+"d_en": "Oct 22, 2026",
+"sub_ko": "첫 버전 — 떠 있는 섬 위의 2대2 길거리 농구",
+"sub_en": "First release — 2-on-2 streetball on a floating island",
+"ko": [
+"<b>픽셀 3D 디오라마</b>: 실제 3D 장면을 저해상도로 그린 뒤 픽셀 아트로 확대. 낮·노을·밤, 맑음·이슬비·폭우, 코트 젖음 표시, 픽셀 크기·팔레트·디더·외곽선 설정.",
+"<b>2대2 경기</b>: 넣은 팀이 공을 계속 갖고 2점·3점으로 11점 선승. 수비 리바운드는 3점 라인 밖으로 빼야 공격. 클릭으로 슛·패스·드리블 지시.",
+"<b>연출</b>: 폭우면 선수들이 차양 밑으로 피하는 우천 중단, 밤 가로등·네온, 크로스오버·백도어 컷, 블록 점프, 득점 환호, 우산 쓴 관중과 비둘기."
+],
+"en": [
+"<b>Pixel 3D diorama</b>: real 3D scenes rendered at low resolution, then upscaled as pixel art. Day, sunset and night; clear, drizzle and downpour; wet-court rendering; settings for pixel size, palette, dithering and outlines.",
+"<b>2-on-2 games</b>: make-it-take-it with 2s and 3s, first to 11 wins. Defensive rebounds must be cleared beyond the three-point line before attacking. Click to call shots, passes and dribbles.",
+"<b>Presentation</b>: rain delays with players sheltering under the awning in a downpour, streetlights and neon at night, crossovers and backdoor cuts, block jumps, scoring celebrations, and spectators with umbrellas plus pigeons."
+]
+},
+{
+"v": 2,
+"d": "2026.10.22",
+"d_en": "Oct 22, 2026",
+"sub_ko": "해상도",
+"sub_en": "Resolution",
+"ko": [
+"<b>기본 픽셀 크기 3→2</b>: 1280×800 기준 렌더 해상도가 426×266에서 640×400으로. 선수·코트 라인이 또렷해지고 픽셀 느낌은 유지."
+],
+"en": [
+"<b>Default pixel size 3→2</b>: at 1280×800, render resolution goes from 426×266 to 640×400. Players and court lines are sharper while the pixel look stays."
+]
+},
+{
+"v": 3,
+"d": "2026.10.22",
+"d_en": "Oct 22, 2026",
+"sub_ko": "농구 기술 전부 추가",
+"sub_en": "Every basketball move added",
+"ko": [
+"<b>동작</b>: 덩크(림 흔들림, 실패 시 튕김), 앨리웁, 블록슛, 스크린·픽앤롤(PICK!·SWITCH!), 박스아웃, 바운드 패스, 크로스오버·비하인드 백·헤지테이션·스텝백·페이드어웨이·유로스텝·훅슛, 왼손·오른손 드리블 전환, 뱅크슛과 림·백보드 실제 충돌.",
+"<b>규칙</b>: 12초 공격 제한 시간, 슈팅 파울·앤드원·자유투, 트래블링·더블 드리블·리치인(확률 판정), 아웃 오브 바운즈.",
+"<b>직접 조작</b>: 기술 버튼 10개. AI가 상황에 맞춰 기술을 고름. 덩크 빈도 하향."
+],
+"en": [
+"<b>Moves</b>: dunks (rim shake, rim-outs on misses), alley-oops, blocked shots, screens and pick-and-roll (PICK!, SWITCH!), box-outs, bounce passes, crossover, behind-the-back, hesitation, step-back, fadeaway, Euro step and hook shot, left/right-hand dribble switches, bank shots and real collisions with the rim and backboard.",
+"<b>Rules</b>: 12-second shot clock, shooting fouls, and-ones and free throws, traveling, double dribble and reach-ins (probability-based calls), out of bounds.",
+"<b>Manual control</b>: 10 move buttons. The AI picks moves to fit the situation. Dunk frequency reduced."
+]
+},
+{
+"v": 4,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "리그·FA 매니저 게임으로",
+"sub_en": "Now a league and free-agency manager game",
+"ko": [
+"<b>리그</b>: 2대2·3대3(하프코트 21점)·5대5(풀코트 섬, 2분 30초 4쿼터) 중 선택. 6팀 10라운드 정규시즌, 상위 4팀 플레이오프, 오프시즌(성장·노쇠·은퇴·신인)과 FA 3일.",
+"<b>FA·운영</b>: 연봉·기간 제안과 수락 확률, 거절 시 요구액 상승, AI 팀 영입, 샐러리캡, 로스터 정원, 선발, 방출.",
+"<b>선수</b>: 능력치 6종(슛·돌파·패스·수비·리바·운동)+POT+내구성, 성격·플레이 성향·계약 성향 3축, 사기, 경기 중 부상과 결장.",
+"<b>경기</b>: 공을 따라가는 중계 카메라와 줌인, 배속·결과 건너뛰기, 박스스코어·MVP, 720p 자동 녹화와 유튜브 제목·설명 복사."
+],
+"en": [
+"<b>League</b>: choose 2-on-2, 3-on-3 (half court, to 21) or 5-on-5 (full-court island, four 2:30 quarters). 6-team, 10-round regular season, top-4 playoffs, an offseason (development, decline, retirement, rookies) and 3 days of free agency.",
+"<b>Free agency and front office</b>: salary and contract-length offers with acceptance odds, higher asks after a rejection, AI team signings, salary cap, roster limits, starters, releases.",
+"<b>Players</b>: 6 ratings (shooting, driving, passing, defense, rebounding, athleticism) plus POT and durability; three axes of personality, play tendencies and contract tendencies; morale; in-game injuries and missed games.",
+"<b>Games</b>: broadcast camera that follows the ball with zoom-ins, game speed-up and skip-to-result, box score and MVP, 720p auto-recording with copyable YouTube titles and descriptions."
+]
+},
+{
+"v": 5,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "휴대폰 화면",
+"sub_en": "Phone screens",
+"ko": [
+"<b>모바일</b>: 조작 패널 기본 접힘, 경기장을 점수판과 패널 사이 중앙에, 휴대폰은 카메라를 더 당기고 5대5는 세로 코트 각도.",
+"부상 발생 확률 40% 하향."
+],
+"en": [
+"<b>Mobile</b>: control panel collapsed by default, court centered between the scoreboard and the panel, a tighter camera on phones, and a vertical court angle for 5-on-5.",
+"Injury rate lowered by 40%."
+]
+},
+{
+"v": 6,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "규칙 보강, 트레이드·드래프트·전술, 하이라이트",
+"sub_en": "More rules, trades, draft, tactics and highlights",
+"ko": [
+"<b>규칙</b>: 팀 파울 보너스 자유투(5대5 쿼터 5개, 2·3대3 7개), 5반칙 퇴장, 하프코트·8초·3초·5초 바이얼레이션, 발·손 동작 기준의 트래블링·더블 드리블, 블로킹·차징·리치인·루즈볼 파울. 5대5 쿼터 5분·샷클락 24초로 75~110점대. 출전 시간에서 데드볼 제외.",
+"<b>매니저</b>: 트레이드(AI 평가·125% 룰·AI 제안), 2라운드 드래프트와 미지명 FA, 전술(템포·3점·수비), 케미, 구단 운영(자금·팬·관중·티켓·훈련 시설), 수동 교체.",
+"<b>하이라이트 자동 편집</b>: 덩크·3점·블록·앤드원·결승골을 모아 16:9 하이라이트·9:16 쇼츠로 녹화(인트로·슬로 리플레이·자막·MVP). 전체 녹화는 기본 꺼짐.",
+"<b>화면</b>: 선수끼리 겹치지 않게, 공은 손 위치에서 계산. 프레임이 떨어지면 자동 화질 조절."
+],
+"en": [
+"<b>Rules</b>: team-foul bonus free throws (5 per quarter in 5-on-5, 7 in 2-on-2/3-on-3), foul-outs on 5 fouls, backcourt, 8-second, 3-second and 5-second violations, traveling and double dribble judged by actual foot and hand movement, blocking, charging, reach-in and loose-ball fouls. 5-on-5 now uses 5-minute quarters and a 24-second shot clock, for scores in the 75–110 range. Dead-ball time excluded from minutes played.",
+"<b>Manager</b>: trades (AI evaluation, 125% rule, AI offers), 2-round draft and undrafted free agents, tactics (tempo, three-pointers, defense), chemistry, club operations (funds, fans, attendance, tickets, training facilities), manual substitutions.",
+"<b>Automatic highlight editing</b>: dunks, threes, blocks, and-ones and game-winners compiled and recorded as 16:9 highlights and 9:16 Shorts (intro, slow-motion replays, captions, MVP). Full-game recording is off by default.",
+"<b>Display</b>: players no longer overlap, and the ball position is calculated from the hand. Quality adjusts automatically when the frame rate drops."
+]
+},
+{
+"v": 7,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "세부 전술과 스스로 판단하는 감독",
+"sub_en": "Detailed tactics and a coach that makes its own calls",
+"ko": [
+"<b>전술</b>: 공격 패턴 5가지(균형·에이스·골밑·픽앤롤·모션), 에이스 지정, 에이스 전담 수비, 타임아웃(5대5 4개, 2·3대3 2개), 템포가 체력에 영향.",
+"<b>감독 AI</b>: 경기 전 양 팀 구성을 비교해 게임 플랜을 짜고, 경기 중 데드볼마다 상황(점수차·실점 유형·3점 성공률·핫핸드·체력·팀 파울)에 따라 바꿈. 상대 AI와 결과만 보기 경기에도 반영. 바꾼 이유가 자막과 감독 노트에 남음."
+],
+"en": [
+"<b>Tactics</b>: 5 offensive patterns (balanced, ace, inside, pick-and-roll, motion), a designated ace, a dedicated defender on the opposing ace, timeouts (4 in 5-on-5, 2 in 2-on-2/3-on-3), and tempo that affects stamina.",
+"<b>Coach AI</b>: compares both rosters before the game to build a game plan, then adjusts at every dead ball based on the situation (score margin, how points are being given up, three-point percentage, hot hands, stamina, team fouls). Applies to the opposing AI and to simulated (unwatched) games too. The reason for each change shows up in captions and the coach's notes."
+]
+},
+{
+"v": 8,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "24시간 방송 모드, 광고주 관리, 남은 규칙",
+"sub_en": "24-hour broadcast mode, advertiser management, remaining rules",
+"ko": [
+"<b>방송 모드</b>: 조작 없이 리그 경기를 계속 중계. 경기 전 대진, 경기 후 결과·MVP·순위, LIVE 표시, 하단 순위·뉴스 자막. 쿼터 휴식·하프타임·타임아웃·미디어 타임아웃에 광고, 치어리더 공연, 코트 LED 광고판, 시즌 자동 운영.",
+"<b>광고주 관리</b>: 이름·문구·로고·노출 위치·비중·기간 등록, 노출 횟수·시간 기록과 CSV 리포트, 항상 '광고' 표시. 데이터는 아티팩트 저장소에 보관.",
+"<b>규칙</b>: 골텐딩·공격자 골텐딩·헬드볼, 테크니컬·플래그런트 파울, 막판 운영(고의 파울·시간 끌기·투포원·3점 노리기), 타임아웃 후 세트 플레이, 메이크 잇 테이크 잇·2점 차 승리 옵션.",
+"<b>밸런스·운영</b>: 자유투 증가, 트래블링 버그 수정, FA 쏠림 완화, AI 간 트레이드, 시즌 중 연장 계약, 사치세, 드래프트 추첨, 시상 8개, 저장 슬롯 3개와 클라우드 저장·백업, 효과음·관중 소리·응원 음악."
+],
+"en": [
+"<b>Broadcast mode</b>: airs league games continuously with no input. Pregame matchups, postgame results, MVP and standings, a LIVE bug, and a standings and news ticker at the bottom. Ads during quarter breaks, halftime, timeouts and media timeouts, cheerleader performances, courtside LED ad boards, and automatic season management.",
+"<b>Advertiser management</b>: register name, copy, logo, placement, weight and run dates; impression counts and screen time logged with CSV reports; always labeled 'Ad'. Data is kept in the artifact storage.",
+"<b>Rules</b>: goaltending, offensive goaltending, held balls, technical and flagrant fouls, end-of-game management (intentional fouls, running the clock, 2-for-1, going for three), set plays out of timeouts, make-it-take-it and win-by-2 options.",
+"<b>Balance and operations</b>: more free throws, traveling bug fixed, less free-agent clustering, AI-to-AI trades, in-season extensions, luxury tax, draft lottery, 8 awards, 3 save slots with cloud saves and backups, sound effects, crowd noise and cheer music."
+]
+},
+{
+"v": 9,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "자동 카메라 연출",
+"sub_en": "Automatic camera direction",
+"ko": [
+"<b>카메라 9종</b>: 기본 중계·사이드라인·하이 앵글·반대편과 코트 안 숄더 캠·선수 시점·수비 시점·림 캠·코너 캠. 휴식 시간엔 치어리더·벤치 카메라. 화면 왼쪽 아래에 카메라 이름 표시.",
+"<b>자동 연출</b>: 몇 초마다 앵글 전환, 골밑 슛은 림 캠, 자유투·휴식·경기 끝은 상황별 앵글. 방송과 녹화에 그대로 반영.",
+"<b>백보드 가림</b>: 백보드를 반투명 유리로, 5대5는 공격 골대에 따라 카메라 방향 전환. 하이라이트 슬로 리플레이도 앵글 순환."
+],
+"en": [
+"<b>9 cameras</b>: main broadcast, sideline, high angle and reverse, plus on-court shoulder cam, player POV, defender POV, rim cam and corner cam. Cheerleader and bench cameras during breaks. Camera name shown at bottom left.",
+"<b>Auto direction</b>: angles switch every few seconds, rim cam for shots at the basket, situational angles for free throws, breaks and the final buzzer. Applied to both broadcasts and recordings.",
+"<b>Backboard occlusion</b>: the backboard is now translucent glass, and in 5-on-5 the camera flips direction based on the attacking basket. Highlight slow-motion replays cycle through angles too."
+]
+},
+{
+"v": 10,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "역동적인 움직임",
+"sub_en": "Dynamic movement",
+"ko": [
+"<b>새 동작과 연출</b>: 스핀 무브, 레그스루, 플로터, 체이스다운 블록, 앵클 브레이커, 윈드밀·360·토마호크 덩크 등 기술 동작과 시각 효과가 추가됐어요."
+],
+"en": [
+"<b>New moves and effects</b>: spin moves, between-the-legs, floaters, chase-down blocks, ankle-breakers, and windmill, 360 and tomahawk dunks, with new animations and visual effects."
+]
+},
+{
+"v": 11,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "역대 유명 기술과 시그니처 무브",
+"sub_en": "Legendary moves and signature moves",
+"ko": [
+"<b>기술 24종</b>: 인앤아웃·섐갓·콤보 드리블, 드림 셰이크(업앤언더)·드롭 스텝·턴어라운드 페이드어웨이·스카이훅·홉 스텝·잽 스텝, 사이드스텝 3점·딥 쓰리·원레그 페이드·핑거롤, 노룩·비하인드 백·롱 아웃렛 패스, 셀프 앨리웁·레그스루·리버스·풋백 덩크·팁인, 스트립. 실존 선수 이름은 쓰지 않음.",
+"<b>시그니처</b>: 능력치 조건에 맞는 기술 중 OVR에 따라 선수마다 1~3개. 시그니처는 더 자주, 더 잘 성공. 로스터·FA·트레이드 화면에 ★ 표시, 기록 탭에 기술 도감, 직접 지시 버튼 추가.",
+"스트립·드롭 스텝·노룩 패스 빈도 하향."
+],
+"en": [
+"<b>24 moves</b>: in-and-out, Shammgod and combo dribbles; Dream Shake (up-and-under), drop step, turnaround fadeaway, skyhook, hop step and jab step; side-step three, deep three, one-legged fadeaway and finger roll; no-look, behind-the-back and long outlet passes; self alley-oop, between-the-legs, reverse and putback dunks, tip-ins; and the strip. No real player names are used.",
+"<b>Signatures</b>: each player gets 1–3 signature moves based on OVR, drawn from the moves whose rating requirements they meet. Signature moves come out more often and succeed more. Marked with ★ on the roster, free agency and trade screens, plus a move encyclopedia in the Records tab and new direct-command buttons.",
+"Strip, drop step and no-look pass frequencies reduced."
+]
+},
+{
+"v": 12,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "동작 개선 6가지와 동작 확인 화면",
+"sub_en": "6 movement fixes and a move viewer",
+"ko": [
+"<b>발 미끄러짐</b>: 디딘 발 고정, 보폭·발 구르는 속도를 이동 속도에 맞춤(밀림 평균 6.3→1.7m/s). <b>가속·급정지</b> 관성과 먼지, <b>준비→실행→마무리</b> 3단계, 착지 시 무릎 굽힘, 피벗 발 고정 회전, 선수별 템포 ±10%, 최소 간격 0.7m.",
+"<b>동작 확인 화면</b>: 48가지 기술을 ×1~×0.1 슬로모션으로 반복 재생, 시점 회전·확대.",
+"관성 때문에 늘어난 차징을 절반으로."
+],
+"en": [
+"<b>Foot sliding</b>: planted feet stay locked, and stride length and foot-roll speed match movement speed (average slide 6.3→1.7 m/s). <b>Acceleration and hard stops</b> with inertia and dust, a 3-phase <b>wind-up → action → follow-through</b>, knee bend on landings, turns with a locked pivot foot, per-player tempo ±10%, minimum spacing 0.7 m.",
+"<b>Move viewer</b>: loops 48 moves in slow motion from ×1 to ×0.1, with camera rotation and zoom.",
+"Charges, which had increased because of inertia, cut in half."
+]
+},
+{
+"v": 13,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "선수 모델 고품질화 시안",
+"sub_en": "High-quality player model prototype",
+"ko": [
+"<b>기존 블록 / 정밀 블록 / 스킨</b> 세 모델을 설정에서 고를 수 있게. 허리 2마디·목·발목·손목 관절, 근육 윤곽의 각진 원기둥, 포지션·운동능력별 체격, 유니폼·반바지·양말·신발·밴드와 실제 등번호, 눈·눈썹·코·입·귀와 머리 모양 3종."
+],
+"en": [
+"<b>Classic block / detailed block / skinned</b>: three models selectable in settings. Two-segment waist, neck, ankle and wrist joints, angular cylinders with muscle contours, builds by position and athleticism, jerseys, shorts, socks, shoes, bands and real jersey numbers, eyes, eyebrows, nose, mouth, ears and 3 hairstyles."
+]
+},
+{
+"v": 14,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "고해상도 HD 픽셀, 스킨 모델 기본",
+"sub_en": "High-res HD pixels, skinned model by default",
+"ko": [
+"<b>화질 3단계</b>(레트로·표준·고해상도 HD): HD는 화면 해상도 기준으로 픽셀 크기를 정함(1080p 모니터 960×540→1920×1080). 휴대폰은 처리 픽셀 상한.",
+"<b>HD 색감</b>: 64색 팔레트 대신 밝기 30단계·채도·색상 단계 양자화, 그림자는 차갑게·밝은 쪽은 따뜻하게, 약한 디더. 선수 몸은 스킨 모델이 기본."
+],
+"en": [
+"<b>3 quality levels</b> (Retro, Standard, HD): HD sets pixel size from the screen resolution (on a 1080p monitor, 960×540→1920×1080). Phones cap the number of processed pixels.",
+"<b>HD color</b>: instead of a 64-color palette, quantization into 30 brightness steps plus saturation and hue steps, cool shadows and warm highlights, light dithering. The skinned model is now the default player body."
+]
+},
+{
+"v": 15,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "표준 화질 기본, 아스팔트 질감",
+"sub_en": "Standard quality by default, asphalt texture",
+"ko": [
+"기본 화질을 표준(64색)으로 되돌림. 코트에 낡은 동네 아스팔트 질감: 얼룩·자갈·보수 자국, 많이 밟는 자리의 벗겨진 페인트와 떨어진 라인, 골밑 신발 자국, 해 방향에 따른 미세 요철. 경기장을 지을 때마다 조금씩 달라짐."
+],
+"en": [
+"Default quality reverted to Standard (64 colors). The court gets a worn neighborhood asphalt texture: stains, gravel and patch marks, worn paint and faded lines in high-traffic spots, sneaker marks under the basket, and fine bumps that follow the sun direction. Each arena build comes out slightly different."
+]
+},
+{
+"v": 16,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "방송 안정 모드, OBS용 방송 파일, 자막 해설과 승부 예측",
+"sub_en": "Broadcast stability mode, OBS broadcast file, caption commentary and game predictions",
+"ko": [
+"<b>방송 송출</b>: 로그인 없이 OBS에서 열리는 별도 방송 파일과 'OBS용 방송 패키지 저장'(리그·광고·설정을 파일 하나로, 불러오면 자동 방송). 24시간 유튜브 송출 가이드 문서.",
+"<b>장시간 안정성</b>: 화면 오류에도 멈추지 않음, 30초 멈춤·반복 오류 시 저장 후 자동 재시작, 6시간마다 경기 사이 새로고침, 경기마다 쌓이던 뼈대 메모리 누수 수정.",
+"<b>시청자 참여</b>: 득점·블록·역전·연속 득점 자막 해설, 채팅 1·2로 하는 무료 승부 예측과 예측왕 자막(유튜브 API 키 필요).",
+"<b>그래픽</b>: 사이드 스텝 발 미끄러짐 감소(1.66→1.25m/s), 스킨 모델 어깨 연결, 새 몸 모델 관중(후드·긴소매)과 서서 응원하는 관중, 치어리더 의상. 시즌 끝마다 밸런스 점검 화면과 '점검 결과 복사'."
+],
+"en": [
+"<b>Streaming</b>: a standalone broadcast file that opens in OBS without logging in, and 'Save OBS broadcast package' (league, ads and settings in one file that starts broadcasting automatically when loaded). A guide document for 24-hour YouTube streaming.",
+"<b>Long-run stability</b>: no freezing on rendering errors, auto-save and restart after a 30-second stall or repeated errors, a refresh between games every 6 hours, and a fix for a skeleton memory leak that built up each game.",
+"<b>Viewer participation</b>: caption commentary for scores, blocks, lead changes and scoring runs, free game predictions by typing 1 or 2 in chat, and top-predictor captions (requires a YouTube API key).",
+"<b>Graphics</b>: less foot sliding on side steps (1.66→1.25 m/s), shoulder joints on the skinned model, spectators on the new body model (hoodies, long sleeves) plus standing, cheering fans, cheerleader outfits. A balance check screen and 'Copy check results' at the end of every season."
+]
+},
+{
+"v": 17,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "자막 위치",
+"sub_en": "Caption position",
+"ko": [
+"코트를 가리던 자막 해설을 점수판 아래에서 왼쪽 위 LIVE 표시 밑으로. 감독 지시·규칙 안내 문구도 같은 자리로 모아 코트를 가리는 글자는 쿼터 휴식 광고뿐."
+],
+"en": [
+"Caption commentary, which covered the court, moved from under the scoreboard to below the LIVE bug at top left. Coach instructions and rule notices are gathered in the same spot, so the only text over the court is quarter-break ads."
+]
+},
+{
+"v": 18,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "캐스터·해설위원 2인 자막 중계",
+"sub_en": "Two-person play-by-play and color caption commentary",
+"ko": [
+"가상의 캐스터와 해설위원 두 명이 번갈아 중계. 캐스터는 플레이를 짧게, 해설위원은 맥락과 기록을 붙임. 왼쪽 위 픽셀 얼굴과 말풍선. 음성 합성 서버(Supertonic 3) 연결 준비."
+],
+"en": [
+"A fictional play-by-play announcer and color commentator trade off the call. Play-by-play keeps it short on the action; the color commentator adds context and stats. Pixel faces and speech bubbles at top left. Ready to connect a speech synthesis server (Supertonic 3)."
+]
+},
+{
+"v": 19,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "음성 해설",
+"sub_en": "Voice commentary",
+"ko": [
+"캐스터·해설 두 목소리의 실시간 음성 해설(맥에서 도는 Supertonic 3 서버, 설치 스크립트 제공). 자막과 음성 동기화, '캐스터 · AI 음성' 표시, 숫자 읽기 변환(54:52→오십사 대 오십이), 20초 침묵 채우기, 서버가 꺼지면 자막만. 해설은 득점 뒤 기록, 블록·타임아웃 분석, 쿼터 끝 야투율·리바운드 비교."
+],
+"en": [
+"Real-time voice commentary in two voices, play-by-play and color (a Supertonic 3 server running on a Mac, with an install script). Captions and audio in sync, a 'Play-by-play · AI voice' label, number-to-speech conversion (54:52 → \"fifty-four to fifty-two\"), filling 20-second silences, captions only if the server is down. Commentary covers stats after scores, analysis of blocks and timeouts, and end-of-quarter FG% and rebounding comparisons."
+]
+},
+{
+"v": 20,
+"d": "2026.10.23",
+"d_en": "Oct 23, 2026",
+"sub_ko": "해설 문장 확장, 기록·서사, 소리, 채팅 참여",
+"sub_en": "Expanded commentary, records and storylines, sound, chat participation",
+"ko": [
+"<b>해설</b>: 상황 30여 가지마다 3~12개 문장, 최근 문장 회피(1쿼터 78줄 중 중복 2줄), 위닝샷·버저비터·에어볼·앤드원 상황, 선수 소개(나이·성격·연차·수상·최다 득점).",
+"<b>기록·서사</b>: 리그·개인 한 경기 최다 기록, 통산 득점 이정표, 연승·연패, 맞대결 전적, 결승 재대결, MVP 경쟁 — 경기 중 즉시 콜, 경기 전 이야깃거리 2줄, 경기 후 음성 정리.",
+"<b>소리</b>: 매번 새로 작곡하는 칩튠 배경 음악, 겹겹이 만든 관중 소리(접전·큰 장면에 커짐), 함성·휘파람·\"오~\"·탄식, 타임아웃 오르간, 막판 응원 박수, 해설 중 덕킹.",
+"<b>채팅</b>: `!응원 팀`(응원 순위·승리 축하), 팬 작전 투표(`!템포 !3점 !골밑 !압박` — 최다 작전을 팀이 실제로 씀), `!내기록`."
+],
+"en": [
+"<b>Commentary</b>: 3–12 lines for each of about 30 situations, avoiding recently used lines (2 repeats out of 78 lines in the 1st quarter), game-winners, buzzer-beaters, airballs and and-ones, player intros (age, personality, years in the league, awards, career high).",
+"<b>Records and storylines</b>: league and individual single-game records, career scoring milestones, winning and losing streaks, head-to-head records, Finals rematches, the MVP race — called live during games, 2 pregame talking points, and a spoken postgame wrap.",
+"<b>Sound</b>: chiptune background music freshly composed every time, layered crowd noise (louder in close games and big moments), cheers, whistles, \"ooh\"s and groans, timeout organ, late-game rhythmic clapping, ducking under commentary.",
+"<b>Chat</b>: `!응원 팀` (cheer for a team: fan rankings and win celebrations), fan strategy votes (`!템포 !3점 !골밑 !압박` — tempo, threes, inside, pressure; the team actually runs the winning call), `!내기록` (my stats)."
+]
+},
+{
+"v": 27,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "선수 AI 고도화 — 도움 수비·로테이션·공 없는 움직임",
+"sub_en": "Smarter player AI — help defense, rotations, off-ball movement",
+"ko": [
+"<b>수비</b>: 돌파 길목으로 들어가는 도움 수비(경기당 0→56회), 빈 선수를 메우는 로테이션, 픽앤롤 수비 5가지(밀착·언더·헷지·드롭·스위치)와 미스매치 공략, 포스트 더블팀.",
+"<b>공격</b>: 도움 수비를 보고 빼 주는 킥아웃, 빈자리로 빠지거나 골밑으로 뛰어드는 공 없는 움직임, 다운·플레어 스크린, 핸드오프, 세트 플레이(HORNS·FLOPPY), 선수별 잘 쏘는 자리(코너·45도·정면·미드·페인트·골밑).",
+"<b>그 밖에</b>: 리바운드 인원 작전 반영, 접전 막판 에이스 몰아주기, 연속 득점 자신감, 파울 유도와 차징, 해설이 킥아웃·더블팀 탈출을 짚음."
+],
+"en": [
+"<b>Defense</b>: help defense stepping into driving lanes (0→56 per game), rotations to cover open players, 5 pick-and-roll coverages (up-to-touch, under, hedge, drop, switch) and mismatch hunting, post double-teams.",
+"<b>Offense</b>: kick-outs when the help comes, off-ball movement drifting to open spots or cutting to the rim, down and flare screens, handoffs, set plays (HORNS, FLOPPY), and each player's preferred shooting spots (corner, wing, top of the key, midrange, paint, at the rim).",
+"<b>Also</b>: rebounding numbers follow the game plan, the ace gets the ball late in close games, confidence from consecutive scores, drawing fouls and charges, and the commentary calls out kick-outs and double-team escapes."
+]
+},
+{
+"v": 28,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "내부 빌드",
+"sub_en": "Internal build",
+"ko": [
+"배포 과정의 중간본이에요. v27과 v29 사이에 게임 변경은 없어요."
+],
+"en": [
+"An intermediate build from the release process. No game changes between v27 and v29."
+]
+},
+{
+"v": 29,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "팀 전력·포지션 특색 보정",
+"sub_en": "Team strength and positional identity tuning",
+"ko": [
+"<b>강팀이 더 이김</b>: OVR 8 차이 승률 3대3 68→76%, 5대5 86→76%, 2대2 85%. 슈팅 능력치와 3점 성공률 연관도 0.75~0.92.",
+"<b>포지션 특색</b>: 센터 리바운드 6.4·블록 0.85, 가드 어시스트 3.3로 갈림. 방송 경기 3점 성공률 36~38%로, 센터의 도움 수비 블록 추가.",
+"<b>결과만 계산하는 경기</b>를 방송 경기의 3점 비중·득점·어시스트·블록에 맞춤. 쇼츠 제작이 3분 넘으면 건너뛰고 방송 계속."
+],
+"en": [
+"<b>Stronger teams win more</b>: win rate at an 8-point OVR gap goes 68→76% in 3-on-3, 86→76% in 5-on-5, and 85% in 2-on-2. Correlation between shooting rating and three-point percentage 0.75–0.92.",
+"<b>Positional identity</b>: centers average 6.4 rebounds and 0.85 blocks, guards 3.3 assists. Three-point percentage in broadcast games set to 36–38%, and centers now get help-defense blocks.",
+"<b>Simulated (unwatched) games</b> now match broadcast games in three-point share, scoring, assists and blocks. If making a Short takes more than 3 minutes, it is skipped and the broadcast continues."
+]
+},
+{
+"v": 30,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "시즌 20경기, 계산 경기 체력, 채널 브랜딩",
+"sub_en": "20-game season, stamina in simulated games, channel branding",
+"ko": [
+"<b>시즌 20경기</b>: 팀당 20라운드(홈·원정 10씩). 팀 전력과 승률 연관도 2대2 0.04→0.42, 3대3 0.17→0.51~0.71. 트레이드 마감 12라운드, 올스타전은 시즌 중간.",
+"<b>결과만 계산하는 경기에도 체력</b>: 뛰면 줄고 벤치에서 회복, 지친 선수는 슛·수비가 떨어지고 교체.",
+"<b>브랜딩</b>: 배너·프로필·썸네일·쇼츠 표지·워터마크 이미지, 방송 오프닝(6초, 기본 60분 간격), 썸네일 저장 버튼."
+],
+"en": [
+"<b>20-game season</b>: 20 rounds per team (10 home, 10 away). Correlation between team strength and win rate goes 0.04→0.42 in 2-on-2 and 0.17→0.51–0.71 in 3-on-3. Trade deadline after round 12, All-Star Game at midseason.",
+"<b>Stamina in simulated (unwatched) games too</b>: it drains while playing and recovers on the bench; tired players shoot and defend worse and get subbed out.",
+"<b>Branding</b>: banner, profile, thumbnail, Shorts cover and watermark images, a broadcast opening (6 seconds, every 60 minutes by default), and a save-thumbnail button."
+]
+},
+{
+"v": 31,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "빈 골밑은 림으로",
+"sub_en": "Empty paint means go to the rim",
+"ko": [
+"<b>빈 골밑 인식</b>: 공과 림 사이에 수비가 없으면 중거리 슛 대신 항상 림까지(ATTACK THE RIM). 3점 라인 밖에선 돌파와 3점 중 선택.",
+"<b>속공</b>: 림까지 수비가 없으면 인원 수와 상관없이 끝까지 달림(PUSH THE PACE). 덩크 45%, 나머지 레이업·리버스. 뒤쫓는 수비의 가속 하향.",
+"재현 시험: 빈 골밑 14회 전부 레이업·덩크. 5대5 중거리 14→9개, 덩크 8→20개."
+],
+"en": [
+"<b>Open-lane recognition</b>: with no defender between the ball and the rim, the ball handler always goes all the way to the rim instead of settling for a midrange shot (ATTACK THE RIM). Beyond the arc, it's a choice between driving and shooting the three.",
+"<b>Fast breaks</b>: with no defender between the ball and the rim, the ball handler runs it all the way regardless of numbers (PUSH THE PACE). 45% dunks, the rest layups and reverses. Trailing defenders' acceleration reduced.",
+"Reproduction test: all 14 open-lane situations ended in a layup or dunk. In 5-on-5, midrange shots 14→9, dunks 8→20."
+]
+},
+{
+"v": 32,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "실제 리그 통계 기준 보정",
+"sub_en": "Calibrated to real league stats",
+"ko": [
+"<b>5대5를 실제 프로 리그 2025-26 평균에 맞춤</b>: 100번 공격당 득점 121→112~114, 야투율 47~48%, 3점 비중 40~42%, 3점 성공률 36~38%, 골밑 성공률 85→63%, 자유투/야투 0.23~0.26, 어시스트 비율 58~64%, 공격 리바운드 29~31%, 속공 비중 10~12%, 덩크 하향.",
+"게임 안에 100번 공격당 단위로 재는 측정 장치를 넣고 16경기로 보정. 결과만 계산하는 경기도 같은 기준."
+],
+"en": [
+"<b>5-on-5 calibrated to the real pro league's 2025-26 averages</b>: points per 100 possessions 121→112–114, FG% 47–48%, three-point rate 40–42%, 3P% 36–38%, at-rim FG% 85→63%, FT/FGA 0.23–0.26, assist rate 58–64%, offensive rebound rate 29–31%, fast-break share 10–12%, fewer dunks.",
+"Added an in-game measurement tool that tracks stats per 100 possessions, and calibrated over 16 games. Simulated (unwatched) games use the same standard."
+]
+},
+{
+"v": 33,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "달리면서 레이업",
+"sub_en": "Layups on the run",
+"ko": [
+"<b>레이업·플로터</b>: 슛 동작 중 이동을 막던 구조를 고쳐, 달리던 속도로 림 쪽 약 1m 더 들어가며 올려놓음. 리버스 레이업은 림 아래를 지나 반대쪽으로. 유로스텝·홉스텝 뒤엔 과하게 안 들어감."
+],
+"en": [
+"<b>Layups and floaters</b>: fixed the setup that blocked movement during the shot motion, so players now carry their running speed about 1 m further toward the rim as they lay it in. Reverse layups pass under the rim to the other side. No overshooting after Euro steps or hop steps."
+]
+},
+{
+"v": 34,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "자동 점검으로 찾은 움직임 문제 6가지",
+"sub_en": "6 movement issues found by automated testing",
+"ko": [
+"패스할 때 멈춤(경기당 99~114→0회), 달리다 멈춰서 점프슛(27~30→0~1회), 3초룰 위반(4~7→2회), 하프코트 바이얼레이션(1~2→0.3회), 공격 리바운드 30~34→23~27%, 코너 3점 성공률 30→35~42%.",
+"고친 뒤 실제 리그 기준 비교: 100번당 득점 115~118, 3점 비중 42~46%, 골밑 비중 32~37%, 3점 성공률 36~40%."
+],
+"en": [
+"Stopping to pass (99–114→0 per game), running then stopping for a jump shot (27–30→0–1), three-second violations (4–7→2), backcourt violations (1–2→0.3), offensive rebound rate 30–34→23–27%, corner 3P% 30→35–42%.",
+"Compared with the real league average after the fixes: points per 100 possessions 115–118, three-point rate 42–46%, at-rim share 32–37%, 3P% 36–40%."
+]
+},
+{
+"v": 35,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "하이라이트 쇼와 오늘의 플레이 투표",
+"sub_en": "Highlight show and Play of the Game vote",
+"ko": [
+"<b>라이브 화면의 하이라이트 쇼</b>: 경기 뒤 쇼츠를 만드는 1분 동안 TODAY'S TOP PLAYS 카드, 상단 점수, 명장면 자막(번호·플레이 이름·선수·오늘 기록), REPLAY 표시와 카메라 이름, 해설 한마디, 장면 전환 띠, 오른쪽 명장면 목록.",
+"<b>시청자 투표</b>: 채팅에 1~5 번호로 오늘의 플레이 투표, 득표 막대와 PLAY OF THE GAME 카드. 채팅이 없으면 자동 선정.",
+"쇼츠 영상에도 매치업 띠·한국어 플레이 이름·선수 기록 자막."
+],
+"en": [
+"<b>Highlight show on the live feed</b>: during the minute after each game while the Short is being made — a TODAY'S TOP PLAYS card, the score up top, highlight captions (number, play name, player, today's line), REPLAY bug and camera name, a line of commentary, transition wipes, and a list of top plays on the right.",
+"<b>Viewer vote</b>: viewers vote for the play of the day by typing 1–5 in chat, with vote bars and a PLAY OF THE GAME card. Picked automatically if there's no chat.",
+"Shorts videos also get a matchup banner, Korean play names and player stat captions."
+]
+},
+{
+"v": 36,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "실제 중계 같은 카메라, 공 잡은 선수 이름표",
+"sub_en": "Real-broadcast camera work, name tag on the ball handler",
+"ko": [
+"<b>카메라</b>: 1분당 전환 7.3→2.2~2.8번, 슛 도중 전환 0번, 메인 카메라 비중 44→67~78%, 가까운 화면 24→2~3%. 메인 카메라는 높은 측면에서 공·선수 중심을 따라가며 천천히 줌, 속공은 진행 방향 앞질러 비춤. 득점 뒤 클로즈업, 숄더 캠은 백코트에서만.",
+"<b>이름표</b>: 방송에서도 공 잡은 선수 머리 위에 이름과 오늘 득점이 팀 색으로."
+],
+"en": [
+"<b>Camera</b>: cuts per minute 7.3→2.2–2.8, 0 cuts mid-shot, main camera share 44→67–78%, close shots 24→2–3%. The main camera follows the ball and players from a high side angle with slow zooms, and leads the play on fast breaks. Close-ups after scores; shoulder cam only in the backcourt.",
+"<b>Name tags</b>: in broadcasts too, the ball handler's name and points so far appear above their head in team colors."
+]
+},
+{
+"v": 37,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "이름표에 포지션",
+"sub_en": "Positions on name tags",
+"ko": [
+"이름표에 가드·포워드·센터 배지 추가."
+],
+"en": [
+"Added guard, forward and center badges to name tags."
+]
+},
+{
+"v": 38,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "이름표 형식",
+"sub_en": "Name tag format",
+"ko": [
+"포지션 글자를 맨 앞에 두는 \"[C] 문정우 0점\" 형식으로."
+],
+"en": [
+"The position letter now comes first, in the format \"[C] Moon Jung-woo 0 PTS\"."
+]
+},
+{
+"v": 39,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "5대5 다섯 포지션",
+"sub_en": "Five positions in 5-on-5",
+"ko": [
+"<b>PG/SG/SF/PF/C</b>: 능력치로 자동 분류(패스>슛이면 PG, 리바운드+수비가 높으면 PF). 이름표·로스터·FA·트레이드·박스스코어·소식에 표시.",
+"<b>역할</b>: PG가 공 운반(백코트 운반의 61%), SG·SF는 윙·코너 3점 자리, PF는 엘보우·베이스라인, C는 골밑. 공격 효율이 올라 3점·골밑 성공률 소폭 하향."
+],
+"en": [
+"<b>PG/SG/SF/PF/C</b>: assigned automatically from ratings (PG if passing > shooting, PF if rebounding + defense are high). Shown on name tags, rosters, free agency, trades, box scores and news.",
+"<b>Roles</b>: the PG brings the ball up (61% of backcourt advances), SG and SF space to the wing and corner three spots, PF works the elbows and baseline, C stays in the paint. Offensive efficiency rose, so 3P% and at-rim FG% were trimmed slightly."
+]
+},
+{
+"v": 40,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "포지션 균형 라인업",
+"sub_en": "Position-balanced lineups",
+"ko": [
+"<b>주전 PG-SG-SF-PF-C</b>: 감독 자동 라인업이 포지션 불일치를 감점으로 계산(옆 포지션 7, 두 칸 14). 새 리그·드래프트·FA도 빈 포지션 우선. 주전이 다섯 포지션인 팀 4~10→22팀.",
+"교체도 같은·옆 포지션 우선. PF 리바운드 경합 유리(SF 3.3 vs PF 4.4)."
+],
+"en": [
+"<b>PG-SG-SF-PF-C starters</b>: the coach's auto-lineup penalizes position mismatches (7 for an adjacent position, 14 for two spots off). New leagues, drafts and free agency also prioritize empty positions. Teams starting all five positions 4–10→22.",
+"Substitutions also favor the same or an adjacent position. PFs win more rebounding battles (SF 3.3 vs PF 4.4)."
+]
+},
+{
+"v": 41,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "특정 팀을 편들지 않는 리그 중계",
+"sub_en": "League coverage that doesn't favor any team",
+"ko": [
+"<b>중계 방식</b>: 라운드 전체 경기 중계(기본, 빅매치부터 차례로) 또는 라운드 빅매치 1경기. 빅매치는 전력·스타·순위 접전·방송 노출 횟수로 선정해 팀별 방송 횟수가 고르게."
+],
+"en": [
+"<b>Coverage mode</b>: air every game of the round (default, starting with the marquee matchup) or just the round's one marquee game. Marquee games are picked by team strength, stars, tight standings races and how often each team has been on air, so airtime evens out across teams."
+]
+},
+{
+"v": 42,
+"d": "2026.10.24",
+"d_en": "Oct 24, 2026",
+"sub_ko": "드리블 기술을 실제로 씀",
+"sub_en": "Dribble moves actually get used",
+"ko": [
+"<b>기술 쓰는 상황 확대</b>: 돌파 때만 쓰던 드리블 기술을 하프코트에서 수비와 마주 섰을 때(사이즈업)와 공을 몰고 넘어올 때도 씀. 기술이 나온 공격 19%→53%.",
+"공 운반 중 기술 때문에 생기던 샷클락 위반(경기당 12회)과 턴오버 증가를 잡아 빈도 조정. 기술 이름이 이름표 위에 표시."
+],
+"en": [
+"<b>More situations for moves</b>: dribble moves that were only used on drives now also come out when sizing up a defender in the half court and when bringing the ball up. Possessions featuring a move 19%→53%.",
+"Fixed the shot-clock violations (12 per game) and extra turnovers caused by moves while bringing the ball up, and adjusted frequency. The move name appears above the name tag."
+]
+},
+{
+"v": 49,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "장시간 송출 메모리 누수 수정",
+"sub_en": "Memory leak fix for long streams",
+"ko": [
+"<b>그래픽 메모리 누수</b>: 경기장이 바뀔 때마다 LED 전광판 이미지와 철조망 원본 이미지가 쌓이고, 모델 변경 시 응원단 모델이 남던 문제. 30경기 연속 송출에서 텍스처 90개→33~45개 유지, 메모리 202MB→25MB."
+],
+"en": [
+"<b>Graphics memory leak</b>: LED board images and source chain-link fence images piled up with every arena change, and cheer squad models lingered after model changes. Over 30 consecutive streamed games, textures now hold at 33–45 instead of 90, and memory 202 MB→25 MB."
+]
+},
+{
+"v": 50,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "기술이 이어지는 유기적 공격",
+"sub_en": "Organic offense that chains moves",
+"ko": [
+"<b>기술 끝의 판단</b>: 도움 수비가 붙으면 비하인드 백 패스·노룩 패스로 바로 빼기, 수비가 속으면 풀업·스텝백 3점, 안 속으면 다음 기술로 연결(3~4개까지), 그래도 안 뚫리면 동료에게.",
+"<b>표시</b>: \"크로스오버 → 레그스루\" 같은 연결 자막, 득점 자막·하이라이트에 연결 동작, 2개 이상 연결하면 해설이 외침. 경기당 기술 중 패스 17, 연결 8, 풀업 6, 스텝백 4회."
+],
+"en": [
+"<b>Decision at the end of a move</b>: if help defense arrives, kick it out right away with a behind-the-back or no-look pass; if the defender bites, pull-up or step-back three; if not, chain into the next move (up to 3–4); if still stuck, give it to a teammate.",
+"<b>Display</b>: chain captions like \"Crossover → Between-the-legs\", chained moves shown in scoring captions and highlights, and the commentary calls out chains of 2 or more. Per game: 17 passes out of moves, 8 chains, 6 pull-ups, 4 step-backs."
+]
+},
+{
+"v": 51,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "미스매치 정리, 실제 팀 같은 교체, 받는 순간의 판단",
+"sub_en": "Mismatch cleanup, realistic substitutions, decisions on the catch",
+"ko": [
+"<b>수비</b>: 포지션 기준 매치업(작은 수비수가 빅맨 막는 시간 26→10%), 스크램 스위치, 속공 매치업 뒤 원래대로 복귀, 포스트 미스매치 프론트·빠른 더블팀, 도움 수비 후 복귀와 X-아웃, 로우맨 림 보호.",
+"<b>교체</b>: 빅맨 1~2명과 볼 핸들러가 남도록 조합 계산(빅맨 3명 이상 23→14%, 센터 2명 19→9%), 빠른 팀은 스몰볼.",
+"<b>공격</b>: 캐치앤슛(경기당 9), 클로즈아웃 공략(13), 엑스트라 패스(3), 기브앤고, 상황을 읽는 백도어."
+],
+"en": [
+"<b>Defense</b>: position-based matchups (time a small defender spends guarding a big 26→10%), scram switches, returning to original matchups after transition, fronting post mismatches and quick double-teams, recovering after help and X-outs, the low man protecting the rim.",
+"<b>Substitutions</b>: lineup combinations keep 1–2 bigs and a ball handler on the floor (3+ bigs 23→14%, two centers 19→9%); fast teams go small-ball.",
+"<b>Offense</b>: catch-and-shoot (9 per game), attacking closeouts (13), extra passes (3), give-and-go, backdoor cuts that read the defense."
+]
+},
+{
+"v": 52,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "선수 감정 표현",
+"sub_en": "Player emotions",
+"ko": [
+"3점 손가락, 앤드원 이두근, 덩크 가슴 치기, 하이파이브·박수, 블록 손가락 흔들기, 앵클 브레이커 내려다보기, 쉬운 슛 실패·턴오버에 머리 감싸기(다혈질은 허벅지 치기). 모두 상체 동작이라 뛰면서 함."
+],
+"en": [
+"Three fingers up after threes, flexing after and-ones, chest pounding after dunks, high fives and clapping, finger wag after blocks, looking down after an ankle-breaker, hands on head after missed easy shots and turnovers (hot-headed players slap their thighs). All upper-body animations, so they play while running."
+]
+},
+{
+"v": 53,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "득점 후 바로 백코트",
+"sub_en": "Straight back on defense after scores",
+"ko": [
+"제자리 점프 세리머니 제거(경기 종료 때만). 득점 팀은 즉시 복귀, 실점 팀은 가까운 선수가 공을 줍고 나머지는 올라감. 득점 직후 서 있는 비율 37→16%, 전원 복귀 5.5→4.4초."
+],
+"en": [
+"Removed the standing jump celebration (now only at the end of games). The scoring team gets back immediately; on the other side, the nearest player grabs the ball and the rest head upcourt. Share of players standing still right after a score 37→16%, full team back 5.5→4.4 seconds."
+]
+},
+{
+"v": 54,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "키(신장) 능력치",
+"sub_en": "Height rating",
+"ko": [
+"포지션 평균(PG 186·SG 193·SF 200·PF 205·C 209cm) ±5cm. 화면 체격, 리바운드 손 높이, 블록, 덩크 가능 여부, 순발력, 점프볼, 골밑 견제·미스매치에 반영(포지션 평균 이상 차이만). 득점 효율이 떨어지던 것을 보정해 키 없을 때 수준으로."
+],
+"en": [
+"Position averages (PG 186, SG 193, SF 200, PF 205, C 209 cm) ±5 cm. Affects on-screen build, rebounding reach, blocks, dunk ability, quickness, jump balls, contesting inside and mismatches (only differences beyond the position average count). Scoring efficiency had dropped, so it was rebalanced back to the pre-height level."
+]
+},
+{
+"v": 55,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "주 사용 손, 선수별 성향, 감정·소통 2단계",
+"sub_en": "Handedness, player tendencies, emotion and communication phase 2",
+"ko": [
+"<b>주 사용 손</b>(오른손·왼손잡이)과 <b>선수별 성향 수치</b>가 플레이에 반영되고 선수 정보에 표시.",
+"<b>감정·소통</b>: 벤치 환호, 타임아웃 허들, 자유투 로우파이브, 판정 항의 등 경기 밖 장면과 방송 연동."
+],
+"en": [
+"<b>Dominant hand</b> (right- or left-handed) and <b>per-player tendency values</b> now affect play and appear in player info.",
+"<b>Emotion and communication</b>: bench celebrations, timeout huddles, free-throw low fives, arguing calls and other moments away from the play, tied into the broadcast."
+]
+},
+{
+"v": 56,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "\"진짜 선수처럼\" 8개 영역 완성 — 팀 공격·신체·수비·리바운드·감독",
+"sub_en": "\"Play like real players\" complete across 8 areas — team offense, physicals, defense, rebounding, coaching",
+"ko": [
+"<b>팀 공격</b>: 트레일러 3점, 드래그 스크린, 스태거·스페인 픽앤롤·하이로우·엘보 세트, 쇼트롤, 쿼터 막판 2-for-1.",
+"<b>신체</b>: 힘·윙스팬 능력치(포스트업·박스아웃·스크린 / 블록·견제·가로채기), 지친 선수 무릎 짚기, 다친 선수 절뚝임, 선수별 자유투 감각.",
+"<b>수비</b>: 디나이, 스턴트, 차징 유도, 파울 4개면 소극 수비, 존 수비 2-3·3-2·1-3-1, 함정 프레스. <b>리바운드</b>: 팁아웃, 긴 리바운드 자리 선점, 루즈볼 몸 던지기. <b>감독</b>: 뜨거운 상대에게 최고 수비수+더블팀, 클로징 라인업, 공수 전문 교체, 핵어 작전.",
+"보정: 자유투 비율 0.266, 파울 19.5, 림 근처 30%/66%로 실제 리그 수준."
+],
+"en": [
+"<b>Team offense</b>: trailer threes, drag screens, stagger, Spain pick-and-roll, high-low and elbow sets, short roll, 2-for-1 at the end of quarters.",
+"<b>Physicals</b>: strength and wingspan ratings (post-ups, box-outs, screens / blocks, contests, steals), tired players with hands on knees, injured players limping, per-player free-throw touch.",
+"<b>Defense</b>: denial, stunts, drawing charges, playing soft at 4 fouls, 2-3, 3-2 and 1-3-1 zones, trapping press. <b>Rebounding</b>: tip-outs, positioning for long rebounds, diving for loose balls. <b>Coaching</b>: best defender plus double-teams on a hot opponent, closing lineups, offense/defense specialist subs, Hack-a strategy.",
+"Calibration: free-throw rate 0.266, 19.5 fouls, near-rim 30%/66%, in line with the real league average."
+]
+},
+{
+"v": 57,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "픽앤롤 중심 공격, 1대1, 짧은 중거리",
+"sub_en": "Pick-and-roll offense, isolation, short midrange",
+"ko": [
+"<b>픽앤롤</b>이 하프코트 기본 패턴(경기당 30~36회). 수비 방식별 판단: 드롭이면 플로터·풀업, 언더면 풀업 3점, 스위치면 1대1, 걸리면 림, 함정이면 쇼트롤.",
+"<b>1대1</b>(아이솔레이션), 어시스트 판정 기준 정비, 플로터·짧은 풀업 증가, 공격 리바운드 인원 2명(골밑 팀 3명), 속공 비율 하향, V컷.",
+"24경기: 공격 효율 111.1, eFG 55.0%, 3점 40.6%/36.5%, 자유투 0.267, 공격 리바운드 27.7%, 어시스트 59.4%."
+],
+"en": [
+"<b>Pick-and-roll</b> is the default half-court pattern (30–36 per game). Reads by coverage: floater or pull-up against drop, pull-up three against under, isolation against a switch, the rim when the screen catches the defender, short roll against a trap.",
+"<b>Isolation</b> (1-on-1), reworked assist criteria, more floaters and short pull-ups, 2 players crashing the offensive glass (3 for inside-oriented teams), lower fast-break rate, V-cuts.",
+"24 games: offensive rating 111.1, eFG 55.0%, three-point rate/3P% 40.6%/36.5%, free-throw rate 0.267, offensive rebound rate 27.7%, assist rate 59.4%."
+]
+},
+{
+"v": 58,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "숄더 캠은 명장면에만",
+"sub_en": "Shoulder cam for big moments only",
+"ko": [
+"평소 경기는 와이드·사이드라인·하이 앵글·반대편 카메라만. 숄더 캠은 브레이크어웨이(항상)와 2대1 속공(40%)에서만 약 3초."
+],
+"en": [
+"Regular play uses only the wide, sideline, high-angle and reverse cameras. The shoulder cam appears for about 3 seconds, only on breakaways (always) and 2-on-1 fast breaks (40%)."
+]
+},
+{
+"v": 59,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "1인칭 시점도 명장면에만",
+"sub_en": "First-person view for big moments only too",
+"ko": [
+"공격수·수비수 시점을 평소 카메라 목록에서 제외. 덩크·앨리웁 점프 시작 때 45% 확률로 뛰어오르는 선수 시점 → 득점 뒤 클로즈업."
+],
+"en": [
+"Offensive and defensive POVs removed from the regular camera rotation. At takeoff on dunks and alley-oops there's a 45% chance of cutting to the leaping player's POV → close-up after the score."
+]
+},
+{
+"v": 60,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "펌프 페이크 뒤 돌파",
+"sub_en": "Drive after a pump fake",
+"ko": [
+"수비가 속으면 드리블 돌파가 기본(3점 라인 밖 즉시 슛은 슈터 40%·나머지 25%), 원드리블 풀업(ONE-DRIBBLE PULL-UP), 안 속았지만 가까우면 잽 스텝 돌파(JAB · DRIVE). 공을 잡은 뒤엔 다시 드리블하지 않음. 페이크 뒤 돌파 경기당 0.7→5.7회."
+],
+"en": [
+"If the defender bites, driving is now the default (an immediate shot from beyond the arc is 40% for shooters, 25% for others), plus the one-dribble pull-up (ONE-DRIBBLE PULL-UP), and a jab-step drive when the defender didn't bite but is close (JAB · DRIVE). No re-dribbling after picking up the ball. Drives after fakes 0.7→5.7 per game."
+]
+},
+{
+"v": 61,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "ICE 수비, 존 공략, 박스앤원, 해머·시카고, 막판 운영",
+"sub_en": "ICE defense, attacking zones, box-and-one, Hammer and Chicago, late-game management",
+"ko": [
+"<b>ICE</b>: 사이드 픽앤롤을 베이스라인으로 몰기(경기당 3~4회). 팀별 경기 전 픽앤롤 수비 계획(드롭·스위치·ICE). <b>박스앤원</b>, <b>존 공략</b>(하이포스트·스킵 패스), <b>해머</b>·<b>시카고 액션</b>.",
+"<b>로테이션</b>: 최고 2명이 동시에 쉬지 않게. <b>막판</b>: 3점 앞선 7초 안쪽 고의 파울(60%), 쿼터 끝 하프라인 버저비터. 루즈볼·홀딩 파울과 가로채기 확률 하향(스틸 10.3→8.7, 파울 22.9→21.0)."
+],
+"en": [
+"<b>ICE</b>: forcing side pick-and-rolls toward the baseline (3–4 per game). Each team sets a pregame pick-and-roll coverage plan (drop, switch, ICE). <b>Box-and-one</b>, <b>zone offense</b> (high post, skip passes), <b>Hammer</b> and <b>Chicago action</b>.",
+"<b>Rotation</b>: the two best players never rest at the same time. <b>Late game</b>: intentional fouls when up 3 inside 7 seconds (60%), half-court buzzer-beaters at the end of quarters. Loose-ball and holding foul and steal odds lowered (steals 10.3→8.7, fouls 22.9→21.0)."
+]
+},
+{
+"v": 62,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "인바운드 패스, 새 규칙, 통계 카드",
+"sub_en": "Inbound passes, new rules, stat cards",
+"ko": [
+"<b>인바운드</b>: 5대5에서 득점 후 엔드라인 밖·아웃 지점에서 실제로 공을 넣음. BLOB·SLOB 인바운드 세트. 스쿱 레이업, 두 손 오버헤드 패스.",
+"<b>규칙·전술</b>: 테이크 파울, 클리어 패스 파울, 수비 3초, 스위치 에브리싱, 쇼 수비, 포스트 엔트리, 작전 타임 세트 3종 추가, 감독 챌린지(경기당 1회, 40% 번복).",
+"<b>방송</b>: 쿼터 휴식·타임아웃에 슛 차트·득점 상위 3명 통계 카드, 리플레이 카메라 5종, 해설 문장 추가. 패스 가로채기 10% 하향, 자유투 성공률 +3.5%."
+],
+"en": [
+"<b>Inbounds</b>: in 5-on-5, the ball is now actually inbounded from behind the baseline after scores and from the spot where it went out. BLOB and SLOB inbound sets. Scoop layups, two-handed overhead passes.",
+"<b>Rules and tactics</b>: take fouls, clear-path fouls, defensive three seconds, switch-everything, show coverage, post entries, 3 new timeout sets, coach's challenge (1 per game, 40% overturned).",
+"<b>Broadcast</b>: shot charts and top-3 scorer stat cards during quarter breaks and timeouts, 5 replay cameras, more commentary lines. Pass interceptions down 10%, free-throw percentage +3.5%."
+]
+},
+{
+"v": 63,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "선수 간격, 카메라 줌, 피벗",
+"sub_en": "Player spacing, camera zoom, pivots",
+"ko": [
+"방송 화면 72장을 직접 보고 찾은 것: 공격 선수 뭉침(같은 팀 두 명이 1.8m 안에 붙는 시간 37→16.6%), 기본 카메라 줌 20~30% 당김.",
+"피벗 동작(공 보호·축발 회전), F 키 FPS 표시, 리플레이 로우앵글·버드아이 화면 확인, 드리블 멈춘 뒤 멈추던 버그 수정, 세트 진행 중 판단 대기."
+],
+"en": [
+"Found by reviewing 72 broadcast frames by hand: offensive players bunching up (time two teammates spend within 1.8 m 37→16.6%), default camera zoomed in 20–30%.",
+"Pivot moves (protecting the ball, turning on the pivot foot), FPS display on the F key, checked low-angle and bird's-eye replay views, fixed a bug where players froze after ending their dribble, decisions wait while a set is running."
+]
+},
+{
+"v": 64,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "혼자 제치면 직접 마무리",
+"sub_en": "Beat your man, finish it yourself",
+"ko": [
+"수비를 제치고 골밑까지 갔는데 아무도 안 도우면 밖으로 빼지 않고 레이업·덩크·유로스텝·플로터로 직접 마무리(드라이브 중 패스 38→28%). 골대 앞을 막아선 수비만 도움 수비로 인정. 성격·성향(팀플레이형·독식형·쇼맨형) 반영.",
+"보정: 파울 24.2→20.9, 짧은 중거리 성공률 38.9→44.5%, 림 근처 66.4%, 덩크 시도 증가, 3점 계수 하향."
+],
+"en": [
+"When a player beats the defender to the basket and no help comes, they finish with a layup, dunk, Euro step or floater instead of kicking it out (passes on drives 38→28%). Only defenders standing in front of the basket count as help. Personality and tendencies (team player, ball hog, showman) factor in.",
+"Calibration: fouls 24.2→20.9, short midrange FG% 38.9→44.5%, near-rim 66.4%, more dunk attempts, lower three-point coefficient."
+]
+},
+{
+"v": 65,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "4개 지역 채널 — 한국·글로벌·일본·대만",
+"sub_en": "4 regional channels — Korea, Global, Japan, Taiwan",
+"ko": [
+"<b>다국어 구조</b>: 화면·해설 문장 약 1,800개를 번역 키로 바꾸고 영어·일본어·번체 중국어 채널 추가. 각 나라 중계 말투(미국 프로 중계풍, 実況·解説, 主播·球評).",
+"<b>지역별 가상 리그</b>: 한국 IBL 아일랜드 프로농구(5반칙, 외국인 2명 보유·쿼터별 1·2·2·1), 글로벌 PICKUP ISLAND LEAGUE(6반칙, 수비 3초), 일본 アイランドリーグ(외국 국적 3명 동시 출전), 대만 IPBL 島嶼職籃(외국인 2명 동시). 실제 리그·팀 이름은 쓰지 않음.",
+"지역별 선수 이름 생성, 외국인 규칙이 경기·영입·트레이드에 실제 적용, 채팅 명령어 다국어 인식, 지역별 저장·방송 설정 분리. 방송 파일 4개(ko/en/ja/tw)."
+],
+"en": [
+"<b>Multilingual structure</b>: about 1,800 on-screen and commentary lines converted to translation keys, with English, Japanese and Traditional Chinese channels added. Each country's broadcast style (American pro-broadcast style, 実況·解説, 主播·球評).",
+"<b>Regional fictional leagues</b>: Korea's IBL Island Pro Basketball (5-foul limit, 2 imports on the roster, 1·2·2·1 on the floor by quarter), Global PICKUP ISLAND LEAGUE (6-foul limit, defensive three seconds), Japan's アイランドリーグ (3 foreign-nationality players on the floor at once), Taiwan's IPBL 島嶼職籃 (2 imports on the floor at once). No real league or team names are used.",
+"Region-specific player name generation, import rules actually applied in games, signings and trades, multilingual chat command recognition, separate saves and broadcast settings per region. 4 broadcast files (ko/en/ja/tw)."
+]
+},
+{
+"v": 66,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "실제 리그 규모의 팀 수",
+"sub_en": "Real-league-sized team counts",
+"ko": [
+"글로벌 리그를 30개 구단(동부 15·서부 15, 82경기)으로, 한국·일본·대만 리그도 실제 리그 규모에 맞춰 팀 수와 시즌 길이를 조정. 플레이오프 대진표 화면."
+],
+"en": [
+"Global league expanded to 30 clubs (15 East, 15 West, 82 games), and the Korean, Japanese and Taiwanese leagues adjusted in team count and season length to match the size of their real leagues. Playoff bracket screen."
+]
+},
+{
+"v": 67,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "73개 구단 로고·팀 컬러·마스코트",
+"sub_en": "Logos, team colors and mascots for 73 clubs",
+"ko": [
+"네 리그 73개 구단의 닉네임·로고(픽셀 엠블럼+마스코트+약자 리본, 새 그림 35개)·팀 컬러·마스코트 이름이 하나도 겹치지 않게 정리. '클럽 마크 북' 페이지.",
+"로고가 스코어보드·센터 코트·경기 전후 카드·순위표에 표시. 홈팀 마스코트가 사이드라인에서 응원하고 휴식 때 춤. 어두운 팀 컬러면 이름표·자막이 밝은 보조색을 쓰고 비슷한 색이면 원정팀 흰 유니폼."
+],
+"en": [
+"Nicknames, logos (pixel emblem + mascot + abbreviation ribbon, 35 new drawings), team colors and mascot names for all 73 clubs across the four leagues, with no overlaps. A 'Club Mark Book' page.",
+"Logos appear on the scoreboard, center court, pre- and postgame cards and standings. The home mascot cheers from the sideline and dances during breaks. Teams with dark colors use a bright secondary color on name tags and captions, and when colors clash the away team wears white."
+]
+},
+{
+"v": 68,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "시청자 눈높이 개선 6가지",
+"sub_en": "6 fixes from the viewer's point of view",
+"ko": [
+"60분 방송을 시청자 시간 그대로 돌려 찾은 것: 카메라가 너무 멀어 선수가 화면의 1/25 → 하프코트를 채우게 당김, 경기 중 즉석 리플레이(자유투·작전타임 등 죽은 시간에 방금 명장면 슬로), 플레이 자막 분당 24번 → 중요한 장면만, 반복·빈 해설 정리와 10초 이상 침묵 구간 축소, 경기 전 선발 5명 소개, 득점 선수 기록 자막, 홈팀 컬러 페인트존."
+],
+"en": [
+"Found by playing back a 60-minute broadcast in real viewer time: the camera was so far out that players took up 1/25 of the screen → pulled in to fill the half court; in-game instant replays (slow-motion of the latest highlight during dead time such as free throws and timeouts); play captions cut from 24 per minute to key moments only; repetitive and empty commentary cleaned up and silences of 10+ seconds reduced; pregame starting-five introductions; stat captions for scoring players; paint in home team colors."
+]
+},
+{
+"v": 69,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "핫픽스 — 공격권 표시, REPLAY 고정",
+"sub_en": "Hotfix — possession indicator, stuck REPLAY",
+"ko": [
+"팀 컬러 네모였던 공격권 표시를 주황색 농구공 아이콘으로. 사라지지 않던 REPLAY 표시와 하단 자막 수정. 마스코트가 광고를 가리던 위치 조정."
+],
+"en": [
+"Possession indicator changed from a team-color square to an orange basketball icon. Fixed the REPLAY bug and lower-third captions that never disappeared. Moved the mascot, which had been covering ads."
+]
+},
+{
+"v": 70,
+"d": "2026.10.25",
+"d_en": "Oct 25, 2026",
+"sub_ko": "홈구장, 홈 어드밴티지, 팀 사기, 등번호",
+"sub_en": "Home arenas, home-court advantage, team morale, jersey numbers",
+"ko": [
+"<b>홈구장</b>: 팀마다 구장 이름·수용 인원, 코트 바닥 구장 이름, 페인트존·바깥은 홈팀 컬러. 관중 수는 성적·스타·분위기·플레이오프에 따라. <b>홈 어드밴티지</b>: 홈 선수 4.5% 보정, 동전력 홈 승률 약 58%. <b>팀 사기</b>: 예상 대비 결과로 오르내리고 경기력·해설·라인업 카드에 반영.",
+"같은 팀 안 등번호 중복 제거(이적 선수가 빈 번호). 새로 만든 5대5 리그에만 적용."
+],
+"en": [
+"<b>Home arenas</b>: each team gets an arena name and capacity, the arena name on the court floor, and the paint and surrounds in home colors. Attendance depends on record, stars, buzz and the playoffs. <b>Home-court advantage</b>: 4.5% boost for home players, about a 58% home win rate between evenly matched teams. <b>Team morale</b>: rises and falls with results versus expectations, and feeds into performance, commentary and lineup cards.",
+"No more duplicate jersey numbers within a team (traded players take an open number). Applies only to newly created 5-on-5 leagues."
+]
+},
+{
+"v": 78,
+"d": "2026.10.26",
+"d_en": "Oct 26, 2026",
+"sub_ko": "전문 중계진",
+"sub_en": "Professional broadcast crew",
+"ko": [
+"고정 캐스터와 해설위원 2인 체제(캐스터가 해설에게 질문을 넘김). 경기 전 키 포인트 2가지와 경기 중 검증, 하프타임 정리, 4쿼터 마지막 2분 시간·점수 콜과 시그니처 콜, 경기 종료 최종 스코어·수훈 선수·승부처 정리, 스타 별명과 3점 개수·더블더블·트리플더블 실시간 콜."
+],
+"en": [
+"A fixed two-person crew of play-by-play and color commentator (play-by-play tosses questions to the analyst). Two pregame keys checked during the game, a halftime recap, time-and-score calls and signature calls in the last 2 minutes of the 4th quarter, a final wrap with the final score, player of the game and turning point, plus star nicknames and live calls for three-point counts, double-doubles and triple-doubles."
+]
+},
+{
+"v": 79,
+"d": "2026.10.26",
+"d_en": "Oct 26, 2026",
+"sub_ko": "스튜디오 코너 4가지",
+"sub_en": "4 studio segments",
+"ko": [
+"<b>트레이드 데스크</b>(두 팀 로고, 받은 선수·지명권, 거래 이유, 해설의 A+~C 등급), <b>파워 랭킹</b>(1~10위, ▲▼, 한 줄 소개), <b>FA 시장 결산</b>(최고 영입 5명, 비시즌 승자), <b>트레이드 마감 정리</b>. 한 시즌에 트레이드 데스크 9번·파워 랭킹 6번. 트레이드 요청 선수를 리빌딩 팀이 데려가는 거래 차단."
+],
+"en": [
+"<b>Trade Desk</b> (both team logos, players and picks received, the reasoning, and an A+ to C grade from the analyst), <b>Power Rankings</b> (1–10, ▲▼, one-line blurbs), <b>Free Agency Recap</b> (top 5 signings, offseason winners), <b>Trade Deadline Wrap</b>. 9 Trade Desks and 6 Power Rankings per season. Blocked trades where a rebuilding team takes on a player who requested a trade."
+]
+},
+{
+"v": 80,
+"d": "2026.10.26",
+"d_en": "Oct 26, 2026",
+"sub_ko": "디비전, 컨퍼런스 일정, 아일랜드컵",
+"sub_en": "Divisions, conference schedules, Island Cup",
+"ko": [
+"글로벌 리그에 컨퍼런스별 5팀 3개 디비전, 같은 컨퍼런스끼리 더 자주 붙는 82경기 일정(컨퍼런스 내 52·상대 30), 디비전 라이벌전 해설, 시즌 중 토너먼트 아일랜드컵. 플레이오프는 컨퍼런스 상위 10팀·플레이인·7전 4선승·파이널."
+],
+"en": [
+"The Global league gets three 5-team divisions per conference, an 82-game schedule weighted toward conference opponents (52 in-conference, 30 against the other conference), division rivalry commentary, and the Island Cup in-season tournament. Playoffs: top 10 per conference, play-in, best-of-7 series, Finals."
+]
+},
+{
+"v": 81,
+"d": "2026.10.26",
+"d_en": "Oct 26, 2026",
+"sub_ko": "두 갈래 버전 합치기",
+"sub_en": "Merging two branches",
+"ko": [
+"방송 대화에서 따로 만든 v75(팀 네이밍 스폰서, 경기 후 60초 영상 광고)를 v80(AI 트레이드·지명권, 리그 균형, 카메라, 전문 중계진, 스튜디오 코너, 디비전·아일랜드컵)에 합쳐 하나의 버전으로. 맥미니용 영어 방송 파일을 별도 아티팩트로 제공."
+],
+"en": [
+"Merged v75 (team naming sponsors, 60-second postgame video ads), built separately in the broadcast chat, into v80 (AI trades and draft picks, league balance, cameras, professional broadcast crew, studio segments, divisions and Island Cup) as a single version. The English broadcast file for the Mac mini is provided as a separate artifact."
+]
+}
+]

@@ -19,33 +19,36 @@ def articles(path):
     out.sort(key=lambda x: -x['n'])
     return out
 
-# notes written before the landing existed (the landing's list starts at v82)
+# notes for the versions before the landing existed (v1-v81), reconstructed from the development chat:
+# patch-notes/early.json = [{v, d, sub_ko, sub_en, ko:[...], en:[...]}], written by the scratchpad's mk_early.py
+import json as _json
+EARLY_PATH = os.path.join(D, 'patch-notes', 'early.json')
+EARLY_LIST = _json.load(open(EARLY_PATH, encoding='utf-8')) if os.path.exists(EARLY_PATH) else []
 EARLY = {
-    'ko': [('v75', '2026.10.26 · 경기 후 광고 시간', ['<b>경기 후 1분 광고</b>: 경기가 끝나면 최종 점수를 14초 보여 준 뒤 약 1분의 영상 광고 시간이 들어가요. 광고는 월 단위 선불 상품으로 팔아요.']),
-           ('v74', '2026.10.26 · 구단 이름 스폰서', ['<b>팀 네이밍 스폰서</b>: 스폰서 이름이 구단 이름 앞에 붙어 점수판·해설·기록에 나와요. 방송 설정의 스폰서 탭에서 관리해요.'])],
-    'en': [('v75', 'Oct 26, 2026 · Post-game ad break', ['<b>One-minute ad break after every game</b>: the final score holds for 14 s, then a video ad break of about a minute runs. Sold as prepaid monthly plans.']),
-           ('v74', 'Oct 26, 2026 · Team naming sponsor', ['<b>Team naming sponsorship</b>: the sponsor name sits in front of the club name on the scorebug, in commentary and in the records. Managed from the Sponsors tab of the broadcast settings.'])],
+    'ko': [(f"v{e['v']}", (e['d'] + ' · ' if e.get('d') else '') + e['sub_ko'], e['ko']) for e in EARLY_LIST],
+    'en': [(f"v{e['v']}", (e.get('d_en', e['d']) + ' · ' if e.get('d') else '') + e['sub_en'], e['en']) for e in EARLY_LIST],
 }
 
 T = {
     'ko': dict(title='Pickup Island 패치노트 — 전체', h1='패치노트 <em>전체</em>', lead='게임과 방송에 들어간 변경을 버전마다 적어 둔 기록이에요. 맨 위가 최신이고, 버전 번호를 누르면 그 항목으로 내려가요. 현재 방송은 {cur} 기준이에요.',
-               count='{n}개 버전 · {a}~{b}', early='v82 이전 기록은 랜딩 페이지를 만들기 전이라 요약만 남아 있어요.', db='리그 DB', guide='참여 안내', ad='광고 문의', live='라이브 보기', home='홈', latest='최신', jump='버전으로 이동',
+               count='{n}개 버전 · {a}~{b}', early='v81까지는 랜딩 페이지가 생기기 전이라, 개발 대화 기록에서 버전별로 복원한 노트예요.', db='리그 DB', guide='참여 안내', ad='광고 문의', live='라이브 보기', home='홈', latest='최신', jump='버전으로 이동',
                foot='변경 이력은 랜딩 페이지의 패치노트와 같은 내용이에요.'),
     'en': dict(title='Pickup Island patch notes — all versions', h1='All <em>patch notes</em>', lead='Every change to the game and the broadcast, version by version. Newest first; tap a version number to jump to it. The broadcast currently runs {cur}.',
-               count='{n} versions · {a}–{b}', early='Notes before v82 predate the landing page, so only a summary survives.', db='League DB', guide='Viewer guide', ad='Advertise', live='Watch live', home='Home', latest='LATEST', jump='Jump to a version',
+               count='{n} versions · {a}–{b}', early='Versions up to v81 predate the landing page; these notes were reconstructed from the development log.', db='League DB', guide='Viewer guide', ad='Advertise', live='Watch live', home='Home', latest='LATEST', jump='Jump to a version',
                foot='Same notes as the patch section of the landing page.'),
 }
 
 def render(lang, arts):
     t = T[lang]
     cur = arts[0]['v']
-    all_arts = arts + [{'v': v, 'n': int(v[1:]), 'sub': sub, 'items': items, 'early': True} for v, sub, items in EARLY[lang]]
+    early = sorted([{'v': v, 'n': int(v[1:]), 'sub': sub, 'items': items, 'early': True} for v, sub, items in EARLY[lang]], key=lambda x: -x['n'])
+    all_arts = arts + early
     jumps = ''.join(f'<a href="#{lang}-{a["v"]}">{a["v"]}</a>' for a in all_arts)
     body = []
     for i, a in enumerate(all_arts):
         if a.get('early') and (i == 0 or not all_arts[i - 1].get('early')):
             body.append(f'<p class="early">{t["early"]}</p>')
-        lis = ''.join(f'<li>{li}</li>' for li in a['items'])
+        lis = ''.join(f'<li>{re.sub(r"`([^`]+)`", r"<code>\1</code>", li)}</li>' for li in a['items'])
         body.append(f'<article id="{lang}-{a["v"]}" class="{"latest" if i == 0 else ""}"><header><h2>{a["v"]}</h2>{"<span class=badge>" + t["latest"] + "</span>" if i == 0 else ""}<span class="sub">{html.escape(a["sub"])}</span></header><ul>{lis}</ul></article>')
     return f'''<section class="hero"><div class="wrap">
   <p class="eyebrow">Patch notes</p>
@@ -113,13 +116,14 @@ body::before {{ content: ""; position: fixed; inset: 0 0 auto; height: env(safe-
 .hero h1 em {{ font-style: normal; color: var(--orange); }}
 .hero .lead {{ font-size: 17px; color: var(--ink-soft); max-width: 40em; }}
 .hero .count {{ font: 600 13px var(--mono); letter-spacing: .06em; color: var(--court); }}
-.jump {{ position: sticky; top: calc(env(safe-area-inset-top, 0px) + 65px); z-index: 4; background: rgba(13, 15, 36, 0.96); border-bottom: 1px solid var(--line); }}
+.jump {{ background: rgba(13, 15, 36, 0.96); border-bottom: 1px solid var(--line); }}
 .jump .wrap {{ display: flex; flex-wrap: wrap; gap: 6px; padding-block: 10px; align-items: center; }}
 .jump .jl {{ font: 600 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--faint); margin-right: 6px; }}
 .jump a {{ font: 600 12px var(--mono); color: var(--ink-soft); text-decoration: none; border: 1px solid var(--line); padding: 3px 8px; }}
 .jump a:hover {{ color: var(--ink); border-color: var(--ink-soft); }}
 .notes {{ display: flex; flex-direction: column; gap: 18px; padding-block: 32px 48px; }}
-article {{ background: var(--night-2); border: 1px solid var(--line); padding: 24px 26px; display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 130px; }}
+article {{ background: var(--night-2); border: 1px solid var(--line); padding: 24px 26px; display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 80px; }}
+article code {{ font: 600 0.92em var(--mono); color: var(--gold); background: rgba(255,255,255,.06); padding: 1px 5px; }}
 article.latest {{ border-color: var(--orange); }}
 article header {{ display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; }}
 article h2 {{ font: 700 24px var(--pixel); color: var(--gold); letter-spacing: .02em; }}
@@ -130,7 +134,7 @@ article li b {{ color: var(--ink); }}
 .early {{ color: var(--faint); font-size: 14px; padding: 8px 0 0; border-top: 1px dashed var(--line); }}
 footer {{ border-top: 1px solid var(--line); padding-block: 24px 40px; color: var(--faint); font-size: 13px; }}
 footer a {{ color: var(--ink-soft); }}
-@media (max-width: 640px) {{ .jump {{ position: static; }} article {{ padding: 18px 16px; scroll-margin-top: 80px; }} }}
+@media (max-width: 640px) {{ article {{ padding: 18px 16px; scroll-margin-top: 80px; }} }}
 </style>
 </head>
 <body class="ko">
