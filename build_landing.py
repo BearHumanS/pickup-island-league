@@ -72,6 +72,8 @@ def build(lang, p):
     if '/_blob/' in body:
         raise SystemExit(f'{lang}: unknown design image left in page — add it to BLOBS')
     body = body.replace(f'href="{p["other_src"]}"', f'href="{p["other"]}"')
+    # the in-browser game is hosted on this site (play/), not on claude.ai
+    body = body.replace('https://claude.ai/artifact/HmJ7P9pE2kGqsQZhjWTxSC', p['root'] + ('play/' if lang == 'en' else 'play/ko/'))
     # DB link in the top menu (after patch notes) and in the footer
     body = re.sub(r'(<a href="#patch"[^>]*>[^<]*</a>)',
                   lambda m: m.group(1) + '\n' + NAV_LINK.format(href=p['root'] + 'db/', label=p['db'])
