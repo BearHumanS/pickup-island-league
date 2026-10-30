@@ -133,6 +133,50 @@ img.lg.big { width: 72px; height: 72px; }
 .statline div { background: var(--panel2); padding: 10px; text-align: center; }
 .statline b { display: block; font: 600 20px var(--mono); }
 .statline span { font: 500 11px var(--mono); letter-spacing: .08em; color: var(--faint); }
+/* trading card: the broadcast card, readable on the site */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, 268px); gap: 26px 22px; justify-content: center; padding: 10px 0 6px; }
+.pfull { position: relative; width: 268px; color: #f4f1e6; text-align: left; perspective: 1400px; font-family: var(--body); cursor: pointer; flex: none; line-height: 1.35; }
+.pf-in { position: relative; transform-style: preserve-3d; transition: transform .85s cubic-bezier(.3,.7,.3,1); }
+.pfull.flipped .pf-in { transform: rotateY(180deg); }
+.pf-face { position: relative; background: linear-gradient(170deg, var(--tc2) 0%, #0d111c 58%, #090c14 100%); border-radius: 8px; overflow: hidden; -webkit-backface-visibility: hidden; backface-visibility: hidden; box-shadow: 0 0 0 3px #0b0f18, 0 0 0 6px var(--tier), 0 0 0 7px var(--tierhi), 0 20px 44px rgba(0,0,0,.6); }
+.pf-back { position: absolute; inset: 0; transform: rotateY(180deg); padding: 10px 12px; background: linear-gradient(170deg, #121827 0%, #0b0f19 100%); transition: opacity .16s; }
+.pf-top { position: relative; height: 196px; background: linear-gradient(160deg, var(--tc) 0%, var(--tc2) 70%); overflow: hidden; }
+.pf-top::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(255,255,255,.08) 0 6px, transparent 6px 18px); }
+.pf-logo { position: absolute; right: -20px; top: 18px; width: 150px; height: 150px; opacity: .2; image-rendering: pixelated; }
+.pf-img { position: absolute; left: 56%; bottom: -4px; height: 100%; transform: translateX(-50%); image-rendering: pixelated; filter: drop-shadow(0 6px 0 rgba(0,0,0,.35)); }
+.pf-num { position: absolute; right: 14px; bottom: 4px; font: 700 66px/1 var(--pixel); color: rgba(255,255,255,.2); letter-spacing: -.04em; }
+.pf-ovr { position: absolute; left: 12px; top: 10px; font: 700 42px/1 var(--pixel); color: #fff; text-shadow: 0 3px 0 rgba(0,0,0,.5); z-index: 1; }
+.pf-ovr small { display: block; font-size: 11px; letter-spacing: .14em; margin-top: 3px; color: rgba(255,255,255,.85); }
+.pf-pos, .pf-tier, .pf-pot, .pf-no { position: absolute; left: 12px; z-index: 1; font: 700 12px var(--pixel); padding: 2px 6px; background: rgba(0,0,0,.45); color: #fff; }
+.pf-pos { top: 72px; } .pf-pot { top: 98px; color: #8be06a; } .pf-no { top: 124px; } .pf-tier { top: auto; bottom: 8px; background: var(--tier); color: #10141e; letter-spacing: .1em; }
+.pf-inj { position: absolute; right: 10px; top: 12px; z-index: 2; font: 700 12px var(--pixel); background: #e5534b; color: #fff; padding: 2px 6px; }
+.pf-name { padding: 8px 12px 0; font-size: 19px; font-weight: 700; line-height: 1.2; border-top: 3px solid var(--tc); display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.pf-name a { color: inherit; text-decoration: none; } .pf-name a:hover { color: var(--gold); }
+.pf-chip { font-size: 10px; font-weight: 700; padding: 2px 6px; background: rgba(255,255,255,.14); letter-spacing: .04em; } .pf-chip.fan { background: #f2b630; color: #1a1d24; }
+.pf-bio { padding: 2px 12px 6px; font: 12px var(--pixel); color: #a9b4cc; letter-spacing: .02em; }
+.pf-arch { display: flex; flex-wrap: wrap; gap: 4px; padding: 0 12px 4px; align-items: center; } .pf-arch span { font-size: 11px; font-weight: 700; color: #f2b630; } .pf-arch span + span::before { content: '·'; margin-right: 4px; color: #6d7891; } .pf-arch em { font-style: normal; font-size: 10.5px; color: #9fd8ff; margin-left: auto; }
+.pf-ats { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; padding: 6px 12px 8px; background: rgba(255,255,255,.04); }
+.pf-at { display: grid; grid-template-columns: minmax(30px, auto) 1fr 22px; align-items: center; gap: 5px; font-size: 11.5px; }
+.pf-at span { white-space: nowrap; color: #c9d1db; } .pf-at em { font: 13px var(--pixel); font-style: normal; text-align: right; }
+.pf-at i { height: 7px; background: rgba(255,255,255,.1); display: block; } .pf-at i b { display: block; height: 100%; }
+.pf-kv { display: grid; grid-template-columns: auto 1fr auto 1fr; gap: 2px 8px; padding: 7px 12px 2px; font-size: 12px; align-items: baseline; }
+.pf-kv span { color: #8f9bb3; font-size: 11px; } .pf-kv b { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pf-sigs { display: flex; flex-wrap: wrap; gap: 4px; padding: 6px 12px 2px; } .pf-sigs span { font-size: 11px; padding: 2px 7px; border: 1px solid var(--tier); color: var(--tierhi); }
+.pf-st { display: flex; gap: 2px; margin: 8px 12px 0; } .pf-st div { flex: 1; text-align: center; padding: 5px 0; background: rgba(255,255,255,.06); }
+.pf-st b { display: block; font: 700 16px/1.1 var(--pixel); } .pf-st span { font-size: 9.5px; color: #8f9bb3; letter-spacing: .06em; } .pf-st .rk b { color: #8be06a; }
+.pf-ft { display: flex; justify-content: space-between; gap: 8px; padding: 7px 12px 10px; font-size: 12px; } .pf-ft > span { font: 12px var(--pixel); color: #f2b630; white-space: nowrap; } .pf-ft em { font-style: normal; color: #c9d1db; text-align: right; font-size: 11px; }
+.pb-h { display: flex; flex-direction: column; border-bottom: 2px solid var(--tier); padding-bottom: 6px; margin-bottom: 7px; }
+.pb-h b { font-size: 17px; line-height: 1.2; } .pb-h span { font: 11px var(--pixel); color: var(--tierhi); letter-spacing: .04em; }
+.pb-kv { display: flex; justify-content: space-between; gap: 6px; font-size: 10.5px; color: #8f9bb3; margin: -2px 0 6px; } .pb-kv b { color: #9fd8ff; font-weight: 600; }
+.pb-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pb-g { margin-bottom: 8px; }
+.pb-g h5 { display: flex; justify-content: space-between; margin: 0 0 3px; padding-bottom: 2px; border-bottom: 1px solid rgba(255,255,255,.14); font: 700 10.5px var(--pixel); letter-spacing: .05em; color: #f2b630; }
+.pb-r { display: flex; justify-content: space-between; gap: 4px; font-size: 11px; line-height: 14.5px; }
+.pb-r span { color: #c9d1db; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .pb-r b, .pb-g h5 b { font: 700 11.5px var(--pixel); }
+.a5 { color: #46d0c4; } .a4 { color: #8be06a; } .a3 { color: #f2b630; } .a2 { color: #f08a3c; } .a1 { color: #e5534b; }
+.pside { display: flex; flex-direction: column; gap: 14px; align-items: center; min-width: 0; }
+.pside .kv { align-self: stretch; }
+.vsw { display: inline-flex; border: 1px solid var(--line); } .vsw button { background: none; border: 0; color: var(--dim); font: 500 14px var(--body); padding: 8px 12px; cursor: pointer; } .vsw button.on { background: var(--panel2); color: var(--fg); }
 /* controls */
 .filters { display: flex; flex-wrap: wrap; gap: 10px; }
 .filters input, .filters select { background: var(--panel2); color: var(--fg); border: 1px solid var(--line); padding: 8px 10px; font: 14px var(--body); min-width: 0; }
@@ -179,6 +223,7 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
       search: '선수 이름 검색', allTeams: '모든 팀', allPos: '모든 포지션', fa: 'FA', sortBy: '정렬', showMore: '더 보기', results: '명',
       ratings: '핵심 능력치', attrs: '세부 능력치 37', tend: '성향 36', arch: '선수 유형', role: '오프볼 역할', rel: '릴리스 속도', hand: '주 손', lefty: '왼손', righty: '오른손', tendNote: '50이 리그 보통이에요. 높을수록 그 행동을 자주 해요.', stats: '시즌 기록', perGame: '경기당', career: '통산', highs: '시즌 최고', style: '플레이 스타일', ring: '우승 반지', cStyle: '스타일', cOvr: '감독 평가', thisSeason: '이번 시즌', withTeam: '이 팀에서', careerRec: '감독 통산', titles: '우승', cHist: '지난 감독 경력', firstJob: '첫 감독 자리예요.', hFired: '경질', hLeft: '결별', hRetired: '은퇴', pers: '성격', persona: '계약 성향', dur: '내구', sigs: '시그니처 무브', awards: '수상', yrs: '년', demand: '요구 연봉', rookie: '신인', import: '외국인', fanPick: '시청자 지명',
       leaderTitle: '부문별 리더', minGp: '경기 수 기준 충족 선수', champs: '역대 우승', hof: '명예의 전당', x3: '3대3 챌린지', fanTop: '시즌 팬 랭킹', noData: '아직 기록이 없어요.',
+      vList: '목록', vCard: '카드', kStyle: '스타일', kPers: '성격', kDur: '내구', kPa: '계약관', flipHint: '카드를 누르면 세부 능력치 → 성향 → 앞면 순서로 뒤집혀요.', ageSfx: '세', noStats: '이번 시즌 기록 없음', cPts: '통산 PPG',
       joinTitle: '방송에 참여하는 법', joinLead: '유튜브 라이브 채팅에 아래 명령어를 남기면 방송 화면에 바로 반영돼요.', backTo: '목록으로',
       cmds: [['!card 선수이름', '그 선수의 카드, 37개 능력치, 36개 성향을 방송 화면에 띄워요.'], ['!teaminfo 팀코드', '팀 로스터·감독·전술·연봉을 화면에 띄워요.'], ['!join 팀이름', '응원 팀에 가입하고 팬 포인트를 모아요.'], ['!draft 이름', '예측 포인트 30점으로 다음 드래프트에 내가 지은 이름의 신인을 올려요. 시즌당 2명까지.'], ['1 또는 2', '경기 전 승부 예측. 맞히면 예측 포인트 +10, 참여만 해도 +2.'], ['!me', '예측 적중률, 남은 예측 포인트, 응원 팀을 확인해요.'], ['!tempo · !three · !inside · !press', '경기 중 팬 작전 투표가 열리면 원하는 작전에 투표해요.']],
       dataNote: '데이터는 24시간 방송에서 라운드마다 갱신돼요.', loadErr: '리그 데이터를 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.', waiting: '24시간 방송에서 첫 리그 데이터가 올라오면 여기에 표시돼요. 잠시 뒤 다시 들러 주세요.', noPlayer: '선수를 찾지 못했어요.', noTeam: '팀을 찾지 못했어요.', games: '경기' },
@@ -190,6 +235,7 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
       search: 'Search players', allTeams: 'All teams', allPos: 'All positions', fa: 'FA', sortBy: 'Sort', showMore: 'Show more', results: 'players',
       ratings: 'Core ratings', attrs: '37 attributes', tend: '36 tendencies', arch: 'Player type', role: 'Off-ball role', rel: 'Release speed', hand: 'Hand', lefty: 'Left', righty: 'Right', tendNote: '50 is league average. Higher means he does it more often.', stats: 'Season stats', perGame: 'Per game', career: 'Career', highs: 'Season highs', style: 'Play style', ring: 'Ring', cStyle: 'Style', cOvr: 'Rating', thisSeason: 'This season', withTeam: 'With this team', careerRec: 'Career', titles: 'Titles', cHist: 'Previous jobs', firstJob: 'First head coaching job.', hFired: 'Fired', hLeft: 'Left', hRetired: 'Retired', pers: 'Personality', persona: 'Contract attitude', dur: 'Durability', sigs: 'Signature moves', awards: 'Awards', yrs: 'yr', demand: 'Asking', rookie: 'Rookie', import: 'Import', fanPick: 'Viewer pick',
       leaderTitle: 'Category leaders', minGp: 'Qualified players only', champs: 'Champions', hof: 'Hall of Fame', x3: '3x3 Challenge', fanTop: 'Season fan ranking', noData: 'No records yet.',
+      vList: 'List', vCard: 'Cards', kStyle: 'Style', kPers: 'Character', kDur: 'DUR', kPa: 'Contract', flipHint: 'Tap a card: attributes → tendencies → front.', ageSfx: ' yrs', noStats: 'No stats this season', cPts: 'Career PPG',
       joinTitle: 'How to join the broadcast', joinLead: 'Type these in the YouTube live chat and they show up on the stream.', backTo: 'Back to list',
       cmds: [['!card player name', "Shows that player's card, all 37 ratings and 36 tendencies on stream."], ['!teaminfo CODE', 'Shows the roster, coach, tactics and payroll on stream.'], ['!join team', 'Join a team as a fan and collect fan points.'], ['!draft name', 'Spend 30 prediction points to put a rookie you name into the next draft. Two per season.'], ['1 or 2', 'Pick the winner before tip-off: +10 points if right, +2 for playing.'], ['!me', 'Your prediction record, points left and team.'], ['!tempo · !three · !inside · !press', 'Vote for a game plan when the fan play vote opens during a game.']],
       dataNote: 'Data refreshes every round from the 24/7 broadcast.', loadErr: "Couldn't load the league data. Refresh in a minute.", waiting: 'League data appears here once the 24/7 broadcast sends its first update. Check back soon.', noPlayer: 'Player not found.', noTeam: 'Team not found.', games: 'games' },
@@ -232,7 +278,64 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
   const awTip = (k, v) => { const ss = Array.isArray(v) ? v : [], n = Array.isArray(v) ? v.length : v, d = AWD[ST.lang][k] || AWD.ko[k] || AWD.en[k] || '';
     return abD(`${k}${n > 1 ? ' ×' + n : ''}`, `${d}${ss.length ? `${d ? ' · ' : ''}${ST.lang === 'ko' ? '시즌' : 'Season'} ${ss.join(', ')}` : ''}`, k); };
   const abA = (label, k) => { const g = AD[ST.lang][k]; return g ? `<abbr data-tip="${esc(g)}" data-tk="${esc(label)}" tabindex="0">${esc(label)}</abbr>` : esc(label); };
-  const ST = { lang: 'ko', D: null, idx: null, loaded: '', pf: { q: '', t: '', p: '', s: 'o', n: 60 } };
+  const ST = { lang: 'ko', D: null, raw: null, ko: null, idx: null, loaded: '', pf: { q: '', t: '', p: '', s: 'o', n: 60, v: 'list' } };
+  try { const v = localStorage.getItem('pil-db-pv'); if (v === 'card' || v === 'list') ST.pf.v = v; } catch (e) {}
+  // The broadcast machine runs the English game, so the snapshot's words (ratings, styles, news) arrive in English.
+  // db/ko.json is the game's dictionary read backwards: English -> the Korean the game was written in.
+  const KO = { d: null, re: null, busy: null };
+  function koLoad() {
+    if (KO.d) return Promise.resolve(KO.d);
+    if (!KO.busy) KO.busy = (async () => { for (const u of ['ko.json', 'db/ko.json', 'https://bearhumans.github.io/pickup-island-league/db/ko.json']) { try { const r = await fetch(u); if (!r.ok) continue; const j = await r.json(); if (j && j.m && j.t) { KO.d = j; break; } } catch (e) {} } return KO.d; })();
+    return KO.busy;
+  }
+  function koRe() {   // sentence templates: "{0} straight wins — ..." becomes a regex whose captures fill the Korean template
+    if (KO.re) return KO.re;
+    KO.re = [];
+    const isPh = (x) => /^\{\d+\}$/.test(x || '');
+    for (const [en, ko] of KO.d.t) {
+      const parts = en.split(/(\{\d+\})/); let src = ''; const order = [];
+      parts.forEach((x, j) => {
+        if (!isPh(x)) { src += x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); return; }
+        order.push(+x.slice(1, -1));
+        const prevPh = j >= 2 && parts[j - 1] === '' && isPh(parts[j - 2]), nextPh = parts[j + 1] === '' && isPh(parts[j + 2]), tail = j === parts.length - 2 && parts[parts.length - 1] === '';
+        src += prevPh && tail ? '((?: · .*)?)' : nextPh ? '(.+)' : '(.+?)';   // "{3}{4}" at the end: {4} is a " · why" suffix or nothing
+      });
+      try { KO.re.push([new RegExp('^' + src + '$'), ko, order]); } catch (e) {}
+    }
+    return KO.re;
+  }
+  function kx(x, tpl, d) {   // one string: the exact word, else a sentence template, else piece by piece around ' · '
+    d = d || 0;
+    if (typeof x !== 'string' || !x || d > 4 || !/[A-Za-z]/.test(x)) return x;
+    const m = KO.d.m[x]; if (m) return m;
+    if (tpl) for (const [re, ko, order] of koRe()) { const mm = re.exec(x); if (mm) { const a = {}; order.forEach((n, i) => (a[n] = mm[i + 1] || '')); return ko.replace(/\{(\d+)\}/g, (_, i) => kx(a[+i] || '', true, d + 1)); } }
+    if (x.includes(' · ')) return x.split(' · ').map(y => kx(y, tpl, d + 1)).join(' · ');
+    return x;
+  }
+  function koify(R) {   // only the fields that carry the game's words; names, codes and keys stay as they are
+    const X = (x) => kx(x, false), XT = (x) => kx(x, true), D = { ...R };
+    D.fmt = X(R.fmt);
+    D.dsc = {}; for (const g in R.dsc || {}) { D.dsc[g] = {}; for (const n in R.dsc[g]) D.dsc[g][X(n)] = X(R.dsc[g][n]); }
+    D.tend = (R.tend || []).map(([k, g, n, dd]) => [k, g, X(n), X(dd)]);
+    D.tgrp = (R.tgrp || []).map(([k, n]) => [k, X(n)]);
+    D.attrs = (R.attrs || []).map(([k, c, n]) => [k, c, X(n)]);
+    D.cats = (R.cats || []).map(([k, n]) => [k, X(n)]);
+    D.rnames = (R.rnames || []).map(([k, n]) => [k, X(n)]);
+    D.arch = {}; for (const k in R.arch || {}) D.arch[k] = (R.arch[k] || []).map(X);
+    D.obr = {}; for (const k in R.obr || {}) D.obr[k] = (R.obr[k] || []).map(X);
+    D.teams = (R.teams || []).map(t => ({ ...t, tac: X(t.tac), coach: t.coach ? { ...t.coach, style: X(t.coach.style), sdesc: XT(t.coach.sdesc), r: (t.coach.r || []).map(([k, n, v, dd]) => [k, X(n), v, X(dd)]) } : t.coach }));
+    D.players = {}; for (const id in R.players || {}) { const p = R.players[id]; D.players[id] = { ...p, play: X(p.play), pers: X(p.pers), pa: X(p.pa), sig: (p.sig || []).map(X), aw: (p.aw || []).map(([k, v]) => [X(k), v]), inj: p.inj ? { ...p.inj, k: XT(p.inj.k) } : p.inj }; }
+    D.news = (R.news || []).map(XT);
+    D.hof = (R.hof || []).map(h => ({ ...h, line: XT(h.line) }));
+    return D;
+  }
+  async function viewOf() {   // the Korean reader of an English snapshot gets the dictionary read backwards; everyone else gets the snapshot as sent
+    const R = ST.raw; if (!R) return null;
+    if (ST.lang !== 'ko' || R.loc === 'ko') return R;
+    if (ST.ko && ST.ko.at === R.at) return ST.ko;
+    try { if (await koLoad()) ST.ko = koify(R); } catch (e) { ST.ko = null; }
+    return ST.ko || R;
+  }
   try { const s = localStorage.getItem('pil-db-lang'); if (s === 'ko' || s === 'en') ST.lang = s; else if (!/^ko/i.test(navigator.language || '')) ST.lang = 'en'; } catch (e) {}
   const T = () => UI[ST.lang];
   const $ = (id) => document.getElementById(id);
@@ -262,8 +365,8 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
     if (!have.length) { ST.D = null; ST.wait = true; return; }
     ST.wait = false;
     const want = have.includes(ST.lang) ? ST.lang : have.includes('en') ? 'en' : have[0];
-    if (ST.loaded === want && ST.D) return;
-    ST.D = await getJSON(`league-${want}.json`); ST.loaded = want;
+    if (!(ST.loaded === want && ST.raw)) { ST.raw = await getJSON(`league-${want}.json`); ST.loaded = want; ST.ko = null; }
+    ST.D = await viewOf();
   }
   function chrome() {
     const t = T(), tabs = ['home', 'standings', 'teams', 'players', 'leaders', 'history', 'join'];
@@ -284,6 +387,7 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
     const fn = { home: vHome, standings: vStandings, teams: vTeams, team: vTeam, players: vPlayers, player: vPlayer, leaders: vLeaders, history: vHistory, join: vJoin }[k] || vHome;
     v.innerHTML = fn(arg);
     if (k === 'players') bindPlayers();
+    if (k === 'player') bindCards(v);
     v.querySelectorAll('tr[data-href]').forEach(tr => tr.addEventListener('click', (e) => { if (e.target.closest('a')) return; location.hash = tr.dataset.href; }));
   }
   const panel = (title, body, more) => `<section class="panel"><header><h2>${title}</h2>${more || ''}</header>${body}</section>`;
@@ -355,12 +459,67 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
       <div style="display:grid;gap:6px">${bars}</div></div>
       <div style="display:flex;flex-direction:column;gap:8px;min-width:0"><p class="eyebrow">${t.cHist}</p>${hist}</div></div>`);
   }
+  /* the trading card: front = the broadcast card, back = the 37 attributes, then the 36 tendencies */
+  const pcTier = (o) => o >= 78 ? ['ELITE', '#c58bff', '#f2b630'] : o >= 70 ? ['GOLD', '#f2b630', '#fff1b8'] : o >= 62 ? ['SILVER', '#c9d1db', '#ffffff'] : ['BRONZE', '#c98a52', '#f1c79c'];
+  const pcShade = (hex, k) => { const n = parseInt(String(hex || '#445566').slice(1), 16), f = (v) => Math.round(Math.min(255, v * k)); return `rgb(${f((n >> 16) & 255)},${f((n >> 8) & 255)},${f(n & 255)})`; };
+  const aCls = (v) => v >= 85 ? 'a5' : v >= 75 ? 'a4' : v >= 65 ? 'a3' : v >= 50 ? 'a2' : 'a1';
+  const aCol = (v) => v >= 80 ? '#46d0c4' : v >= 70 ? '#8be06a' : v >= 60 ? '#f2b630' : v >= 50 ? '#f08a3c' : '#e5534b';
+  function cardFront(id, p) {
+    const D = ST.D, t = T(), tm = team(p.t), [tier] = pcTier(p.o), s = sv(p), g = s.gp || 0, dsc = D.dsc || {};
+    const line = g ? [[f1(s.pts / g), 'PTS'], [f1(s.reb / g), 'REB'], [f1(s.ast / g), 'AST'], [s.fga ? Math.round(s.fgm / s.fga * 100) + '%' : '-', 'FG']]
+      : p.cr && p.cr.gp ? [[f1(p.cr.pts / p.cr.gp), t.cPts], [p.cr.gp, 'GP'], [p.cr.seasons || 0, t.season]] : null;
+    const aw = (p.aw || []).slice(0, 3).map(([k, ss]) => `<span title="${esc(k)} · ${esc(t.season)} ${ss.join(', ')}">${esc(k)}${ss.length > 1 ? ` ×${ss.length}` : ''}</span>`).join(' · ');
+    const arch = (p.ar || []).map(k => D.arch && D.arch[k] ? `<span title="${esc(D.arch[k][1])}">${esc(D.arch[k][0])}</span>` : '').join('');
+    const role = p.ro && D.obr && D.obr[p.ro] ? `<em title="${esc(D.obr[p.ro][1])}">${esc(D.obr[p.ro][0])}</em>` : '';
+    const dd = (g2, k) => esc((dsc[g2] || {})[k] || '');
+    return `<div class="pf-top">${tm && tm.logo ? `<img class="pf-logo" src="${tm.logo}" alt="">` : ''}${p.img ? `<img class="pf-img" src="${p.img}" alt="">` : `<div class="pf-num">${p.no}</div>`}
+      <div class="pf-ovr">${p.o}<small>OVR</small></div><div class="pf-pos">${esc(p.pos)}</div><div class="pf-tier">${tier}</div><div class="pf-no">#${p.no}</div><div class="pf-pot">POT ${esc(p.pot)}</div>${p.inj ? `<div class="pf-inj">INJ</div>` : ''}</div>
+      <div class="pf-name"><a href="#player-${id}">${esc(p.n)}</a>${p.fan ? `<span class="pf-chip fan">FAN · ${esc(p.fan)}</span>` : ''}${p.imp ? `<span class="pf-chip">IMPORT</span>` : ''}</div>
+      <div class="pf-bio">${tm ? esc(tm.code) : 'FA'} · ${p.age}${esc(t.ageSfx)} · ${p.ht}cm</div>
+      ${arch || role ? `<div class="pf-arch">${arch}${role}</div>` : ''}
+      <div class="pf-ats">${(D.rnames || []).map(([k, n]) => { const v = p.r[k]; return `<div class="pf-at"><span>${esc(n)}</span><i><b style="width:${v}%;background:${aCol(v)}"></b></i><em>${v}</em></div>`; }).join('')}</div>
+      <div class="pf-kv"><span>${esc(t.kStyle)}</span><b title="${dd('play', p.play)}">${esc(p.play || '-')}</b><span>${esc(t.kPers)}</span><b title="${dd('pers', p.pers)}">${esc(p.pers || '-')}</b><span>${esc(t.kDur)}</span><b>${p.dur ?? '-'}</b><span>${esc(t.kPa)}</span><b title="${dd('pa', p.pa)}">${esc(p.pa || '-')}</b></div>
+      ${p.sig && p.sig.length ? `<div class="pf-sigs">${p.sig.slice(0, 3).map(n => `<span title="${dd('sig', n)}">${esc(n)}</span>`).join('')}</div>` : ''}
+      <div class="pf-st">${line ? line.map(([v, k]) => `<div><b>${v}</b><span>${esc(k)}</span></div>`).join('') : `<div class="rk"><b>${p.rk === D.season || p.age <= 21 ? 'ROOKIE' : 'NEW'}</b><span>${esc(t.noStats)}</span></div>`}</div>
+      <div class="pf-ft"><span>${p.sal ? `${p.yrs}${esc(t.yrs)} ${money(p.sal)}` : p.dem ? `${esc(t.demand)} ${money(p.dem)}` : ''}</span>${aw ? `<em>${aw}</em>` : ''}</div>`;
+  }
+  function cardBack(p, face) {
+    const D = ST.D, t = T(), [tier] = pcTier(p.o);
+    if (face === 2 && p.tn && D.tend) {
+      const idx = {}; D.tend.forEach((x, i) => (idx[x[0]] = i));
+      const gn = (g) => (D.tgrp.find(x => x[0] === g) || [])[1] || g;
+      const grp = (g) => `<div class="pb-g"><h5><span>${esc(gn(g))}</span></h5>${D.tend.filter(x => x[1] === g).map(([k, , n, d]) => { const v = p.tn[idx[k]]; return `<div class="pb-r" title="${esc(d)}"><span>${esc(n)}</span><b class="${aCls(v)}">${v}</b></div>`; }).join('')}</div>`;
+      return `<div class="pb-h"><b>${esc(p.n)}</b><span>${esc((p.ar || []).map(k => D.arch && D.arch[k] ? D.arch[k][0] : '').filter(Boolean).join(' · ') || t.tend)}</span></div>
+        <div class="pb-kv"><span>${esc(t.role)} <b>${esc(p.ro && D.obr && D.obr[p.ro] ? D.obr[p.ro][0] : '-')}</b></span><span>${esc(t.rel)} <b>${p.rel || '-'}</b> · ${p.hand === 'L' ? esc(t.lefty) : esc(t.righty)}</span></div>
+        <div class="pb-cols"><div>${grp('shot')}${grp('pass')}${grp('off')}</div><div>${grp('atk')}${grp('def')}</div></div>`;
+    }
+    const cn = (c) => (D.cats.find(x => x[0] === c) || [])[1] || c;
+    const grp = (c) => `<div class="pb-g"><h5><span>${esc(cn(c))}</span><b class="${aCls(p.r[c])}">${p.r[c]}</b></h5>${D.attrs.map((a, i) => [a, p.a[i]]).filter(([a]) => a[1] === c).map(([a, v]) => `<div class="pb-r"><span>${esc(a[2])}</span><b class="${aCls(v)}">${v}</b></div>`).join('')}</div>`;
+    return `<div class="pb-h"><b>${esc(p.n)}</b><span>${esc(p.pos)} · OVR ${p.o} · ${tier}</span></div>
+      <div class="pb-cols"><div>${grp('sht')}${grp('fin')}${grp('reb')}</div><div>${grp('pas')}${grp('def')}${grp('ath')}</div></div>`;
+  }
+  function cardHtml(id, p) {
+    const tm = team(p.t), col = tm ? tm.c : '#7c879e', [, tcol, thi] = pcTier(p.o);
+    return `<div class="pfull" data-card="${id}" data-face="0" style="--tc:${col};--tc2:${pcShade(col, 0.42)};--tier:${tcol};--tierhi:${thi}" title="${esc(T().flipHint)}"><div class="pf-in"><div class="pf-face pf-front">${cardFront(id, p)}</div><div class="pf-face pf-back"></div></div></div>`;
+  }
+  function bindCards(root) {
+    root.querySelectorAll('.pfull[data-card]').forEach(el => el.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      const p = ST.D.players[el.dataset.card]; if (!p) return;
+      const face = (+el.dataset.face + 1) % (p.tn && ST.D.tend ? 3 : 2), back = el.querySelector('.pf-back');
+      el.dataset.face = face;
+      if (face === 0) el.classList.remove('flipped');
+      else if (face === 1) { back.innerHTML = cardBack(p, 1); el.classList.add('flipped'); }
+      else { back.style.opacity = 0; setTimeout(() => { back.innerHTML = cardBack(p, 2); back.style.opacity = 1; }, 160); }
+    }));
+  }
   function vPlayers() {
     const t = T(), D = ST.D, f = ST.pf;
     return `<h1>${t.players}</h1><section class="panel"><div class="filters"><input id="pq" type="search" placeholder="${t.search}" value="${esc(f.q)}" aria-label="${t.search}">
       <select id="pt" aria-label="${t.team}"><option value="">${t.allTeams}</option>${standings().map(x => `<option value="${x.id}" ${String(f.t) === String(x.id) ? 'selected' : ''}>${esc(x.name)}</option>`).join('')}<option value="fa" ${f.t === 'fa' ? 'selected' : ''}>${t.fa}</option></select>
       <select id="pp" aria-label="${t.pos}"><option value="">${t.allPos}</option>${['PG', 'SG', 'SF', 'PF', 'C', 'G', 'F'].filter(p => Object.values(D.players).some(x => x.pos === p)).map(p => `<option ${f.p === p ? 'selected' : ''}>${p}</option>`).join('')}</select>
-      <select id="ps" aria-label="${t.sortBy}">${[['o', 'OVR'], ['pot', 'POT'], ['pts', 'PTS'], ['reb', 'REB'], ['ast', 'AST'], ['age', t.age], ['sal', t.contract]].map(([k, n]) => `<option value="${k}" ${f.s === k ? 'selected' : ''}>${t.sortBy}: ${n}</option>`).join('')}</select></div><div id="plist"></div></section>`;
+      <select id="ps" aria-label="${t.sortBy}">${[['o', 'OVR'], ['pot', 'POT'], ['pts', 'PTS'], ['reb', 'REB'], ['ast', 'AST'], ['age', t.age], ['sal', t.contract]].map(([k, n]) => `<option value="${k}" ${f.s === k ? 'selected' : ''}>${t.sortBy}: ${n}</option>`).join('')}</select>
+      <div class="vsw" id="pv" role="group"><button type="button" data-v="list" class="${f.v !== 'card' ? 'on' : ''}">${t.vList}</button><button type="button" data-v="card" class="${f.v === 'card' ? 'on' : ''}">${t.vCard}</button></div></div><div id="plist"></div></section>`;
   }
   function plistHtml() {
     const t = T(), D = ST.D, f = ST.pf, q = f.q.trim().toLowerCase().replace(/\s+/g, '');
@@ -368,16 +527,18 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
     const key = { o: p => p.o, pot: p => parseInt(String(p.pot).split('-').pop(), 10) || 0, pts: p => pg(p, 'pts'), reb: p => pg(p, 'reb'), ast: p => pg(p, 'ast'), age: p => -p.age, sal: p => p.sal || p.dem || 0 }[f.s] || (p => p.o);
     list.sort((a, b) => key(b[1]) - key(a[1]));
     const n = list.length, shown = list.slice(0, f.n);
+    if (f.v === 'card') return `<p class="dim" style="margin:0;font-size:13px">${n} ${t.results} · ${esc(t.flipHint)}</p><div class="cards">${shown.map(([id, p]) => cardHtml(id, p)).join('')}</div>${n > f.n ? `<button class="more" id="pmore" type="button">${t.showMore} (${n - f.n})</button>` : ''}`;
     const rows = shown.map(([id, p]) => { const tr = tier(p.o), tm = team(p.t);
       return `<tr class="link" data-href="player-${id}"><td class="ovr ${tr[1]}">${p.o}</td><td class="l">${plink(id, p)}${p.inj ? ` <span class="pill inj">INJ</span>` : ''}${p.rk === D.season ? ` <span class="pill rk">${t.rookie}</span>` : ''}</td><td class="l">${tm ? `<a class="tn" href="#team-${esc(tm.code)}">${logo(tm)}<span>${esc(tm.code)}</span></a>` : `<span class="pill fa">FA</span>`}</td><td class="l">${esc(p.pos)}</td><td class="num">${p.age}</td><td class="num dim">${esc(p.pot)}</td><td class="num">${f1(pg(p, 'pts'))}</td><td class="num">${f1(pg(p, 'reb'))}</td><td class="num">${f1(pg(p, 'ast'))}</td><td class="num">${p.sal ? money(p.sal) : p.dem ? `<span class="dim">${money(p.dem)}</span>` : '-'}</td></tr>`; }).join('');
     return `<p class="dim" style="margin:0;font-size:13px">${n} ${t.results}</p><div class="scroll"><table><thead><tr><th>${ab('OVR')}</th><th class="l">${t.name}</th><th class="l">${t.team}</th><th class="l">${t.pos}</th><th>${t.age}</th><th>${ab('POT')}</th><th>${ab('PTS')}</th><th>${ab('REB')}</th><th>${ab('AST')}</th><th>${ab(t.contract, 'CONTRACT')}</th></tr></thead><tbody>${rows}</tbody></table></div>${n > f.n ? `<button class="more" id="pmore" type="button">${t.showMore} (${n - f.n})</button>` : ''}`;
   }
   function bindPlayers() {
-    const draw = () => { $('plist').innerHTML = plistHtml(); $('plist').querySelectorAll('tr[data-href]').forEach(tr => tr.addEventListener('click', (e) => { if (!e.target.closest('a')) location.hash = tr.dataset.href; })); const m = $('pmore'); if (m) m.addEventListener('click', () => { ST.pf.n += 60; draw(); }); };
+    const draw = () => { $('plist').innerHTML = plistHtml(); bindCards($('plist')); $('plist').querySelectorAll('tr[data-href]').forEach(tr => tr.addEventListener('click', (e) => { if (!e.target.closest('a')) location.hash = tr.dataset.href; })); const m = $('pmore'); if (m) m.addEventListener('click', () => { ST.pf.n += 60; draw(); }); };
     $('pq').addEventListener('input', (e) => { ST.pf.q = e.target.value; ST.pf.n = 60; draw(); });
     $('pt').addEventListener('change', (e) => { ST.pf.t = e.target.value; ST.pf.n = 60; draw(); });
     $('pp').addEventListener('change', (e) => { ST.pf.p = e.target.value; ST.pf.n = 60; draw(); });
     $('ps').addEventListener('change', (e) => { ST.pf.s = e.target.value; draw(); });
+    $('pv').querySelectorAll('button').forEach(b => b.addEventListener('click', () => { ST.pf.v = b.dataset.v; try { localStorage.setItem('pil-db-pv', ST.pf.v); } catch (e) {} $('pv').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); draw(); }));
     draw();
   }
   function archLine(p) {
@@ -398,11 +559,10 @@ footer { border-top: 1px solid var(--line); padding-block: 24px; color: var(--fa
     const conTxt = (q) => ST.lang === 'ko' ? `연봉 ${money(q.sal)}, 계약 ${q.yrs}년 남음.${D.cap ? ` 팀 샐러리캡(${money(D.cap)})의 ${Math.round(q.sal / D.cap * 100)}%예요.` : ''}` : `${money(q.sal)} a year, ${q.yrs} year${q.yrs > 1 ? 's' : ''} left.${D.cap ? ` ${Math.round(q.sal / D.cap * 100)}% of the ${money(D.cap)} cap.` : ''}`;
     const bar = ([k, n]) => { const v = p.r[k]; return `<div class="barr"><span>${abA(n, k)}</span><i><b class="b${ac(v)}" style="width:${v}%"></b></i><em class="c${ac(v)}">${v}</em></div>`; };
     const chips = [p.rk === D.season ? t.rookie : '', p.imp ? t.import : '', p.fan ? `${t.fanPick} · ${p.fan}` : '', p.inj ? `${t.inj}: ${p.inj.k} (${p.inj.g} ${t.games})` : ''].filter(Boolean);
-    const face = `<div class="face" style="--tc:${tm ? tm.c : '#3a4560'};--tier:${tcol}"><div class="top"><div class="o ${tcls}">${p.o}<small>${ab('OVR')} · ${ab('POT')} ${esc(p.pot)}</small></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">${tm ? logo(tm, 1) : ''}<span class="tier">${ab(tn)}</span></div></div>
-      <div><p class="eyebrow" style="color:var(--fg)">#${p.no} · ${esc(p.pos)} · ${tm ? esc(tm.code) : 'FA'}</p><h1>${esc(p.n)}</h1><p class="dim" style="margin:4px 0 0">${p.age}${ST.lang === 'ko' ? '세' : ' yrs'} · ${p.ht}cm${tm ? ` · ${tlink(tm)}` : ''}</p>${archLine(p)}</div>
+    const face = `<div class="pside">${cardHtml(id, p)}<p class="dim" style="margin:0;font-size:12px;text-align:center">${esc(t.flipHint)}</p>
+      <section class="panel" style="align-self:stretch"><div><h1 style="font-size:clamp(22px,3vw,28px)">${esc(p.n)}</h1><p class="dim" style="margin:4px 0 0">#${p.no} · ${esc(p.pos)} · ${p.age}${esc(t.ageSfx)} · ${p.ht}cm${tm ? ` · ${tlink(tm)}` : ` · <span class="pill fa">${t.fa}</span>`}</p>${archLine(p)}</div>
       ${chips.length ? `<div class="chips">${chips.map(c => `<span>${esc(c)}</span>`).join('')}</div>` : ''}
-      <div class="bars">${D.rnames.map(bar).join('')}</div>
-      <dl class="kv"><dt>${abD(t.style, GL[ST.lang].STYLE)}</dt><dd>${abD(p.play || '-', dsc.play[p.play])}</dd><dt>${abD(t.pers, GL[ST.lang].PERS)}</dt><dd>${abD(p.pers || '-', dsc.pers[p.pers])}</dd>${p.pa ? `<dt>${abD(t.persona, GL[ST.lang].PERSONA)}</dt><dd>${abD(p.pa, dsc.pa[p.pa])}</dd>` : ''}${p.rel ? `<dt>${esc(t.rel)}</dt><dd>${abD(String(p.rel), ST.lang === 'ko' ? '슛을 얼마나 빨리 놓나. 빠를수록 블록당하기 어려워요.' : 'How quickly he gets the shot off. Faster is harder to block.')} · ${p.hand === 'L' ? t.lefty : t.righty}</dd>` : ''}<dt>${abA(t.dur, 'dur')}</dt><dd>${abD(String(p.dur ?? '-'), durTxt(p.dur), t.dur)}</dd><dt>${abD(t.contract, GL[ST.lang].CONTRACT)}</dt><dd>${p.sal ? abD(`${money(p.sal)} × ${p.yrs}${t.yrs}`, conTxt(p), t.contract) : p.dem ? abD(`${t.demand} ${money(p.dem)}`, GL[ST.lang].DEMAND, t.demand) : '-'}</dd>${p.sig && p.sig.length ? `<dt>${abD(t.sigs, GL[ST.lang].SIGS)}</dt><dd>${p.sig.map(n => abD(n, dsc.sig[n])).join(' · ')}</dd>` : ''}${(p.aw && p.aw.length) || p.ring ? `<dt>${t.awards}</dt><dd>${[...(p.ring ? [abD(`${t.ring}${p.ring > 1 ? ' ×' + p.ring : ''}`, AWD[ST.lang].RING, t.ring)] : []), ...(p.aw || []).map(([k, v]) => awTip(k, v))].join(' · ')}</dd>` : ''}</dl></div>`;
+      <dl class="kv"><dt>${abD(t.style, GL[ST.lang].STYLE)}</dt><dd>${abD(p.play || '-', dsc.play[p.play])}</dd><dt>${abD(t.pers, GL[ST.lang].PERS)}</dt><dd>${abD(p.pers || '-', dsc.pers[p.pers])}</dd>${p.pa ? `<dt>${abD(t.persona, GL[ST.lang].PERSONA)}</dt><dd>${abD(p.pa, dsc.pa[p.pa])}</dd>` : ''}${p.rel ? `<dt>${esc(t.rel)}</dt><dd>${abD(String(p.rel), ST.lang === 'ko' ? '슛을 얼마나 빨리 놓나. 빠를수록 블록당하기 어려워요.' : 'How quickly he gets the shot off. Faster is harder to block.')} · ${p.hand === 'L' ? t.lefty : t.righty}</dd>` : ''}<dt>${abA(t.dur, 'dur')}</dt><dd>${abD(String(p.dur ?? '-'), durTxt(p.dur), t.dur)}</dd><dt>${abD(t.contract, GL[ST.lang].CONTRACT)}</dt><dd>${p.sal ? abD(`${money(p.sal)} × ${p.yrs}${t.yrs}`, conTxt(p), t.contract) : p.dem ? abD(`${t.demand} ${money(p.dem)}`, GL[ST.lang].DEMAND, t.demand) : '-'}</dd>${p.sig && p.sig.length ? `<dt>${abD(t.sigs, GL[ST.lang].SIGS)}</dt><dd>${p.sig.map(n => abD(n, dsc.sig[n])).join(' · ')}</dd>` : ''}${(p.aw && p.aw.length) || p.ring ? `<dt>${t.awards}</dt><dd>${[...(p.ring ? [abD(`${t.ring}${p.ring > 1 ? ' ×' + p.ring : ''}`, AWD[ST.lang].RING, t.ring)] : []), ...(p.aw || []).map(([k, v]) => awTip(k, v))].join(' · ')}</dd>` : ''}</dl></section></div>`;
     const groups = D.cats.map(([c, cn]) => { const rows = D.attrs.map((a, i) => [a, p.a[i]]).filter(([a]) => a[1] === c);
       return `<div class="ag"><h3><span>${abA(cn, c)}</span><span class="c${ac(p.r[c])}">${p.r[c]}</span></h3>${rows.map(([a, v]) => `<div class="ar"><span>${abA(a[2], a[0])}</span><i><b class="b${ac(v)}" style="width:${v}%"></b></i><em class="c${ac(v)}">${v}</em></div>`).join('')}</div>`; }).join('');
     const line = g ? [[f1(s.pts / g), 'PTS'], [f1(s.reb / g), 'REB'], [f1(s.ast / g), 'AST'], [f1(s.stl / g), 'STL'], [f1(s.blk / g), 'BLK'], [f1(s.tov / g), 'TOV'], [pct(s.fgm, s.fga), 'FG%'], [pct(s.tpm, s.tpa), '3P%'], [pct(s.ftm, s.fta), 'FT%'], [f1(s.min / 60 / g), 'MIN'], [g, 'GP']] : null;
