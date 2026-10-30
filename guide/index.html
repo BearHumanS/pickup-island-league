@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pickup Island 시청자 참여 안내 — Viewer guide</title>
+<meta name="description" content="Pickup Island Basketball 24/7 시청자 참여 안내: 응원 팀 가입, 승부 예측과 예측 포인트, 내 이름의 신인을 드래프트에 올리는 법, 팬 작전 투표, 카드 조회, 슈퍼챗·멤버 특전. How fans join a team, predict games, draft a rookie and vote tactics from YouTube chat.">
+<link rel="canonical" href="https://bearhumans.github.io/pickup-island-league/guide/">
+<meta name="theme-color" content="#0d0f24">
+<link rel="icon" type="image/png" href="../assets/favicon-64.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pickup Island League">
+<meta property="og:title" content="Pickup Island 시청자 참여 안내 — Viewer guide">
+<meta property="og:description" content="응원 팀 가입, 승부 예측, 내 이름의 신인 드래프트, 팬 작전 투표: 유튜브 채팅만으로 리그에 참여하는 법. How to take part in the 24/7 league from YouTube chat.">
+<meta property="og:url" content="https://bearhumans.github.io/pickup-island-league/guide/">
+<meta property="og:image" content="https://bearhumans.github.io/pickup-island-league/assets/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@PickupIsland247">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: the night-court look of the ad page. One 980px reading column; pixel type for labels only; tables for the rules people look up. */
+:root {
+  color-scheme: dark;
+  --night: #0d0f24; --night-2: #161a3a; --line: #2b3062; --ink: #f3f1ea; --ink-soft: #b9bcdc; --faint: #7f84ad;
+  --orange: #ff8a3d; --live: #e5483a; --court: #46d0c4; --gold: #f2b630;
+  --pixel: "Silkscreen", "Courier New", monospace; --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --body: "IBM Plex Sans", "Noto Sans KR", system-ui, sans-serif; --body-ko: "Noto Sans KR", "IBM Plex Sans", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--night); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+body.ko { font-family: var(--body-ko); word-break: keep-all; }
+[hidden] { display: none !important; }
+.wrap { max-width: 980px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: var(--orange); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+h1, h2, h3 { text-wrap: balance; margin: 0; line-height: 1.15; }
+p { margin: 0; text-wrap: pretty; }
+code { font: 600 0.95em var(--mono); color: var(--gold); background: rgba(255,255,255,.06); padding: 1px 6px; white-space: nowrap; }
+.eyebrow { font-family: var(--pixel); font-size: 13px; letter-spacing: 0.12em; color: var(--orange); text-transform: uppercase; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--night); }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: rgba(13, 15, 36, 0.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(6px); }
+.bar .wrap { display: flex; align-items: center; gap: 14px; padding-block: 10px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; margin-right: auto; }
+.brand img { width: 40px; height: 40px; border-radius: 50%; }
+.brand span { font-family: var(--pixel); font-size: 15px; line-height: 1.1; }
+.navl { color: var(--ink-soft); text-decoration: none; font-weight: 600; font-size: 14px; }
+.navl:hover { color: var(--ink); }
+.lang { display: inline-flex; border: 1px solid var(--line); }
+.lang button { font: 600 14px var(--body); color: var(--ink-soft); background: transparent; border: 0; padding: 8px 14px; min-height: 40px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--night); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 18px; font: 700 15px var(--body); background: var(--orange); color: var(--night); border: 0; text-decoration: none; }
+.btn:hover { background: #ffa265; }
+.hero { border-bottom: 1px solid var(--line); background: radial-gradient(1000px 420px at 85% 0%, #1e2350 0%, var(--night) 70%); }
+.hero .wrap { padding-block: 52px 40px; display: flex; flex-direction: column; gap: 16px; }
+.hero h1 { font-size: clamp(30px, 5vw, 50px); font-weight: 700; letter-spacing: -0.01em; }
+.hero h1 em { font-style: normal; color: var(--orange); }
+.hero p.lead { font-size: 18px; color: var(--ink-soft); max-width: 38em; }
+.hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+.live { display: inline-flex; align-items: center; gap: 8px; font-family: var(--pixel); font-size: 12px; letter-spacing: 0.1em; color: var(--ink); background: rgba(229, 72, 58, 0.16); border: 1px solid rgba(229, 72, 58, 0.5); padding: 5px 10px; width: max-content; }
+.live i { width: 8px; height: 8px; border-radius: 50%; background: var(--live); animation: blink 1.4s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0.25; } }
+@media (prefers-reduced-motion: reduce) { .live i { animation: none; } }
+.toc { display: flex; flex-wrap: wrap; gap: 8px 18px; padding-block: 14px; border-bottom: 1px solid var(--line); font-size: 14px; }
+.toc a { color: var(--ink-soft); text-decoration: none; } .toc a:hover { color: var(--ink); }
+section.block { padding-block: 44px; border-bottom: 1px solid var(--line); scroll-margin-top: 80px; }
+section.block > .wrap { display: flex; flex-direction: column; gap: 18px; }
+section.block h2 { font-size: clamp(22px, 3vw, 30px); }
+section.block p, section.block li { color: var(--ink-soft); }
+section.block p b, section.block li b { color: var(--ink); }
+ol, ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+.note { background: var(--night-2); border-left: 4px solid var(--orange); padding: 12px 16px; color: var(--ink); }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; background: var(--night-2); border: 1px solid var(--line); }
+th { text-align: left; font: 600 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--faint); padding: 10px 14px; border-bottom: 1px solid var(--line); }
+td { padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,.06); vertical-align: top; color: var(--ink-soft); }
+td:first-child { color: var(--ink); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--mono); color: var(--court); white-space: nowrap; }
+.pts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; }
+.pt { background: var(--night-2); border: 1px solid var(--line); padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; }
+.pt b { font-family: var(--pixel); font-size: 13px; letter-spacing: .08em; color: var(--court); }
+.pt span { color: var(--ink-soft); font-size: 15px; }
+footer { padding-block: 28px 40px; color: var(--faint); font-size: 13px; }
+footer a { color: var(--ink-soft); }
+@media (max-width: 640px) { td:first-child { white-space: normal; } section.block { padding-block: 34px; } }
+</style>
+</head>
+<body class="ko">
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="../ko/"><img src="../assets/logo-512.png" alt=""><span>PICKUP ISLAND<br>BASKETBALL 24/7</span></a>
+    <a class="navl" href="../db/" data-en="League DB" data-ko="리그 DB">리그 DB</a>
+    <a class="navl" href="../advertise/" data-en="Advertise" data-ko="광고 문의">광고 문의</a>
+    <div class="lang" role="group" aria-label="Language"><button type="button" data-lang="ko" aria-pressed="true">한국어</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+    <a class="btn" href="https://www.youtube.com/@PickupIsland247/live" target="_blank" rel="noopener" data-en="Watch live" data-ko="라이브 보기">라이브 보기</a>
+  </div>
+</header>
+
+<!-- ======================= KOREAN ======================= -->
+<div id="ko">
+<section class="hero"><div class="wrap">
+  <span class="live"><i></i> 24/7 LIVE · YOUTUBE CHAT</span>
+  <p class="eyebrow">Viewer guide</p>
+  <h1>채팅 한 줄로 리그에 <em>참여</em>하는 법</h1>
+  <p class="lead">응원 팀에 가입하고, 승부를 예측해 포인트를 모으고, 그 포인트로 내가 지은 이름의 신인을 다음 드래프트에 올릴 수 있어요. 돈이나 경품은 전혀 걸리지 않아요. 명령어는 전부 영어 느낌표 명령이에요.</p>
+  <div class="ctas"><a class="btn" href="https://www.youtube.com/@PickupIsland247/live" target="_blank" rel="noopener">라이브로 가서 해보기</a><a class="btn" style="background:transparent;color:var(--ink);border:1px solid var(--line)" href="../db/">리그 DB 열기</a></div>
+</div></section>
+<nav class="wrap toc" aria-label="목차"><a href="#k-cmd">명령어 한눈에</a><a href="#k-join">응원 팀·팬 포인트</a><a href="#k-pred">승부 예측·예측 포인트</a><a href="#k-draft">내 신인 드래프트</a><a href="#k-vote">팬 작전 투표</a><a href="#k-card">카드·팀정보·!me</a><a href="#k-sc">슈퍼챗·멤버</a><a href="#k-faq">자주 하는 오해</a><a href="#k-db">리그 DB</a></nav>
+
+<section class="block" id="k-cmd"><div class="wrap">
+  <p class="eyebrow">01</p><h2>명령어 한눈에</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>명령어</th><th>하는 일</th><th>비용 · 조건</th></tr></thead>
+    <tbody>
+      <tr><td><code>!join 팀이름</code></td><td>응원 팀 가입. 팀 코드(BAY)나 이름 일부로 찾아요. 다시 치면 팀을 바꿔요</td><td>무료</td></tr>
+      <tr><td><code>1</code> 또는 <code>2</code></td><td>경기 전 승부 예측. 홈 1, 원정 2 (팀 코드를 써도 돼요)</td><td>예측 창이 열려 있을 때만, 경기당 1표</td></tr>
+      <tr><td><code>!draft 이름</code></td><td>내가 지은 이름의 신인을 다음 드래프트 후보에 등록</td><td>예측 포인트 30점 · 시즌당 2명</td></tr>
+      <tr><td><code>!me</code></td><td>내 예측 적중 기록, 남은 예측 포인트, 응원 팀</td><td>무료</td></tr>
+      <tr><td><code>!tempo</code> <code>!three</code> <code>!inside</code> <code>!press</code></td><td>팬 작전 투표. 쿼터 휴식 때 열리면 한 표</td><td>투표가 열려 있을 때만</td></tr>
+      <tr><td><code>!card 선수이름</code></td><td>그 선수의 카드 → 37개 능력치 → 36개 성향을 방송 화면에 띄움</td><td>45초에 1번, 대기 최대 4장</td></tr>
+      <tr><td><code>!teaminfo 팀코드</code></td><td>로스터·감독·전술·연봉을 방송 화면에 띄움</td><td>45초에 1번</td></tr>
+      <tr><td>리플레이 중 <code>1</code>~<code>9</code></td><td>경기 뒤 하이라이트에서 '오늘의 플레이' 투표</td><td>투표가 열려 있을 때만</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pts">
+    <div class="pt"><b>팬 포인트</b><span>응원 팀 성적으로 쌓이는 시즌 랭킹용 점수. 쓸 곳은 없고 순위와 명예만 있어요.</span></div>
+    <div class="pt"><b>예측 포인트</b><span>승부 예측으로 모으는 점수. <code>!draft</code>에 쓰는 돈 같은 것이고 시즌이 바뀌어도 남아요.</span></div>
+  </div>
+  <p>두 포인트는 서로 바뀌지 않아요. 드래프트에 쓰는 건 예측 포인트뿐이에요.</p>
+</div></section>
+
+<section class="block" id="k-join"><div class="wrap">
+  <p class="eyebrow">02</p><h2>응원 팀 가입(!join)과 팬 포인트</h2>
+  <p><code>!join</code>은 <b>내가 어느 팀 팬인지 등록</b>하는 명령이에요. 선수를 만들거나 리그에 들어가는 것과는 관계가 없어요. 가입하면 화면 팬 피드에 "OO님, Beacons 팬으로 합류!"가 뜨고, 그때부터 팬 포인트가 쌓여요.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>언제</th><th>팬 포인트</th></tr></thead>
+    <tbody>
+      <tr><td>내 응원 팀이 이길 때마다 (방송 경기든 자동 진행 경기든)</td><td class="num">+3</td></tr>
+      <tr><td>방송 중인 경기에서 채팅을 한 번이라도 남김 (경기당 1회)</td><td class="num">+1</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>팬 포인트는 <b>시즌 단위</b>예요. 새 시즌이 시작되면 표가 초기화되고, 지난 시즌 1위는 <b>시즌 팬 MVP</b>로 리그 소식과 기록에 남아요.</li>
+    <li>상위 10명은 방송의 팬 랭킹 코너와 리그 DB '시즌 팬 랭킹'에 이름이 올라가요. 팀별 팬 수는 DB 팀 페이지의 '채팅 팬'에 보여요.</li>
+    <li>팀을 바꾸면 이후 포인트만 새 팀 기준으로 쌓여요. 이미 받은 포인트는 그대로예요.</li>
+    <li>팬이 많은 쪽 팀이 팬 작전 투표의 대상 팀이 돼요.</li>
+  </ul>
+</div></section>
+
+<section class="block" id="k-pred"><div class="wrap">
+  <p class="eyebrow">03</p><h2>승부 예측과 예측 포인트</h2>
+  <p>예측 포인트는 <code>!draft</code>의 재료예요. 응원 팀이 없어도 참여할 수 있고, 시즌이 바뀌어도 없어지지 않아요.</p>
+  <ol>
+    <li><b>열림</b>: 방송 경기가 정해지면 화면에 예측 창이 떠요. 팀 OVR 차이로 계산한 초기 승률이 같이 보여요.</li>
+    <li><b>투표</b>: 채팅에 <code>1</code>(홈) 또는 <code>2</code>(원정). 팀 코드(예: <code>BAY</code>)로 시작해도 인정돼요. 한 경기에 한 표, 처음 한 표만 남고 바꿀 수 없어요.</li>
+    <li><b>마감</b>: 4쿼터 경기는 2쿼터가 시작될 때, 점수제 짧은 경기는 한 팀이 7점에 닿을 때 닫혀요. 그 뒤의 1·2는 무시돼요.</li>
+    <li><b>정산</b>: 경기가 끝나면 적중 여부가 기록되고 예측 상위 3명이 화면에 떠요.</li>
+  </ol>
+  <div class="scroll"><table>
+    <thead><tr><th>결과</th><th>예측 포인트</th></tr></thead>
+    <tbody>
+      <tr><td>적중</td><td class="num">+10</td></tr>
+      <tr><td>빗나감 (참여)</td><td class="num">+2</td></tr>
+      <tr><td><code>!draft</code> 등록 1명</td><td class="num">−30</td></tr>
+    </tbody>
+  </table></div>
+  <p>연속 적중이면 3경기, 전부 빗나가도 15경기면 신인 한 명을 등록할 수 있어요. 남은 포인트는 <code>!me</code>로 확인해요.</p>
+</div></section>
+
+<section class="block" id="k-draft"><div class="wrap">
+  <p class="eyebrow">04</p><h2>시청자 신인(!draft): 내 이름의 선수가 리그에 들어가는 길</h2>
+  <p>시청자가 선수를 리그에 넣는 유일한 길이 <code>!draft</code>예요. 직접 만드는 게 아니라 <b>다음 드래프트 신인 중 한 명에게 내가 지은 이름을 붙이는</b> 방식이에요. 능력치나 지명 순위는 정해 줄 수 없고, 다른 신인과 같은 확률로 팀에 뽑혀요.</p>
+  <ol>
+    <li><b>포인트 모으기</b>: 승부 예측으로 예측 포인트 30점을 모아요. 부족하면 화면에 "신인 등록에는 예측 포인트 30점이 필요해요. 지금 N점"이 떠요.</li>
+    <li><b>등록</b>: 채팅에 <code>!draft 이름</code>. 성공하면 "OO님의 신인 '이름', 다음 드래프트 후보로 등록!"이 뜨고 30점이 빠져요. 실패하면 포인트는 그대로예요.</li>
+    <li><b>대기</b>: 등록된 이름은 대기 명단에 쌓여요(최대 80개). 시즌이 끝나고 비시즌 드래프트가 열릴 때까지 기다려요.</li>
+    <li><b>신인 클래스 배정</b>: 드래프트 클래스가 만들어질 때 대기 명단에서 일부를 꺼내 무작위 신인에게 이름을 붙여요. 한 번의 드래프트에 들어가는 수는 <b>최소 3명, 또는 드래프트 지명 수의 1/4</b> 중 큰 쪽이에요. 멤버·슈퍼챗으로 등록한 이름이 먼저고, 그 다음은 등록 순서예요. 못 들어간 이름은 다음 드래프트로 넘어가요.</li>
+    <li><b>지명</b>: 그 신인은 다른 신인과 똑같이 팀들의 선택을 받아요. 리그 소식에 "시청자 신인 합류: 이름 (포지션, 만든 사람 OO님)"이 올라가요.</li>
+    <li><b>그 뒤</b>: 선수 카드에 <code>FAN · OO</code> 칩이 붙고, 리그 DB 선수 페이지에 '시청자 선수 · OO'로 표시돼요. 은퇴할 때까지 리그에 남아요.</li>
+  </ol>
+  <div class="note"><b>이름 규칙</b> — 2~18자. 단어 첫 글자는 자동으로 대문자가 돼요(<code>kim junho</code> → <code>Kim Junho</code>). 숫자만 있는 이름, URL, 기호, 금칙어는 거부돼요. 리그에 이미 있는 이름이거나 대기 명단에 같은 이름이 있으면 "이미 있는 이름"으로 거부돼요. 한 시청자는 시즌당 2명까지예요(멤버·슈퍼챗 등록은 제한 없음).</div>
+</div></section>
+
+<section class="block" id="k-vote"><div class="wrap">
+  <p class="eyebrow">05</p><h2>팬 작전 투표</h2>
+  <p>경기 중 팬들이 한 팀의 작전을 직접 바꾸는 거예요. 방송 설정의 팬 채팅이 켜져 있고 유튜브 채팅이 연결된 경기에서만 열려요.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>항목</th><th>내용</th></tr></thead>
+    <tbody>
+      <tr><td>열리는 때</td><td>4쿼터 경기: 2·3·4쿼터 시작 전 휴식 때(쿼터당 1번). 점수제 짧은 경기: 목표 점수의 1/3과 58% 지점에서</td></tr>
+      <tr><td>대상 팀</td><td>시청자가 운영하는 팀이 있으면 그 팀. 아니면 채팅 팬이 더 많은 쪽 팀(<code>!join</code> 인원 기준)</td></tr>
+      <tr><td>투표 방법</td><td><code>!tempo</code> 빠른 템포 · <code>!three</code> 3점 위주 · <code>!inside</code> 골밑 공략 · <code>!press</code> 압박 수비. 1인 1표</td></tr>
+      <tr><td>닫히는 때</td><td>그 쿼터가 절반 지났을 때(짧은 경기는 다음 점수 구간에 닿을 때)</td></tr>
+      <tr><td>반영</td><td>최다 득표 작전이 그 팀 전술에 바로 덮어씌워져요. 해설이 "팬 투표 결과 N표 중 M표!"로 알려 줘요</td></tr>
+      <tr><td>표가 없으면</td><td>아무 것도 바뀌지 않아요</td></tr>
+    </tbody>
+  </table></div>
+  <p>투표로 바뀐 전술은 그 경기 끝까지 유지되고, 다음 투표가 다시 덮어쓸 수 있어요. 감독 AI가 경기 중 스스로 바꾸는 것과 똑같은 경로로 들어가기 때문에 실제 경기 흐름에 영향을 줘요.</p>
+</div></section>
+
+<section class="block" id="k-card"><div class="wrap">
+  <p class="eyebrow">06</p><h2>카드·팀정보 조회와 !me</h2>
+  <ul>
+    <li><code>!card 선수이름</code>: 이름 일부만 써도 찾아요. 화면에 카드 앞면이 5초, 세부 능력치 37개가 4.5초, 성향 36개가 나머지 시간 동안 보여요(총 14초). 카드 위에 "OO 요청" 태그가 붙어요.</li>
+    <li><code>!teaminfo 팀코드</code>: 로스터, 감독, 전술, 연봉 총액이 10초 동안 떠요.</li>
+    <li>같은 사람은 45초에 한 번, 대기열은 4장까지예요. 방금 보여 준 선수는 1분 동안 다시 부를 수 없어요. 드래프트·FA 같은 스튜디오 장면이 나오면 카드는 잠시 뒤로 밀렸다가 다시 나와요.</li>
+    <li><code>!me</code>: "OO님 · 예측 N회 중 M회 적중 · BAY 팬 · 예측 포인트 P점"이 팬 피드에 떠요.</li>
+  </ul>
+  <p>같은 정보를 채팅 없이 보려면 <a href="../db/">리그 DB 사이트</a>가 더 편해요.</p>
+</div></section>
+
+<section class="block" id="k-sc"><div class="wrap">
+  <p class="eyebrow">07</p><h2>슈퍼챗·멤버 특전</h2>
+  <p>돈을 내야 하는 기능은 없지만, 유튜브 슈퍼챗과 채널 멤버십에는 따로 반응해요.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>행동</th><th>반응</th></tr></thead>
+    <tbody>
+      <tr><td>슈퍼챗 (금액 무관)</td><td>화면 배너에 이름·금액·메시지, 해설이 "OO님, 후원 감사합니다!"</td></tr>
+      <tr><td>슈퍼챗 메시지가 일반 문장</td><td>하프타임 샤라웃 보드에 올라가요(최근 6개 보관, 하프타임마다 3개씩 읽어 줘요)</td></tr>
+      <tr><td>슈퍼챗 메시지에 <code>!draft 이름</code> (설정 등급 이상, 기본 2단계)</td><td>예측 포인트 없이 신인 등록. 우선순위 최상위로 다음 드래프트에 가장 먼저 들어가고, 시즌 2명 제한도 없어요</td></tr>
+      <tr><td>슈퍼챗 메시지에 <code>!nick 팀코드 별명</code> (같은 등급 이상)</td><td>그 팀의 이번 시즌 팬 별명이 돼요. 화면 배너, 해설, 리그 소식, DB 팀 페이지 '팬 별명'에 올라가요</td></tr>
+      <tr><td>채널 멤버 가입·기념일</td><td>환영 배너와 해설 멘트</td></tr>
+      <tr><td>멤버가 일반 채팅으로 <code>!draft 이름</code></td><td>예측 포인트 없이 등록, 우선순위 1단계(슈퍼챗 다음, 일반 등록보다 앞)</td></tr>
+    </tbody>
+  </table></div>
+  <p>별명은 시즌이 바뀌면 사라지고, 새 별명이 들어오면 덮어써져요.</p>
+</div></section>
+
+<section class="block" id="k-faq"><div class="wrap">
+  <p class="eyebrow">08</p><h2>자주 하는 오해</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>오해</th><th>실제</th></tr></thead>
+    <tbody>
+      <tr><td><code>!join</code>으로 내 선수를 리그에 넣는다</td><td><code>!join</code>은 응원 팀 등록이에요. 선수는 <code>!draft</code>로, 예측 포인트 30점을 내고 다음 드래프트 후보에 올려요</td></tr>
+      <tr><td>팬 포인트로 드래프트한다</td><td>드래프트에 쓰는 건 <b>예측 포인트</b>(1·2 승부 예측)예요. 팬 포인트(응원 팀 승리 +3, 출석 +1)는 시즌 랭킹용이고 쓸 곳이 없어요</td></tr>
+      <tr><td><code>!draft</code>하면 바로 선수가 생긴다</td><td>다음 비시즌 드래프트까지 대기했다가 신인 클래스 중 한 명에게 이름이 붙어요. 한 드래프트에 들어가는 수가 정해져 있어서 못 들어가면 그다음 드래프트로 넘어가요</td></tr>
+      <tr><td>내 신인의 능력치나 포지션을 고를 수 있다</td><td>이름만 정해요. 나머지는 다른 신인과 같은 무작위예요</td></tr>
+      <tr><td>내 응원 팀에 내 신인이 간다</td><td>관계없어요. 팀들이 드래프트 순서대로 고르고, 어느 팀에 가는지는 지명 결과예요</td></tr>
+      <tr><td>예측은 경기 중 아무 때나 된다</td><td>4쿼터 경기는 2쿼터 시작 전까지만 받아요</td></tr>
+      <tr><td>한글 명령어도 된다</td><td>게임은 <code>!응원</code>, <code>!신인</code> 같은 한글도 알아듣지만, 안내는 영어 명령어로 통일해요(글로벌 채널)</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section class="block" id="k-db"><div class="wrap">
+  <p class="eyebrow">09</p><h2>리그 DB 사이트</h2>
+  <p>채팅 없이 언제든 볼 수 있는 공개 사이트예요. 방송이 라운드를 마칠 때마다 갱신돼요(최대 10분 간격). 한국어 · 영어 전환은 오른쪽 위 버튼. 주소: <a href="../db/">bearhumans.github.io/pickup-island-league/db/</a></p>
+  <ul>
+    <li><b>홈</b>: 이주의 빅매치, 순위 상위, 이번·지난 라운드 결과, 부문별 리더, 리그 소식, 참여 명령어</li>
+    <li><b>순위 · 팀</b>: 승패·게임차·득실, 팀 페이지에 로스터·감독 평가·전술·연봉 총액·채팅 팬 수·팬 별명</li>
+    <li><b>선수</b>: 검색·필터·정렬. <code>목록 | 카드</code> 전환으로 방송의 선수 카드를 그대로 볼 수 있고, 카드를 누르면 세부 능력치 37개 → 성향 36개 → 앞면으로 뒤집혀요. 선수 페이지에는 시즌 기록·시즌 최고·통산까지</li>
+    <li><b>기록</b>: 득점·리바운드·어시스트·스틸·블록·3점·야투율 리더(경기 수 기준 충족자)</li>
+    <li><b>역사</b>: 역대 우승, 명예의 전당, 3대3 챌린지, 시즌 팬 랭킹</li>
+  </ul>
+  <p>약어나 능력치 이름에 마우스를 올리면 설명이 떠요. 시청자가 만든 선수는 목록과 카드에 FAN 표시가 붙어요.</p>
+</div></section>
+</div>
+
+<!-- ======================= ENGLISH ======================= -->
+<div id="en" hidden>
+<section class="hero"><div class="wrap">
+  <span class="live"><i></i> 24/7 LIVE · YOUTUBE CHAT</span>
+  <p class="eyebrow">Viewer guide</p>
+  <h1>How to take part in the league <em>from chat</em></h1>
+  <p class="lead">Join a team, predict games to earn points, and spend those points to put a rookie with a name you chose into the next draft. No money, no prizes — every command is a one-line chat message starting with an exclamation mark.</p>
+  <div class="ctas"><a class="btn" href="https://www.youtube.com/@PickupIsland247/live" target="_blank" rel="noopener">Open the live stream</a><a class="btn" style="background:transparent;color:var(--ink);border:1px solid var(--line)" href="../db/">Open the League DB</a></div>
+</div></section>
+<nav class="wrap toc" aria-label="Contents"><a href="#e-cmd">Commands</a><a href="#e-join">Fan team · fan points</a><a href="#e-pred">Predictions · prediction points</a><a href="#e-draft">Your rookie in the draft</a><a href="#e-vote">Fan play vote</a><a href="#e-card">Cards · team info · !me</a><a href="#e-sc">Super Chat · members</a><a href="#e-faq">Common mix-ups</a><a href="#e-db">League DB</a></nav>
+
+<section class="block" id="e-cmd"><div class="wrap">
+  <p class="eyebrow">01</p><h2>Commands at a glance</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Command</th><th>What it does</th><th>Cost · condition</th></tr></thead>
+    <tbody>
+      <tr><td><code>!join team</code></td><td>Join a team as a fan. A team code (BAY) or part of the name works. Type it again to switch</td><td>Free</td></tr>
+      <tr><td><code>1</code> or <code>2</code></td><td>Pre-game prediction: 1 home, 2 away (a team code works too)</td><td>Only while the prediction window is open, one vote per game</td></tr>
+      <tr><td><code>!draft name</code></td><td>Register a rookie with your name as a candidate for the next draft</td><td>30 prediction points · 2 per season</td></tr>
+      <tr><td><code>!me</code></td><td>Your prediction record, prediction points left and your team</td><td>Free</td></tr>
+      <tr><td><code>!tempo</code> <code>!three</code> <code>!inside</code> <code>!press</code></td><td>Fan play vote: one vote when it opens at a quarter break</td><td>Only while a vote is open</td></tr>
+      <tr><td><code>!card player</code></td><td>Puts that player's card → 37 attributes → 36 tendencies on the stream</td><td>Once per 45 s, queue of 4</td></tr>
+      <tr><td><code>!teaminfo CODE</code></td><td>Roster, coach, tactics and payroll on the stream</td><td>Once per 45 s</td></tr>
+      <tr><td><code>1</code>–<code>9</code> during the replay</td><td>Play-of-the-game vote in the post-game highlights</td><td>Only while the vote is open</td></tr>
+    </tbody>
+  </table></div>
+  <div class="pts">
+    <div class="pt"><b>Fan points</b><span>A season ranking built from how your team does. Nothing to spend them on — standings and bragging rights only.</span></div>
+    <div class="pt"><b>Prediction points</b><span>Earned by predicting games. The currency for <code>!draft</code>; they carry over between seasons.</span></div>
+  </div>
+  <p>The two never convert into each other. Only prediction points buy a draft entry.</p>
+</div></section>
+
+<section class="block" id="e-join"><div class="wrap">
+  <p class="eyebrow">02</p><h2>Joining a team (!join) and fan points</h2>
+  <p><code>!join</code> <b>registers which team you root for</b>. It has nothing to do with creating a player or entering the league. The fan feed shows "Name joins the Beacons!" and your fan points start counting from there.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>When</th><th>Fan points</th></tr></thead>
+    <tbody>
+      <tr><td>Every time your team wins (broadcast game or simulated)</td><td class="num">+3</td></tr>
+      <tr><td>Writing at least one chat line during a broadcast game (once per game)</td><td class="num">+1</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>Fan points are <b>per season</b>. A new season resets the table; last season's leader is recorded as <b>Fan MVP</b> in the league news and history.</li>
+    <li>The top 10 appear in the broadcast's fan ranking segment and in the League DB's "Season fan ranking". Fans per team show on each team page as "Chat fans".</li>
+    <li>Switching teams only changes where future points come from; points already earned stay.</li>
+    <li>The team with more chat fans is the one the fan play vote controls.</li>
+  </ul>
+</div></section>
+
+<section class="block" id="e-pred"><div class="wrap">
+  <p class="eyebrow">03</p><h2>Predictions and prediction points</h2>
+  <p>Prediction points are what <code>!draft</code> costs. You don't need a fan team to play, and the points survive the change of season.</p>
+  <ol>
+    <li><b>Opens</b>: when the broadcast game is set, a prediction panel appears with a starting win probability from the two teams' OVR.</li>
+    <li><b>Vote</b>: type <code>1</code> (home) or <code>2</code> (away); starting with a team code such as <code>BAY</code> also counts. One vote per game — the first one stands and can't be changed.</li>
+    <li><b>Closes</b>: at the start of the 2nd quarter in four-quarter games, or when a team reaches 7 points in short score-to-target games. Later 1s and 2s are ignored.</li>
+    <li><b>Settles</b>: after the game, hits are recorded and the top three predictors appear on screen.</li>
+  </ol>
+  <div class="scroll"><table>
+    <thead><tr><th>Result</th><th>Prediction points</th></tr></thead>
+    <tbody>
+      <tr><td>Correct</td><td class="num">+10</td></tr>
+      <tr><td>Wrong (for playing)</td><td class="num">+2</td></tr>
+      <tr><td>One <code>!draft</code> entry</td><td class="num">−30</td></tr>
+    </tbody>
+  </table></div>
+  <p>Three straight hits, or fifteen misses, pay for one rookie. Check your balance with <code>!me</code>.</p>
+</div></section>
+
+<section class="block" id="e-draft"><div class="wrap">
+  <p class="eyebrow">04</p><h2>Your rookie (!draft): how a player with your name enters the league</h2>
+  <p><code>!draft</code> is the only way a viewer gets a player into the league. You don't build him — <b>your name goes on one of the rookies in the next draft class</b>. You can't set ratings or a pick slot; he is drafted with the same odds as anyone else.</p>
+  <ol>
+    <li><b>Earn 30 prediction points</b> by predicting games. If you're short, the feed says "Registering a rookie takes 30 prediction points. You have N".</li>
+    <li><b>Register</b>: <code>!draft name</code>. On success you see "Name's rookie 'X' is in for the next draft!" and 30 points are deducted. A rejected name costs nothing.</li>
+    <li><b>Wait</b>: registered names sit in a waiting list (up to 80) until the offseason draft.</li>
+    <li><b>Placed in the class</b>: when the draft class is generated, some names from the list are given to random rookies. Per draft that is <b>the larger of 3 and a quarter of the number of picks</b>. Super Chat and member entries go first, then registration order. Names that don't make it roll over to the next draft.</li>
+    <li><b>Drafted</b>: he goes through the draft like every other rookie. League news reports "Viewer rookie joins: Name (POS, created by You)".</li>
+    <li><b>After</b>: his card carries a <code>FAN · You</code> chip and the League DB player page says "Viewer pick · You". He stays in the league until he retires.</li>
+  </ol>
+  <div class="note"><b>Name rules</b> — 2 to 18 characters; each word is capitalised automatically (<code>kim junho</code> → <code>Kim Junho</code>). Digits-only names, URLs, symbols and banned words are rejected. A name already in the league or already on the waiting list is rejected as taken. Two entries per viewer per season (Super Chat and member entries are not limited).</div>
+</div></section>
+
+<section class="block" id="e-vote"><div class="wrap">
+  <p class="eyebrow">05</p><h2>Fan play vote</h2>
+  <p>Fans change one team's game plan mid-game. It only opens when fan chat is on in the broadcast settings and YouTube chat is connected.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td>When it opens</td><td>Four-quarter games: at the break before Q2, Q3 and Q4 (once per quarter). Short games: at a third and at 58% of the target score</td></tr>
+      <tr><td>Which team</td><td>The viewer-run team if there is one; otherwise the team with more chat fans (<code>!join</code> count)</td></tr>
+      <tr><td>How to vote</td><td><code>!tempo</code> fast pace · <code>!three</code> live by the three · <code>!inside</code> attack the paint · <code>!press</code> full-court pressure. One vote each</td></tr>
+      <tr><td>When it closes</td><td>Halfway through that quarter (short games: at the next score mark)</td></tr>
+      <tr><td>Effect</td><td>The winning option overwrites that team's tactics at once. The commentary announces "Fan vote: M of N votes!"</td></tr>
+      <tr><td>No votes</td><td>Nothing changes</td></tr>
+    </tbody>
+  </table></div>
+  <p>The change holds for the rest of the game unless a later vote overwrites it. It goes through the same path the coach AI uses to adjust mid-game, so it really moves the game.</p>
+</div></section>
+
+<section class="block" id="e-card"><div class="wrap">
+  <p class="eyebrow">06</p><h2>Cards, team info and !me</h2>
+  <ul>
+    <li><code>!card player</code>: part of the name is enough. The card front shows for 5 s, the 37 attributes for 4.5 s and the 36 tendencies for the rest (14 s in all), tagged "requested by You".</li>
+    <li><code>!teaminfo CODE</code>: roster, coach, tactics and payroll for 10 s.</li>
+    <li>Once per person every 45 s, a queue of four, and a player shown within the last minute can't be called again yet. Studio segments (draft, free agency) push the card back briefly.</li>
+    <li><code>!me</code>: "You · N predictions, M right · BAY fan · P prediction points" in the fan feed.</li>
+  </ul>
+  <p>For the same information without chatting, the <a href="../db/">League DB</a> is easier.</p>
+</div></section>
+
+<section class="block" id="e-sc"><div class="wrap">
+  <p class="eyebrow">07</p><h2>Super Chat and member perks</h2>
+  <p>Nothing requires paying, but YouTube Super Chats and channel memberships get their own treatment.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Action</th><th>Response</th></tr></thead>
+    <tbody>
+      <tr><td>Super Chat (any amount)</td><td>On-screen banner with name, amount and message; the commentators thank you</td></tr>
+      <tr><td>Super Chat message is plain text</td><td>Goes on the halftime shout-out board (last 6 kept, 3 read out each halftime)</td></tr>
+      <tr><td>Super Chat message is <code>!draft name</code> (at or above the configured tier, default 2)</td><td>Rookie registered with no prediction points, top priority for the next draft, no two-per-season limit</td></tr>
+      <tr><td>Super Chat message is <code>!nick CODE nickname</code> (same tier)</td><td>Becomes that team's fan nickname for the season: banner, commentary, league news and the DB team page</td></tr>
+      <tr><td>New member or milestone</td><td>Welcome banner and a commentary mention</td></tr>
+      <tr><td>Member types <code>!draft name</code> in normal chat</td><td>Registered with no prediction points, priority 1 (after Super Chat, ahead of regular entries)</td></tr>
+    </tbody>
+  </table></div>
+  <p>Nicknames expire with the season and a new one overwrites the old.</p>
+</div></section>
+
+<section class="block" id="e-faq"><div class="wrap">
+  <p class="eyebrow">08</p><h2>Common mix-ups</h2>
+  <div class="scroll"><table>
+    <thead><tr><th>Mix-up</th><th>What actually happens</th></tr></thead>
+    <tbody>
+      <tr><td><code>!join</code> puts my player in the league</td><td><code>!join</code> registers your fan team. Players come from <code>!draft</code>, which costs 30 prediction points and enters the next draft</td></tr>
+      <tr><td>Fan points pay for the draft</td><td>The draft takes <b>prediction points</b> (from 1/2 predictions). Fan points (+3 per team win, +1 for showing up) are a season ranking with nothing to spend them on</td></tr>
+      <tr><td><code>!draft</code> creates a player right away</td><td>The name waits for the offseason draft and lands on one rookie in the class. Each draft takes a fixed number of names; the rest roll over</td></tr>
+      <tr><td>I can pick my rookie's ratings or position</td><td>Only the name. Everything else is as random as any rookie</td></tr>
+      <tr><td>My rookie goes to my fan team</td><td>Unrelated. Teams pick in draft order; where he lands is the draft result</td></tr>
+      <tr><td>Predictions are open all game</td><td>Four-quarter games take them only until Q2 starts</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section class="block" id="e-db"><div class="wrap">
+  <p class="eyebrow">09</p><h2>The League DB</h2>
+  <p>A public site you can read any time without chatting, refreshed after every broadcast round (at most every 10 minutes). Korean/English switch at the top right. Address: <a href="../db/">bearhumans.github.io/pickup-island-league/db/</a></p>
+  <ul>
+    <li><b>Home</b>: big match of the week, top of the standings, this and last round's results, category leaders, league news, chat commands</li>
+    <li><b>Standings · Teams</b>: records, games back, point differential; team pages with roster, coach rating, tactics, payroll, chat fans and fan nickname</li>
+    <li><b>Players</b>: search, filter and sort. The <code>List | Cards</code> switch shows the broadcast card itself; tap a card to flip through the 37 attributes, the 36 tendencies and back. Player pages add season stats, season highs and career totals</li>
+    <li><b>Leaders</b>: points, rebounds, assists, steals, blocks, threes and shooting percentages (qualified players)</li>
+    <li><b>History</b>: champions, Hall of Fame, the 3x3 Challenge, season fan ranking</li>
+  </ul>
+  <p>Hover any abbreviation or rating name for an explanation. Viewer-created players carry a FAN tag in lists and on cards.</p>
+</div></section>
+</div>
+
+<footer><div class="wrap">Pickup Island League · <a href="https://www.youtube.com/@PickupIsland247" target="_blank" rel="noopener">@PickupIsland247</a> · <a href="../db/" data-en="League DB" data-ko="리그 DB">리그 DB</a> · <a href="../advertise/" data-en="Advertise" data-ko="광고 문의">광고 문의</a> · <span data-en="Rules as of game build v112 (Oct 2026)." data-ko="게임 v112 (2026년 10월) 기준.">게임 v112 (2026년 10월) 기준.</span></div></footer>
+
+<script>
+(function () {
+  var panes = { en: document.getElementById('en'), ko: document.getElementById('ko') };
+  var btns = document.querySelectorAll('.lang button');
+  function setLang(l) {
+    if (!panes[l]) l = 'ko';
+    panes.en.hidden = l !== 'en'; panes.ko.hidden = l !== 'ko';
+    document.documentElement.lang = l; document.body.classList.toggle('ko', l === 'ko');
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === l)); });
+    document.querySelectorAll('[data-en]').forEach(function (el) { el.textContent = el.dataset[l] || el.dataset.en; });
+    try { localStorage.setItem('pil-guide-lang', l); } catch (e) {}
+  }
+  var start = 'ko';
+  try { var s = localStorage.getItem('pil-guide-lang'); if (s === 'en' || s === 'ko') start = s; else if (!/^ko/i.test(navigator.language || '')) start = 'en'; } catch (e) {}
+  if (location.hash === '#en' || /^#e-/.test(location.hash)) start = 'en';
+  if (location.hash === '#ko' || /^#k-/.test(location.hash)) start = 'ko';
+  setLang(start);
+  if (/^#(ko|en)$/.test(location.hash)) { var up = function () { window.scrollTo(0, 0); }; up(); setTimeout(up, 0); setTimeout(up, 120); window.addEventListener('load', up); }   // the hash only picks the language
+  btns.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); if (/^#(ko|en)$/.test(location.hash)) history.replaceState(null, '', '#' + b.dataset.lang); }); });
+  if (/^#[ke]-/.test(location.hash)) { var el = document.querySelector(location.hash); if (el) setTimeout(function () { el.scrollIntoView(); }, 50); }
+})();
+</script>
+</body>
+</html>

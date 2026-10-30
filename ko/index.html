@@ -48,6 +48,7 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 <a href="#join" style="color: #a3adc6; text-decoration: none">참여하기</a>
 <a href="#patch" style="color: #a3adc6; text-decoration: none">패치노트</a>
 <a href="../db/" style="color: #a3adc6; text-decoration: none">리그 DB</a>
+<a href="../guide/#ko" style="color: #a3adc6; text-decoration: none">참여 안내</a>
 <a href="#advertise" style="color: #a3adc6; text-decoration: none">광고 문의</a>
 </div>
 <a href="../" style="color: #a3adc6; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 14px; border: 1px solid #26304d; padding: 8px 12px">EN</a>
@@ -149,12 +150,21 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 <h2 style="margin: 0; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 34px; line-height: 1.2">패치노트</h2>
 </div>
 
-<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v111</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.10.30 · 방송 화면: 크게, 광고 잘 보이게</span></div>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v111</h3><span style="color: #a3adc6; font-size: 15px">2026.10.30 · 방송 화면: 크게, 광고 잘 보이게</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">방송 화면 글씨가 커졌어요</b>: 방송 모드의 점수판·해설·티커·스탯 카드·광고가 출력 해상도에 맞춰 커져요. 1280 폭이면 1.25배, 1080p 소스면 약 1.9배. 지금까지는 1280 창 기준 크기로 그려서 1080p 송출에선 3분의 2 크기였고, 휴대폰으로 보면 더 작았어요. 방송 설정에 "오버레이 크기" 배율(×0.8~×1.5)이 추가됐어요.</li>
 <li><b style="color: #eef0f6">광고가 보여요</b>: 타임아웃·쿼터 휴식의 광고 카드가 화면 폭 절반 이상으로 커지고 제목 34px, 설명 19px로 바뀌었어요. 경기 중에도 점수판 아래에 "PRESENTED BY 스폰서" 배지가 10초 노출, 35초 휴식으로 돌아가요(설정에서 끌 수 있음). 광고 노출 기록에 배지 노출도 따로 쌓여요.</li>
 <li><b style="color: #eef0f6">겹침 정리</b>: LIVE 태그가 점수판과 겹치지 않게 작게, 해설 상자는 점수판 왼쪽까지만, 광고 카드가 떠 있는 동안 카메라 라벨과 팬 피드는 숨겨요. 영어 해설의 "1End of the quarter" 오타도 고쳤어요.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v111</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.10.30 · 리그 DB: 한국어 완성, 선수 카드</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">리그 DB 한국어판 정리</b>: 리그 DB 사이트를 한국어로 보면 능력치 이름·성향·선수 유형·감독 스타일·전술·부상·리그 소식까지 전부 한국어로 나와요. 방송용 게임이 영어판이라 데이터가 영어로 올라오던 것을, 게임 번역 사전을 거꾸로 읽어 되돌려요. 팀·선수 이름은 고유명사라 그대로예요.</li>
+<li><b style="color: #eef0f6">리그 DB 선수 카드</b>: 선수 탭에 목록 | 카드 보기가 생겼어요. 방송에 나오는 선수 카드 그대로이고, 카드를 누르면 세부 능력치 37개 → 성향 36개 → 앞면 순서로 뒤집혀요. 선수 상세 페이지 왼쪽도 카드예요.</li>
+<li><b style="color: #eef0f6">카드 초상 내보내기</b>: 게임이 로스터 선수들의 카드 초상을 0.7초에 한 장씩 그려 리그 데이터와 별도 파일로 사이트에 보내요(선수당 약 4.5KB, webp). 방송 프레임에 끊김이 없도록 한 번에 한 장만 그리고, 리그 데이터 파일 크기는 그대로예요.</li>
 </ul>
 </article>
 

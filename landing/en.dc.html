@@ -126,12 +126,21 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 <h2 style="margin: 0; font-family: 'Silkscreen', monospace; font-weight: 700; font-size: 34px; line-height: 1.2">Patch notes</h2>
 </div>
 
-<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v111</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">LATEST</span><span style="color: #a3adc6; font-size: 15px">Oct 30, 2026 · Broadcast: bigger, with visible ads</span></div>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v111</h3><span style="color: #a3adc6; font-size: 15px">Oct 30, 2026 · Broadcast: bigger, with visible ads</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">Bigger text in broadcast mode</b>: The scorebug, commentary, ticker, stat cards and ads now scale with the output size: 1.25x at 1280 wide, about 1.9x for a 1080p source. Until now they were drawn at 1280-window size, so a 1080p stream showed them at two-thirds scale, smaller still on a phone. Broadcast settings gained an "overlay size" multiplier (x0.8 to x1.5).</li>
 <li><b style="color: #eef0f6">Ads you can actually see</b>: The commercial card during timeouts and quarter breaks grew to more than half the frame width with a 34px headline and 19px copy. During play a "PRESENTED BY" sponsor badge sits under the scorebug, 10 seconds on and 35 off (switchable in settings), and badge impressions are logged separately.</li>
 <li><b style="color: #eef0f6">Overlap clean-up</b>: The LIVE tag no longer collides with the scorebug, the commentary box stops short of it, and the camera label and fan feed hide while an ad card is up. The English "1End of the quarter" typo is fixed too.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v111</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">LATEST</span><span style="color: #a3adc6; font-size: 15px">Oct 30, 2026 · League DB: full Korean, player cards</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">League DB in Korean, all of it</b>: The Korean view of the League DB now shows ratings, tendencies, player types, coach styles, tactics, injuries and league news in Korean. The broadcast runs the English game, so the data arrived in English; the site now reads the game's translation dictionary backwards. Team and player names stay as they are.</li>
+<li><b style="color: #eef0f6">Player cards on the League DB</b>: The Players tab has a List | Cards switch. The cards are the broadcast card itself; tap one to flip through the 37 attributes, the 36 tendencies and back. The player page shows the card on the left.</li>
+<li><b style="color: #eef0f6">Card portraits exported</b>: The game draws the card portrait of every rostered player, one every 0.7 s, and sends them to the site as a separate file next to the league data (about 4.5 KB per player, webp). One at a time so the stream never hitches, and the league data file stays the same size.</li>
 </ul>
 </article>
 
