@@ -25,14 +25,14 @@ PAGES = {
                db='League DB', url=SITE, locale='en_US', ad_nav='Advertise',
                ad_kicker='ADVERTISE', ad_h='Put your brand on the court',
                ad_p='The league runs around the clock, so your ad does too. We offer a one-minute video ad break after every game and team naming sponsorships, sold as prepaid monthly plans. We can also make the video for you.',
-               ad_cta='Email us', ad_label='Ad inquiries',
+               ad_cta='Email us', ad_label='Ad inquiries', ad_prices='See ad products & prices →', ad_href='advertise/',
                title='Pickup Island League — the basketball league that never sleeps',
                desc='A pixel-art basketball league run by AI and streamed live 24/7 on YouTube. 30 teams, 82-game seasons, trades, drafts and playoffs, with live commentary.'),
     'ko': dict(src='landing/ko.dc.html', out='ko/index.html', root='../', other='../', other_src='En.dc.html',
                db='리그 DB', url=SITE + 'ko/', locale='ko_KR', ad_nav='광고 문의',
                ad_kicker='ADVERTISE', ad_h='코트 위에 브랜드를 올리세요',
                ad_p='리그가 24시간 돌아가는 만큼 광고도 24시간 나가요. 매 경기 뒤 1분 영상 광고와 구단 이름 스폰서를 월 단위 선불 상품으로 판매해요. 광고 영상이 없으면 저희가 만들어 드릴 수도 있어요.',
-               ad_cta='메일 보내기', ad_label='광고 문의',
+               ad_cta='메일 보내기', ad_label='광고 문의', ad_prices='광고 상품·가격 보기 →', ad_href='../advertise/#ko',
                title='Pickup Island League — 꺼지지 않는 픽셀 농구 리그',
                desc='AI가 운영하는 픽셀 농구 리그가 유튜브에서 24시간 생중계돼요. 30개 구단, 82경기 시즌, 트레이드·드래프트·플레이오프와 실시간 중계.'),
 }
@@ -56,6 +56,7 @@ AD_SECTION = '''<section id="advertise" style="border-top: 1px solid #26304d; ba
 <div style="flex: 0 1 auto; display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
 <a href="mailto:{email}?subject=Pickup%20Island%20League%20ads" style="background: #e8703a; color: #10162a; text-decoration: none; font-weight: 700; font-size: 17px; padding: 14px 24px">{ad_cta}</a>
 <span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #eef0f6">{email}</span>
+<a href="{ad_href}" style="color: #46d0c4; font-weight: 700; font-size: 16px; text-decoration: underline">{ad_prices}</a>
 </div>
 </div>
 </section>
