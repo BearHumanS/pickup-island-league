@@ -22,14 +22,14 @@ BLOBS = {
 
 PAGES = {
     'en': dict(src='landing/en.dc.html', out='index.html', root='', other='ko/', other_src='Main.dc.html',
-               db='League DB', guide='Viewer guide', url=SITE, locale='en_US', ad_nav='Advertise',
+               db='League DB', guide='Viewer guide', all_notes='All patch notes, every version →', url=SITE, locale='en_US', ad_nav='Advertise',
                ad_kicker='ADVERTISE', ad_h='Put your brand on the court',
                ad_p='The league runs around the clock, so your ad does too. We offer a one-minute video ad break after every game and team naming sponsorships, sold as prepaid monthly plans. We can also make the video for you.',
                ad_cta='Email us', ad_label='Ad inquiries', ad_prices='See ad products & prices →', ad_href='advertise/',
                title='Pickup Island League — the basketball league that never sleeps',
                desc='A pixel-art basketball league run by AI and streamed live 24/7 on YouTube. 30 teams, 82-game seasons, trades, drafts and playoffs, with live commentary.'),
     'ko': dict(src='landing/ko.dc.html', out='ko/index.html', root='../', other='../', other_src='En.dc.html',
-               db='리그 DB', guide='참여 안내', url=SITE + 'ko/', locale='ko_KR', ad_nav='광고 문의',
+               db='리그 DB', guide='참여 안내', all_notes='역대 패치노트 전체 보기 →', url=SITE + 'ko/', locale='ko_KR', ad_nav='광고 문의',
                ad_kicker='ADVERTISE', ad_h='코트 위에 브랜드를 올리세요',
                ad_p='리그가 24시간 돌아가는 만큼 광고도 24시간 나가요. 매 경기 뒤 1분 영상 광고와 구단 이름 스폰서를 월 단위 선불 상품으로 판매해요. 광고 영상이 없으면 저희가 만들어 드릴 수도 있어요.',
                ad_cta='메일 보내기', ad_label='광고 문의', ad_prices='광고 상품·가격 보기 →', ad_href='../advertise/#ko',
@@ -79,6 +79,9 @@ def build(lang, p):
                   lambda m: m.group(1) + '\n' + NAV_LINK.format(href=p['root'] + 'db/', label=p['db'])
                   + '\n' + NAV_LINK.format(href=p['root'] + 'guide/#' + lang, label=p['guide'])
                   + '\n' + NAV_LINK.format(href='#advertise', label=p['ad_nav']), body, count=1)
+    # under the patch-notes heading: the complete list lives on its own page
+    body = re.sub(r'(<section id="patch"[\s\S]*?<h2[^>]*>[^<]*</h2>)',
+                  lambda m: m.group(1) + f'\n<a href="{p["root"]}patch-notes/#{lang}" style="color: #46d0c4; font-weight: 700; text-decoration: underline">{p["all_notes"]}</a>', body, count=1)
     body = body.replace('<a href="https://www.youtube.com/@PickupIsland247">YouTube @PickupIsland247</a>',
                         f'<span style="display: flex; flex-wrap: wrap; gap: 6px 18px"><a href="{p["root"]}db/">{p["db"]}</a>'
                         f'<a href="mailto:{AD_EMAIL}">{p["ad_label"]} · {AD_EMAIL}</a>'
