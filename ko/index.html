@@ -150,7 +150,17 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 </div>
 
 <article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v107</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.10.30 · 상대를 버려두지 않는 수비</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v108</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.10.30 · 공이 튈 곳을 아는 선수들</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">리바운드 자리를 읽어요</b>: 전에는 슛이 뜨면 박스아웃 담당만 상대 앞에 서고, 나머지는 번호로 정해진 거리에, 공격 리바운더는 림으로 직진이었어요. 이제 슛이 뜨는 순간 슈터의 위치와 거리로 공이 튈 네 구역(반대쪽·같은 쪽·긴 리바운드·림 밑)에 확률을 매기고 그쪽으로 가요. 같은 팀끼리 한 구역에 몰리지 않고, 리바운드 IQ가 높은 선수일수록 확률대로 서요.</li>
+<li><b style="color: #eef0f6">이 엔진의 림이 실제로 그렇게 튀어요</b>: 먼저 113개 미스를 재 보니 윙에서 쏜 슛은 반대쪽으로 60%, 같은 쪽 33%, 3점은 더 길게(중앙값 1.85m), 근거리 슛은 림 바로 아래였어요. 실제 농구 통계와 비슷해서, 선수들이 읽는 확률표를 여기서 가져왔어요.</li>
+<li><b style="color: #eef0f6">박스아웃 보너스 정리</b>: 수비수들이 자리를 잘 잡게 되자 공격 리바운드가 25%에서 20%로 떨어졌어요. 그동안 박스아웃 대용으로 수비 리바운더에게 주던 손 반경 보너스(1.3배)를 1.16배로 줄여서, 이제 이점은 숫자가 아니라 서 있던 자리에서 나와요.</li>
+<li><b style="color: #eef0f6">기록 보정</b>: 72경기 표본: 공격 리바운드 25.6%(목표 26.0), eFG 55.6%, 3점 36.7%, 자유투 시도율 0.26, 파울 19.3/100. 턴오버가 13.3까지 내려가 있어서 패스 위험을 7% 올리고 3점 선호를 3% 낮췄더니 18경기에서 턴오버 14.5·스틸 8.6으로 돌아왔어요.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v107</h3><span style="color: #a3adc6; font-size: 15px">2026.10.30 · 상대를 버려두지 않는 수비</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">"선수를 버려두는 수비"를 세고 고쳤어요</b>: 시뮬레이션으로 하프코트에서 공격수가 슛 거리 안에 있는데 가장 가까운 수비수가 3m 넘게 떨어진 채 1초 이상 방치되는 장면을 셌더니 분당 4.2회였어요. 76%는 수비수가 일부러 그 자리를 고른 것이었고, 절반은 자기 상대보다 위쪽에 서 있었고, 69%는 공만 보느라 상대가 시야 뒤로 사라진 상태였어요.</li>
 <li><b style="color: #eef0f6">원인 세 가지</b>: 수비 필드의 점수 계산이 ① 클로즈아웃을 너무 후하게 쳐줘서(2.3m를 공짜로 따라잡는 셈) 멀리 떨어져도 손해가 없었고, ② 한 패스 거리의 상대에게도 3m 가까이 떨어지는 걸 허용했고, ③ 상대보다 위에 서는 것과 상대를 시야에서 놓치는 것에 벌점이 없었어요.</li>
