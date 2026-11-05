@@ -180,13 +180,23 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 </ul>
 </article>
 
-<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v116</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.11.06 · 로테이션 다듬기, 벤치 수준</span></div>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v116</h3><span style="color: #a3adc6; font-size: 15px">2026.11.06 · 로테이션 다듬기, 벤치 수준</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">로테이션 다듬기</b>: v115 로테이션은 벤치가 너무 많이 섞였어요. 주전 5명이 함께 뛴 시간이 9%, 주전이 2명 이하인 라인업이 31%(실제 15% 안팎)였어요. 휴식 구간을 엇갈리게 짜고(1·2옵션 → 2쿼터 초반, 3·4옵션은 그 뒤 차례로, 5옵션은 1쿼터 막판), 휴식 길이를 줄이고, 체력 교체 기준을 낮췄어요. 주전 출전 비중 68% → 72%(실제 71%), 주전 4명 이상 라인업 36% → 60%, 2명 이하 31% → 12%.</li>
 <li><b style="color: #eef0f6">벤치 선수 수준</b>: 새 리그를 만들 때 6~10번째 선수가 주전보다 OVR 10점 낮게 만들어졌어요(실제 리그는 격차가 더 작아요). 격차를 8점 안팎으로 줄여서 벤치 36분당 득점이 주전의 60%에서 73%(실제 약 80%)가 됐어요. 이미 진행 중인 리그에는 영향이 없고, 새로 만드는 리그부터 적용돼요.</li>
 <li><b style="color: #eef0f6">파울·자유투 보정</b>: 슈팅 파울이 100번 공격당 12회(실제 약 9회)로 많아서 마무리·점퍼의 파울 확률을 낮췄고, 자유투 성공률은 75% → 78%(실제 78%)로 올렸어요.</li>
 <li><b style="color: #eef0f6">기록 보정</b>: 28경기 표본(두 리그): 100번 공격당 득점 111, eFG 55%, 3점 37.5%, 자유투 78%, 자유투 시도율 0.29, 턴오버 14.7/100, 스틸 8/100, 파울 21.5/100, 공격 1회당 패스 2.4, 7초 이하 슛 15%, 주전 출전 비중 72%, 주전 4명 이상 라인업 60%. 회귀 테스트 오류 0.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v117</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.11.06 · 기록 규칙 수정과 재보정</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">기록 규칙 수정: 파울 맞은 미스는 야투 시도가 아니에요</b>: 실제 농구에서 슛 동작 중 파울을 당하고 놓치면 야투 시도로 기록하지 않아요(자유투만). 게임은 이 경우도 시도로 세고 있었고, 전체 미스의 18%가 여기에 해당해 야투 시도가 약 9% 부풀려져 있었어요. 이제 박스스코어·선수 기록·리그 DB의 FG%와 eFG%가 실제 규칙으로 집계돼요.</li>
+<li><b style="color: #eef0f6">그 기준으로 다시 보정</b>: 실제 규칙으로 다시 세어 보니 리그는 eFG 61%, 3점 42%, 림 78%로 실제보다 훨씬 잘 넣고 있었어요. 3점·림·미드레인지 성공률과 슈팅 파울(특히 점퍼에 붙던 파울)을 낮춰 eFG 54~55%, 3점 36%대, 림 68%, 자유투 시도율 0.25~0.28, 100번 공격당 112점 안팎으로 맞췄어요. 선수 간 차이와 슛 선택은 그대로예요.</li>
+<li><b style="color: #eef0f6">측정 정정</b>: v115·v116 노트에 "득점 효율이 실제보다 3점 낮다"고 적었던 건 이 집계 오류 때문이었어요. 공격 리바운드 비율도 측정 방식 문제였고 실제 25~27%(실제 프로 26%)로 정상이에요.</li>
+<li><b style="color: #eef0f6">기록 보정</b>: 28경기 표본(두 리그, 실제 집계 규칙): 100번 공격당 득점 111~113, eFG 54.2%, 3점 34.7%(이번 빌드에서 36%대로 보정), 림 70%(68%로 보정), 자유투 78.9%, 자유투 시도율 0.25, 턴오버 15/100(보정 후 14대), 스틸 8.4, 파울 21.5, 공격 리바운드 25%. 회귀 테스트 오류 0.</li>
 </ul>
 </article>
 

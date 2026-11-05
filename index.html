@@ -208,12 +208,22 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 </ul>
 </article>
 
-<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v116</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">LATEST</span><span style="color: #a3adc6; font-size: 15px">Nov 6, 2026 · Rotation staggered, bench quality</span></div>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v116</h3><span style="color: #a3adc6; font-size: 15px">Nov 6, 2026 · Rotation staggered, bench quality</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">The rotation, staggered</b>: The v115 rotation mixed the bench in too much: the starting five shared the floor 9% of the time and lineups with two or fewer starters took 31% (pros: about 15%). Rest windows are now staggered (options 1-2 return early in Q2, options 3-4 take turns after them, option 5 sits late in Q1), shorter, and the fatigue substitution bar is lower. Starters' share of minutes 68% → 72% (pros: 71%), lineups with four or more starters 36% → 60%, two or fewer 31% → 12%.</li>
 <li><b style="color: #eef0f6">Bench quality</b>: In a new league the sixth through tenth men were generated 10 OVR points below the starters (a real league's gap is smaller). The gap is now about 8, and bench scoring per 36 minutes went from 60% of the starters' to 73% (pros: about 80%). Leagues already running are unchanged; it applies to new leagues.</li>
 <li><b style="color: #eef0f6">Calibration</b>: 28-game sample (two leagues): 111 points per 100 possessions, eFG 55%, threes 37.5%, free throws 78%, FTA/FGA 0.29, turnovers 14.7/100, steals 8/100, fouls 21.5/100, passes per possession 2.4, shots with 7 s or less 15%, starters 72% of minutes, lineups with four or more starters 60%. Regression suite clean.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v117</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">LATEST</span><span style="color: #a3adc6; font-size: 15px">Nov 6, 2026 · Box-score rule fixed, recalibrated</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">Box-score rule: a fouled miss is not a field-goal attempt</b>: In real basketball a shooting foul on a missed shot records only the free throws, not an attempt. The game was counting the attempt too, and 18% of all misses were fouled, inflating attempts by about 9%. Box scores, player stats and the League DB now count FG% and eFG% by the real rule.</li>
+<li><b style="color: #eef0f6">Recalibrated on that basis</b>: Counted the real way, the league was shooting 61% eFG, 42% from three and 78% at the rim, far above the pros. Three-point, rim and mid-range accuracy and shooting fouls (especially the whistles on jump shots) came down to land at 54-55% eFG, threes in the 36s, 68% at the rim, FTA/FGA 0.25-0.28 and about 112 points per 100 possessions. Player differences and shot selection are unchanged.</li>
+<li><b style="color: #eef0f6">A correction</b>: The v115 and v116 notes said scoring efficiency ran three points below the pros; that was this accounting error. Offensive rebounding was a measurement issue too and sits at 25-27% (pros: 26%).</li>
+<li><b style="color: #eef0f6">Calibration</b>: 28-game sample (two leagues, real counting rule): 111-113 points per 100 possessions, eFG 54.2%, threes 34.7% (nudged into the 36s in this build), rim 70% (set to 68%), free throws 78.9%, FTA/FGA 0.25, turnovers 15/100 (trimmed toward 14), steals 8.4, fouls 21.5, offensive rebounds 25%. Regression suite clean.</li>
 </ul>
 </article>
 
