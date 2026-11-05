@@ -144,8 +144,8 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 </ul>
 </article>
 
-<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v113</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.11.05 · 슛 선택과 수비가 진짜처럼</span></div>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v113</h3><span style="color: #a3adc6; font-size: 15px">2026.11.05 · 슛 선택과 수비가 진짜처럼</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">클로즈아웃</b>: 공을 받은 선수에게 뒤늦게 달려가는 수비수가 몸이 닿을 때까지 전력 질주하던 것을 고쳤어요. 멀리서는 뛰어오고, 2.9m 안에서는 잔발로 속도를 줄이며 양손을 들고, 슈터 앞 1.5~1.8m에서 멈춰 손만 올려요. 슛 못 하는 선수에게는 그대로 붙어요. 캐치앤슛 3점의 오픈 릴리스가 31%에서 68%로 올랐어요(실제 프로 약 80%).</li>
 <li><b style="color: #eef0f6">캐치앤슛 리듬</b>: 오픈 상태로 공을 받으면 0.15~0.3초 안에 판단하고(전에는 0.3~0.7초), 발이 잡힌 리듬 슛은 릴리스가 14% 빨라요. 리듬 슛 명중 +4%, 드리블 후 풀업은 −5%. 풀업 3점은 슛 좋은 선수 위주로 줄였어요.</li>
@@ -155,6 +155,17 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 <li><b style="color: #eef0f6">온볼 스틸과 리치인</b>: 스틸의 98%가 패스 가로채기였고 드리블 중 공을 빼는 장면은 경기당 0.2회였어요. 이제 뒤에서 쫓아가며 치는 포크와 앞에서 손을 넣는 리치인이 생기고, 리치인은 가끔 파울로 불려요. 패스 가로채기는 그만큼 줄여 리그 스틸 수는 그대로예요.</li>
 <li><b style="color: #eef0f6">3초룰과 볼-유-맨</b>: 페인트에 서 있던 선수가 더 일찍, 빠른 걸음으로 빠져나가고, 나가는 중인 선수는 심판이 한 박자 기다려요(경기당 1회였던 3초 위반이 거의 사라짐). 공 없는 수비수는 공에 등을 돌리지 않고 공과 상대를 함께 보는 자세로 서요.</li>
 <li><b style="color: #eef0f6">기록 보정</b>: 28경기 표본(두 리그): 100번 공격당 득점 114, eFG 56.5%, 3점 37.4%, 3점 비중 37~48%(리그 따라), 자유투 시도율 0.27, 턴오버 14.3/100, 스틸 8.3/100(온볼 포함), 파울 20/100. 공격 1회당 패스 1.6→2.0, 첫 6초 안 슛 33%→25%, 짧은 미드레인지 비중 25%→17~22%, 캐치앤슛 3점 오픈 릴리스 31%→68%. 회귀 테스트(갤러리·시즌 시뮬 3종·UI·이어하기·백업·장시간 송출 10경기·언어판·스튜디오) 오류 0.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v114</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.11.05 · 공을 돌리는 공격, 샷클락 막판</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">공을 돌리는 공격</b>: 공격 시간이 8초 넘게 남았을 때 공을 쥐고 있는 가치를 45%, 패스의 가치를 22% 올렸고, 수비가 붙은 이른 슛은 38% 덜 쏴요. 공격 1회당 패스 2.0개 → 2.7개(실제 약 3개), 공을 든 시간은 중간값 2.1초로 짧아지고 드리블 비중도 줄었어요. 속공·레이업·와이드오픈 3점은 그대로 바로.</li>
+<li><b style="color: #eef0f6">샷클락 막판이 생겼어요</b>: 남은 7초 이하에서 쏘는 슛이 7% → 15%(실제 27%), 첫 6초 안 슛은 25% → 22~24%(실제 21%). 샷클락에 쫓겨 무리하는 장면과 버저 직전 슛이 나오기 시작했어요. 샷클락 위반은 늘지 않았어요.</li>
+<li><b style="color: #eef0f6">돌파는 그대로</b>: 중간 실험에서 패스를 너무 좋게 봐 주니 돌파가 절반으로 줄어서(경기당 12회 → 6회), 이른 돌파의 벌점은 8%로 낮춰 돌파 빈도를 지켰어요.</li>
+<li><b style="color: #eef0f6">스틸·3점 재보정</b>: 패스가 늘면 가로채기도 같이 늘어서 스틸이 10/100까지 튀었어요. 패스 가로채기 확률을 다시 낮춰 8.2/100(실제 7.8)으로, 오픈 3점이 늘어 올라간 3점%는 36.9%로 맞췄어요.</li>
+<li><b style="color: #eef0f6">기록 보정</b>: 28경기 표본(두 리그): 100번 공격당 득점 112.5, eFG 56.4%, 3점 36.9%, 자유투 시도율 0.26, 턴오버 15.3/100, 스틸 8.2/100, 파울 21/100, 공격 1회당 패스 2.7, 샷클락 7초 이하 슛 15%, 첫 6초 안 슛 23%. 회귀 테스트(갤러리·시즌 시뮬 3종·UI·이어하기·백업·장시간 송출 10경기·언어판·스튜디오) 오류 0.</li>
 </ul>
 </article>
 
