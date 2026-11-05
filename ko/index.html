@@ -183,14 +183,25 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 </ul>
 </article>
 
-<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v114</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.11.05 · 공을 돌리는 공격, 샷클락 막판</span></div>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v114</h3><span style="color: #a3adc6; font-size: 15px">2026.11.05 · 공을 돌리는 공격, 샷클락 막판</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">공을 돌리는 공격</b>: 공격 시간이 8초 넘게 남았을 때 공을 쥐고 있는 가치를 45%, 패스의 가치를 22% 올렸고, 수비가 붙은 이른 슛은 38% 덜 쏴요. 공격 1회당 패스 2.0개 → 2.7개(실제 약 3개), 공을 든 시간은 중간값 2.1초로 짧아지고 드리블 비중도 줄었어요. 속공·레이업·와이드오픈 3점은 그대로 바로.</li>
 <li><b style="color: #eef0f6">샷클락 막판이 생겼어요</b>: 남은 7초 이하에서 쏘는 슛이 7% → 15%(실제 27%), 첫 6초 안 슛은 25% → 22~24%(실제 21%). 샷클락에 쫓겨 무리하는 장면과 버저 직전 슛이 나오기 시작했어요. 샷클락 위반은 늘지 않았어요.</li>
 <li><b style="color: #eef0f6">돌파는 그대로</b>: 중간 실험에서 패스를 너무 좋게 봐 주니 돌파가 절반으로 줄어서(경기당 12회 → 6회), 이른 돌파의 벌점은 8%로 낮춰 돌파 빈도를 지켰어요.</li>
 <li><b style="color: #eef0f6">스틸·3점 재보정</b>: 패스가 늘면 가로채기도 같이 늘어서 스틸이 10/100까지 튀었어요. 패스 가로채기 확률을 다시 낮춰 8.2/100(실제 7.8)으로, 오픈 3점이 늘어 올라간 3점%는 36.9%로 맞췄어요.</li>
 <li><b style="color: #eef0f6">기록 보정</b>: 28경기 표본(두 리그): 100번 공격당 득점 112.5, eFG 56.4%, 3점 36.9%, 자유투 시도율 0.26, 턴오버 15.3/100, 스틸 8.2/100, 파울 21/100, 공격 1회당 패스 2.7, 샷클락 7초 이하 슛 15%, 첫 6초 안 슛 23%. 회귀 테스트(갤러리·시즌 시뮬 3종·UI·이어하기·백업·장시간 송출 10경기·언어판·스튜디오) 오류 0.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v115</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.11.05 · 로테이션, 돌파 복구</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">로테이션</b>: 주전이 체력이 떨어질 때만 벤치로 가던 것을, 실제처럼 계획된 휴식으로 바꿨어요. 팀 1·2옵션은 1·3쿼터 막판에 나가 다음 쿼터 초반에 돌아오고, 나머지 셋은 번갈아 쉬어요. 감독 신뢰도가 높으면 휴식이 짧아요. 막판 접전·파울 트러블·핫핸드는 기존 규칙이 우선. 주전 출전 비중 85% → 68%(실제 71%), 벤치가 경기당 9~12분 뛰고 교체는 팀당 10회쯤.</li>
+<li><b style="color: #eef0f6">샷클락 막판</b>: 공을 쥐는 가치가 7초 남을 때까지 유지돼서 공격이 끝까지 가요. 7초 이하 남았을 때 슛 15% → 15~18%, 4초 이하 3% → 5%. 샷클락 위반은 늘지 않았어요.</li>
+<li><b style="color: #eef0f6">돌파 복구</b>: 패스를 너무 좋게 봐 주니 돌파가 경기당 10회에서 4.5회로 급감했어요. 이른 돌파 벌점을 없애고 레인이 열려 있으면 돌파에 10% 가산을 줘서 경기당 19회(실제 약 19회)로 돌아왔어요. 공격 1회당 패스는 2.4개.</li>
+<li><b style="color: #eef0f6">재보정</b>: 림 성공률 66%(실제 67%), 플로터 빈도 추가 하향, 실책 패스와 가로채기 확률 미세 조정, 간격 가중치 +15%, 리치인 파울 빈도 하향. 3점은 36%대로.</li>
+<li><b style="color: #eef0f6">기록 보정</b>: 28경기 표본(두 리그): 100번 공격당 득점 111, eFG 54.6%(실제 54.7), 3점 35.5%(이번 빌드에서 36%대로 보정), 자유투 시도율 0.29, 턴오버 14.3/100, 스틸 8.4/100, 파울 22/100(보정 후 하향), 공격 1회당 패스 2.4, 돌파 경기당 19회, 7초 이하 슛 15~18%, 주전 출전 비중 68%. 회귀 테스트(갤러리·시즌 시뮬 3종·UI·이어하기·백업·장시간 송출 10경기·언어판·스튜디오) 오류 0.</li>
 </ul>
 </article>
 
