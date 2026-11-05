@@ -169,14 +169,24 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 </ul>
 </article>
 
-<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v115</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.11.05 · 로테이션, 돌파 복구</span></div>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v115</h3><span style="color: #a3adc6; font-size: 15px">2026.11.05 · 로테이션, 돌파 복구</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">로테이션</b>: 주전이 체력이 떨어질 때만 벤치로 가던 것을, 실제처럼 계획된 휴식으로 바꿨어요. 팀 1·2옵션은 1·3쿼터 막판에 나가 다음 쿼터 초반에 돌아오고, 나머지 셋은 번갈아 쉬어요. 감독 신뢰도가 높으면 휴식이 짧아요. 막판 접전·파울 트러블·핫핸드는 기존 규칙이 우선. 주전 출전 비중 85% → 68%(실제 71%), 벤치가 경기당 9~12분 뛰고 교체는 팀당 10회쯤.</li>
 <li><b style="color: #eef0f6">샷클락 막판</b>: 공을 쥐는 가치가 7초 남을 때까지 유지돼서 공격이 끝까지 가요. 7초 이하 남았을 때 슛 15% → 15~18%, 4초 이하 3% → 5%. 샷클락 위반은 늘지 않았어요.</li>
 <li><b style="color: #eef0f6">돌파 복구</b>: 패스를 너무 좋게 봐 주니 돌파가 경기당 10회에서 4.5회로 급감했어요. 이른 돌파 벌점을 없애고 레인이 열려 있으면 돌파에 10% 가산을 줘서 경기당 19회(실제 약 19회)로 돌아왔어요. 공격 1회당 패스는 2.4개.</li>
 <li><b style="color: #eef0f6">재보정</b>: 림 성공률 66%(실제 67%), 플로터 빈도 추가 하향, 실책 패스와 가로채기 확률 미세 조정, 간격 가중치 +15%, 리치인 파울 빈도 하향. 3점은 36%대로.</li>
 <li><b style="color: #eef0f6">기록 보정</b>: 28경기 표본(두 리그): 100번 공격당 득점 111, eFG 54.6%(실제 54.7), 3점 35.5%(이번 빌드에서 36%대로 보정), 자유투 시도율 0.29, 턴오버 14.3/100, 스틸 8.4/100, 파울 22/100(보정 후 하향), 공격 1회당 패스 2.4, 돌파 경기당 19회, 7초 이하 슛 15~18%, 주전 출전 비중 68%. 회귀 테스트(갤러리·시즌 시뮬 3종·UI·이어하기·백업·장시간 송출 10경기·언어판·스튜디오) 오류 0.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v116</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.11.06 · 로테이션 다듬기, 벤치 수준</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">로테이션 다듬기</b>: v115 로테이션은 벤치가 너무 많이 섞였어요. 주전 5명이 함께 뛴 시간이 9%, 주전이 2명 이하인 라인업이 31%(실제 15% 안팎)였어요. 휴식 구간을 엇갈리게 짜고(1·2옵션 → 2쿼터 초반, 3·4옵션은 그 뒤 차례로, 5옵션은 1쿼터 막판), 휴식 길이를 줄이고, 체력 교체 기준을 낮췄어요. 주전 출전 비중 68% → 72%(실제 71%), 주전 4명 이상 라인업 36% → 60%, 2명 이하 31% → 12%.</li>
+<li><b style="color: #eef0f6">벤치 선수 수준</b>: 새 리그를 만들 때 6~10번째 선수가 주전보다 OVR 10점 낮게 만들어졌어요(실제 리그는 격차가 더 작아요). 격차를 8점 안팎으로 줄여서 벤치 36분당 득점이 주전의 60%에서 73%(실제 약 80%)가 됐어요. 이미 진행 중인 리그에는 영향이 없고, 새로 만드는 리그부터 적용돼요.</li>
+<li><b style="color: #eef0f6">파울·자유투 보정</b>: 슈팅 파울이 100번 공격당 12회(실제 약 9회)로 많아서 마무리·점퍼의 파울 확률을 낮췄고, 자유투 성공률은 75% → 78%(실제 78%)로 올렸어요.</li>
+<li><b style="color: #eef0f6">기록 보정</b>: 28경기 표본(두 리그): 100번 공격당 득점 111, eFG 55%, 3점 37.5%, 자유투 78%, 자유투 시도율 0.29, 턴오버 14.7/100, 스틸 8/100, 파울 21.5/100, 공격 1회당 패스 2.4, 7초 이하 슛 15%, 주전 출전 비중 72%, 주전 4명 이상 라인업 60%. 회귀 테스트 오류 0.</li>
 </ul>
 </article>
 
