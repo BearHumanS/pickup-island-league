@@ -151,8 +151,8 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 <a href="../patch-notes/#ko" style="color: #46d0c4; font-weight: 700; text-decoration: underline">역대 패치노트 전체 보기 →</a>
 </div>
 
-<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v112</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.10.30 · 리그 DB: 한국어 완성, 선수 카드</span></div>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v112</h3><span style="color: #a3adc6; font-size: 15px">2026.10.30 · 리그 DB: 한국어 완성, 선수 카드</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">리그 DB 한국어판 정리</b>: 리그 DB 사이트를 한국어로 보면 능력치 이름·성향·선수 유형·감독 스타일·전술·부상·리그 소식까지 전부 한국어로 나와요. 방송용 게임이 영어판이라 데이터가 영어로 올라오던 것을, 게임 번역 사전을 거꾸로 읽어 되돌려요. 팀·선수 이름은 고유명사라 그대로예요.</li>
 <li><b style="color: #eef0f6">리그 DB 선수 카드</b>: 선수 탭에 목록 | 카드 보기가 생겼어요. 방송에 나오는 선수 카드 그대로이고, 카드를 누르면 세부 능력치 37개 → 성향 36개 → 앞면 순서로 뒤집혀요. 선수 상세 페이지 왼쪽도 카드예요.</li>
@@ -166,6 +166,20 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 <li><b style="color: #eef0f6">방송 화면 글씨가 커졌어요</b>: 방송 모드의 점수판·해설·티커·스탯 카드·광고가 출력 해상도에 맞춰 커져요. 1280 폭이면 1.25배, 1080p 소스면 약 1.9배. 지금까지는 1280 창 기준 크기로 그려서 1080p 송출에선 3분의 2 크기였고, 휴대폰으로 보면 더 작았어요. 방송 설정에 "오버레이 크기" 배율(×0.8~×1.5)이 추가됐어요.</li>
 <li><b style="color: #eef0f6">광고가 보여요</b>: 타임아웃·쿼터 휴식의 광고 카드가 화면 폭 절반 이상으로 커지고 제목 34px, 설명 19px로 바뀌었어요. 경기 중에도 점수판 아래에 "PRESENTED BY 스폰서" 배지가 10초 노출, 35초 휴식으로 돌아가요(설정에서 끌 수 있음). 광고 노출 기록에 배지 노출도 따로 쌓여요.</li>
 <li><b style="color: #eef0f6">겹침 정리</b>: LIVE 태그가 점수판과 겹치지 않게 작게, 해설 상자는 점수판 왼쪽까지만, 광고 카드가 떠 있는 동안 카메라 라벨과 팬 피드는 숨겨요. 영어 해설의 "1End of the quarter" 오타도 고쳤어요.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v113</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.11.05 · 슛 선택과 수비가 진짜처럼</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">클로즈아웃</b>: 공을 받은 선수에게 뒤늦게 달려가는 수비수가 몸이 닿을 때까지 전력 질주하던 것을 고쳤어요. 멀리서는 뛰어오고, 2.9m 안에서는 잔발로 속도를 줄이며 양손을 들고, 슈터 앞 1.5~1.8m에서 멈춰 손만 올려요. 슛 못 하는 선수에게는 그대로 붙어요. 캐치앤슛 3점의 오픈 릴리스가 31%에서 68%로 올랐어요(실제 프로 약 80%).</li>
+<li><b style="color: #eef0f6">캐치앤슛 리듬</b>: 오픈 상태로 공을 받으면 0.15~0.3초 안에 판단하고(전에는 0.3~0.7초), 발이 잡힌 리듬 슛은 릴리스가 14% 빨라요. 리듬 슛 명중 +4%, 드리블 후 풀업은 −5%. 풀업 3점은 슛 좋은 선수 위주로 줄였어요.</li>
+<li><b style="color: #eef0f6">수비를 읽는 슈터</b>: 슛을 고를 때 지금 간격이 아니라 공이 손을 떠나는 순간의 간격을 봐요. 달려오는 수비의 속도를 읽어서 닫히는 슛은 접고 패스나 돌파로 바꿔요. 슛 IQ가 높을수록 정확히 읽어요.</li>
+<li><b style="color: #eef0f6">참는 공격</b>: 공격 시간이 많이 남았을 때 공을 쥐고 있는 가치와 패스의 가치를 올려서, 괜찬은 슛을 참고 더 좋은 슛을 찾아요. 공격 1회당 패스 1.6개에서 2.0개로, 첫 6초 안의 슛은 33%에서 25%로 줄고 샷클락 막판 슛이 생겼어요. 속공과 레이업, 와이드오픈 3점은 그대로 바로 쏴요.</li>
+<li><b style="color: #eef0f6">짧은 미드레인지 정리</b>: 림 밖 1.2~4.2m 슛이 전체의 25%(실제 13%)에 성공률 54%(실제 43%)였어요. 플로터 빈도를 절반으로, 그 구간 기본 성공률과 수비 영향을 실제 수준으로 맞췄어요.</li>
+<li><b style="color: #eef0f6">온볼 스틸과 리치인</b>: 스틸의 98%가 패스 가로채기였고 드리블 중 공을 빼는 장면은 경기당 0.2회였어요. 이제 뒤에서 쫓아가며 치는 포크와 앞에서 손을 넣는 리치인이 생기고, 리치인은 가끔 파울로 불려요. 패스 가로채기는 그만큼 줄여 리그 스틸 수는 그대로예요.</li>
+<li><b style="color: #eef0f6">3초룰과 볼-유-맨</b>: 페인트에 서 있던 선수가 더 일찍, 빠른 걸음으로 빠져나가고, 나가는 중인 선수는 심판이 한 박자 기다려요(경기당 1회였던 3초 위반이 거의 사라짐). 공 없는 수비수는 공에 등을 돌리지 않고 공과 상대를 함께 보는 자세로 서요.</li>
+<li><b style="color: #eef0f6">기록 보정</b>: 28경기 표본(두 리그): 100번 공격당 득점 114, eFG 56.5%, 3점 37.4%, 3점 비중 37~48%(리그 따라), 자유투 시도율 0.27, 턴오버 14.3/100, 스틸 8.3/100(온볼 포함), 파울 20/100. 공격 1회당 패스 1.6→2.0, 첫 6초 안 슛 33%→25%, 짧은 미드레인지 비중 25%→17~22%, 캐치앤슛 3점 오픈 릴리스 31%→68%. 회귀 테스트(갤러리·시즌 시뮬 3종·UI·이어하기·백업·장시간 송출 10경기·언어판·스튜디오) 오류 0.</li>
 </ul>
 </article>
 
