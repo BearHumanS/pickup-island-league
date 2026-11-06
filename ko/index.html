@@ -215,13 +215,25 @@ a{color:#f2b630}a:hover{color:#ffd36b}
 </ul>
 </article>
 
-<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v117</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.11.06 · 기록 규칙 수정과 재보정</span></div>
+<article style="background: #121a31; border: 1px solid #26304d; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #f2b630">v117</h3><span style="color: #a3adc6; font-size: 15px">2026.11.06 · 기록 규칙 수정과 재보정</span></div>
 <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
 <li><b style="color: #eef0f6">기록 규칙 수정: 파울 맞은 미스는 야투 시도가 아니에요</b>: 실제 농구에서 슛 동작 중 파울을 당하고 놓치면 야투 시도로 기록하지 않아요(자유투만). 게임은 이 경우도 시도로 세고 있었고, 전체 미스의 18%가 여기에 해당해 야투 시도가 약 9% 부풀려져 있었어요. 이제 박스스코어·선수 기록·리그 DB의 FG%와 eFG%가 실제 규칙으로 집계돼요.</li>
 <li><b style="color: #eef0f6">그 기준으로 다시 보정</b>: 실제 규칙으로 다시 세어 보니 리그는 eFG 61%, 3점 42%, 림 78%로 실제보다 훨씬 잘 넣고 있었어요. 3점·림·미드레인지 성공률과 슈팅 파울(특히 점퍼에 붙던 파울)을 낮춰 eFG 54~55%, 3점 36%대, 림 68%, 자유투 시도율 0.25~0.28, 100번 공격당 112점 안팎으로 맞췄어요. 선수 간 차이와 슛 선택은 그대로예요.</li>
 <li><b style="color: #eef0f6">측정 정정</b>: v115·v116 노트에 "득점 효율이 실제보다 3점 낮다"고 적었던 건 이 집계 오류 때문이었어요. 공격 리바운드 비율도 측정 방식 문제였고 실제 25~27%(실제 프로 26%)로 정상이에요.</li>
 <li><b style="color: #eef0f6">기록 보정</b>: 28경기 표본(두 리그, 실제 집계 규칙): 100번 공격당 득점 111~113, eFG 54.2%, 3점 34.7%(이번 빌드에서 36%대로 보정), 림 70%(68%로 보정), 자유투 78.9%, 자유투 시도율 0.25, 턴오버 15/100(보정 후 14대), 스틸 8.4, 파울 21.5, 공격 리바운드 25%. 회귀 테스트 오류 0.</li>
+</ul>
+</article>
+
+<article style="background: #121a31; border: 1px solid #e8703a; padding: 26px 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 14px"><h3 style="margin: 0; font-family: 'Silkscreen', monospace; font-size: 24px; color: #e8703a">v118</h3><span style="background: #e8703a; color: #10162a; font-size: 12px; font-weight: 700; padding: 2px 8px">최신</span><span style="color: #a3adc6; font-size: 15px">2026.11.06 · 실제 쿼터 길이 (12분/10분)</span></div>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: #c6cde0">
+<li><b style="color: #eef0f6">실제 쿼터 길이</b>: 5분 쿼터(20분 경기)에서 실제 프로와 같은 12분 쿼터(글로벌판, 48분)·10분 쿼터(한국·일본·대만판, 40분)로 바꿨어요. 템포가 실제 수준이 되면서 20분 경기 점수가 팀당 50점대로 허전해졌는데, 이제 글로벌판 팀당 110점대, 아시아판 85~95점으로 실제 경기 스코어가 나와요. 연장전 5분, 팀 파울 보너스는 그대로 실제 규칙. 올스타·라이징 스타 이벤트는 정규 쿼터의 절반 길이. 경기 1개 방송 시간은 약 27분 → 60~65분이에요.</li>
+<li><b style="color: #eef0f6">긴 경기에 맞춘 체력·부상·로테이션</b>: 체력 소모와 회복, 부상 확률을 경기 길이에 맞게 스케일해서 주전이 실제처럼 30분 이상 뛰어요. 로테이션 휴식 구간은 하프 비율로 짜여 있어 그대로 작동해요.</li>
+<li><b style="color: #eef0f6">시즌 자동 시뮬도 48분 박스스코어로</b>: 방송하지 않는 경기의 빠른 시뮬 기록을 실제 리그 평균 스케일로 다시 맞췄어요: 팀당 110~114점, 야투 85회, 3점 비중 41%, 리바운드 44, 어시스트 24~27, 턴오버 14, 스틸 8, 블록 5~6, 파울 19.5, 자유투 78%, 주전 31~34분, 경기 최다 득점자 평균 29점.</li>
+<li><b style="color: #eef0f6">템포</b>: 실제 쿼터 길이에서 측정한 템포는 48분 환산 팀당 약 110회 공격(실제 프로 100회)으로 10%쯤 빨라요. 인바운드 후 한 템포 쉬기, 걸어서 넘어오기, 리바운드 후 속공 빈도 하향, 이른 슛 절제를 더 넣었지만 여기까지였고, 다음 버전에서 더 늦출게요. 글로벌판 점수는 팀당 110~120점대, 아시아판(40분)은 90~100점대로 나와요.</li>
+<li><b style="color: #eef0f6">기록 안내</b>: 진행 중인 시즌은 20분 경기와 실제 길이 경기 기록이 섞여서 이번 시즌 평균(득점·리바운드 등)은 두 구간이 합쳐진 값이에요. 다음 시즌부터 전부 실제 스케일이에요. 공격 1회당 패스, 성공률, 100번 공격당 득점 같은 비율 기록은 영향이 없어요.</li>
+<li><b style="color: #eef0f6">기록 보정</b>: 12경기 표본(두 리그, 40분 경기): 48분 환산 공격 110회, 100번 공격당 득점 109~121, eFG 52~58%, 3점 35~40%, 자유투 시도율 0.27, 턴오버 15, 스틸 7.7, 파울 21, 공격 리바운드 25~30%, 주전 출전 비중 70%, 7초 이하 슛 18~20%. 빠른 시뮬 48분 박스스코어: 팀당 110점, 야투 85, 3점 비중 41%, 리바운드 44, 어시스트 24, 턴오버 15, 파울 19.5. 회귀 테스트(10경기 장시간 송출 포함) 오류 0.</li>
 </ul>
 </article>
 
